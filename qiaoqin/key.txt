@@ -1,0 +1,2 @@
+keytool -genkey -v -keystore D:/qqRepository/android/flutter_mall/qiaoqin/key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias keyname
+keytool -importkeystore -srckeystore D:/qqRepository/android/flutter_mall/qiaoqin/key.jks -destkeystore D:/qqRepository/android/flutter_mall/qiaoqin/key.jks -deststoretype pkcs12
