@@ -26,20 +26,22 @@ class SwiperView extends StatelessWidget {
               child: Text(Strings.NO_DATA_TEXT),
             )
           : Swiper(
-              onTap: (index) {
-                NavigatorUtils.goWebView(
-                    context, bannerData[index].name, bannerData[index].link);
-              },
+              onTap: (index) => NavigatorUtils.goWebView(
+                  context, bannerData[index].name, bannerData[index].link),
+//              onTap: (index) {
+//                NavigatorUtils.goWebView(
+//                    context, bannerData[index].name, bannerData[index].link);
+//              },
               itemCount: bannerData.length,
               scrollDirection: Axis.horizontal,
               //滚动方向，设置为Axis.vertical如果需要垂直滚动
               loop: true,
               //无限轮播模式开关
-              index: 0,
+              index: 1,
               //初始的时候下标位置
-              autoplay: false,
+              autoplay: true,
               itemBuilder: (BuildContext buildContext, int index) {
-                print(bannerData[index].url);
+                print("bannerData[index].url:" + bannerData[index].url);
                 return CachedImageView(
                     double.infinity, double.infinity, bannerData[index].url);
               },

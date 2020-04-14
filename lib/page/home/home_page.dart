@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     SharedPreferencesUtils.getToken().then((token){
-
+         print(token+'dddddd');
     });
     _queryHomeData();
   }
@@ -53,6 +53,12 @@ class _HomePageState extends State<HomePage> {
     NavigatorUtils.goSearchGoods(context);
   }
 
+  void _onPressed() {
+    setState(() {
+      NavigatorUtils.goSearchGoods(context);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
@@ -67,7 +73,8 @@ class _HomePageState extends State<HomePage> {
                   Icons.search,
                   color: Colors.white,
                 ),
-                onPressed: () => _goSearchGoods())
+                onPressed: ()=>_goSearchGoods())
+//                onPressed: _onPressed)
           ],
         ),
         body: contentWidget());
@@ -139,7 +146,8 @@ class _HomePageState extends State<HomePage> {
               )),
               onRefresh: () async {
                 _queryHomeData();
-                _controller.finishRefresh();
+                //下面这一句是否可以不要?
+                //_controller.finishRefresh();
               },
             ),
           );
