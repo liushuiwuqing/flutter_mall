@@ -18,7 +18,7 @@ class CouponView extends StatelessWidget {
     return Container(
         child: ListView.builder(
             physics: NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
+            shrinkWrap: true, //有啥用?如果为false,则没法显示?
             itemCount: couponList.length,
             itemBuilder: (BuildContext context, int index) {
               return _getCouponView(couponList[index]);
@@ -44,13 +44,13 @@ class CouponView extends StatelessWidget {
                         color: Colors.grey),
                   ),
                 ),
-                Divider(
+                Divider( //此组件没有看出效果?
                   color: Colors.grey,
                   height: ScreenUtil.instance.setHeight(200.0),
                 ),
                 Expanded(
                   child: Container(
-                    child: Column(
+                    child: Column( //显示成多行
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(couponEntity.name),

@@ -3,7 +3,7 @@ import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 class WebViewPage extends StatelessWidget {
   var bannerDetailUrl;
-  var bannerName;
+  final bannerName;
 
   WebViewPage(this.bannerDetailUrl, this.bannerName);
 
@@ -15,7 +15,7 @@ class WebViewPage extends StatelessWidget {
         centerTitle: true,
       ),
       body: WebviewScaffold(
-        url: bannerDetailUrl,
+        url: 'https://www.sharedu.co/img/xiangtaoke.png',
         withZoom: false,
         withLocalStorage: true,
         withJavascript: true,

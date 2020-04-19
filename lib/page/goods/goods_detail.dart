@@ -60,14 +60,14 @@ class _GoodsDetailState extends State<GoodsDetail> {
           centerTitle: true,
         ),
         body: FutureBuilder(
-            future: _goodsDetailFuture,
+            future: _goodsDetailFuture, // 用户定义的需要异步执行的代码，类型为Future<String>或者null的变量或函数
             builder: (BuildContext context, AsyncSnapshot asyncSnapshot) {
               switch (asyncSnapshot.connectionState) {
-                case ConnectionState.none:
-                case ConnectionState.waiting:
+                case ConnectionState.none: //未执行
+                case ConnectionState.waiting: //正在执行
                   return Container(
                     child: Center(
-                      child: SpinKitFoldingCube(
+                      child: SpinKitFoldingCube( //旋转套件折叠立方体
                         size: 40.0,
                         color: Colors.deepOrangeAccent,
                       ),
@@ -93,7 +93,7 @@ class _GoodsDetailState extends State<GoodsDetail> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                    flex: 1,
+                    flex: 1, //占用1列
                     child: Container(
                       color: Colors.white,
                       child: InkWell(
@@ -357,7 +357,7 @@ class _GoodsDetailState extends State<GoodsDetail> {
 
   Widget _detailView() {
     return Stack(
-      alignment: AlignmentDirectional.bottomCenter,
+//      alignment: AlignmentDirectional.bottomCenter, //没发现有什么用
       children: <Widget>[
         ListView(
           children: <Widget>[
@@ -373,7 +373,7 @@ class _GoodsDetailState extends State<GoodsDetail> {
             Container(
               margin: EdgeInsets.only(left: 10.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,//显示在左边
                 children: <Widget>[
                   Text(
                     _goodsDetail.info.name,
@@ -464,7 +464,7 @@ class _GoodsDetailState extends State<GoodsDetail> {
 
   //商品属性Widget
   Widget _attributeView(GoodsDetailEntity goodsDetail) {
-    print("${goodsDetail.attribute.length}");
+    print("goodsDetail.attribute.length:${goodsDetail.attribute.length}");
     return ListView.builder(
         physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
@@ -483,14 +483,14 @@ class _GoodsDetailState extends State<GoodsDetail> {
         child: Row(
           children: <Widget>[
             Expanded(
-              flex: 2,
+              flex: 2, //占2列?
               child: Text(
                 attribute.attribute,
                 style: TextStyle(color: Colors.black54, fontSize: 14.0),
               ),
             ),
             Expanded(
-                flex: 4,
+                flex: 4,//占4列?
                 child: Container(
                   alignment: Alignment.centerLeft,
                   child: Text(

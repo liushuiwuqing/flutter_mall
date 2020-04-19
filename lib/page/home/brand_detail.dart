@@ -18,10 +18,11 @@ class BrandDetailView extends StatefulWidget {
 
 class _BrandDetailViewState extends State<BrandDetailView> {
   BrandDetailEntity _brandDetailEntity;
-  HomeService _homeService = HomeService();
+  HomeService _homeService = HomeService(); //new关键字可以省略
 
   @override
   void initState() {
+    super.initState(); //我自己添加的
     _getData();
   }
 
@@ -50,7 +51,7 @@ class _BrandDetailViewState extends State<BrandDetailView> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Container(
-                      width: double.infinity,
+//                      width: double.infinity,//这一句可要可不要?
                       child: CachedImageView(
                           double.infinity,
                           ScreenUtil.instance.setWidth(300.0),

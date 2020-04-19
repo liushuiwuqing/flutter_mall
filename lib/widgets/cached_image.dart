@@ -24,8 +24,8 @@ class CachedImageView extends StatelessWidget {
         placeholder: (BuildContext context, String url) {
           return Container(
             width: this.width,
-            color: Colors.grey[350],
             height: this.height,
+            color: Colors.grey[350],
             alignment: Alignment.center,
             child: Text(
               Strings.LOADING,

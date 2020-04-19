@@ -39,9 +39,9 @@ class SwiperView extends StatelessWidget {
               //无限轮播模式开关
               index: 1,
               //初始的时候下标位置
-              autoplay: true,
+              autoplay: false,
               itemBuilder: (BuildContext buildContext, int index) {
-                print("bannerData[index].url:" + bannerData[index].url);
+//                print("bannerData[index].url:" + bannerData[index].url);
                 return CachedImageView(
                     double.infinity, double.infinity, bannerData[index].url);
               },

@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:mall/widgets/cached_image.dart';
 
-
 class GroupBuyView extends StatelessWidget {
   List<GrouponList> groupEntitys;
 
@@ -14,7 +13,7 @@ class GroupBuyView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
         physics: NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
+        shrinkWrap: true, //为false将不能显示
         itemCount: groupEntitys.length,
         itemBuilder: (BuildContext context, int index) {
           return _getGroupBuyItem(groupEntitys[index]);
@@ -86,18 +85,21 @@ class GroupBuyView extends StatelessWidget {
             ),
             Expanded(
                 child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.center, //没看出效果
+              mainAxisAlignment: MainAxisAlignment.end, //靠近右边
               children: <Widget>[
                 Container(
                   padding: EdgeInsets.all(ScreenUtil.instance.setWidth(10.0)),
+                  //内边距
                   height: ScreenUtil.instance.setHeight(48.0),
+                  //整个边框的高度,不设置将充满整个组件
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                       border: new Border.all(
                           color: Colors.deepOrangeAccent, width: 0.5),
                       // 边色与边宽度
                       borderRadius: BorderRadius.circular(6.0),
+                      //背景色
                       color: Colors.white),
                   child: Text(
                     "${groupBuyEntity.grouponMember}成团",
@@ -114,8 +116,8 @@ class GroupBuyView extends StatelessWidget {
                   height: ScreenUtil.instance.setHeight(48.0),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                      border: new Border.all(color: Colors.red, width: 0.5),
                       // 边色与边宽度
+                      border: new Border.all(color: Colors.red, width: 0.5),
                       borderRadius: BorderRadius.circular(6.0),
                       color: Colors.white),
                   child: Text(

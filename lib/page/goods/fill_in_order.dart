@@ -345,7 +345,7 @@ class _FillInOrderViewState extends State<FillInOrderView> {
           ? InkWell(
               onTap: () {
                 NavigatorUtils.goAddress(context).then((value) {
-                  print(value.toString());
+                  print("value.toString():"+value.toString());
                   Map<String, dynamic> srcJson = new Map();
                   srcJson = FluroConvertUtil.stringToMap(value);
                   setState(() {
@@ -450,7 +450,7 @@ class _FillInOrderViewState extends State<FillInOrderView> {
       "grouponLinkId":0
     };
     _goodsService.submitOrder(options, parameters, (success) {
-      print(success);
+      print('_goodsService.submitOrder:' +success);
      // NavigatorUtils.submitOrderSuccessPop(context);
     }, (error) {
       ToastUtil.showToast(error);

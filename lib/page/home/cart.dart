@@ -52,7 +52,7 @@ class _CartViewState extends State<CartView> {
         _cartList = cartListEntity.cartList;
       });
       _isAllCheck = _checkedAll();
-      print("_getCartItemView${_cartList.length}");
+      print("_getCartItemView:${_cartList.length}");
     }, options: options);
   }
 
@@ -182,7 +182,7 @@ class _CartViewState extends State<CartView> {
   }
 
   Widget _getCartItemView(int index) {
-    print("_getCartItemView${index}");
+    print("_getCartItemView:${index}");
 
     return Container(
       height: ScreenUtil.getInstance().setHeight(180.0),

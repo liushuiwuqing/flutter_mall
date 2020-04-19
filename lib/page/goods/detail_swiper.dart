@@ -32,7 +32,7 @@ class DetailSwiperView extends StatelessWidget {
               //初始的时候下标位置
               autoplay: false,
               itemBuilder: (BuildContext buildContext, int index) {
-                print(bannerData[index]);
+                print("bannerData[index]:"+bannerData[index]);
                 return CachedImageView(
                     double.infinity, double.infinity, bannerData[index]);
               },

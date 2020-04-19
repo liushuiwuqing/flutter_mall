@@ -9,6 +9,7 @@ class NetWorkErrorView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('NetWorkErrorView................................');
     return InkWell(
       onTap: callback,
       child: Container(
@@ -17,8 +18,8 @@ class NetWorkErrorView extends StatelessWidget {
         alignment: Alignment.center,
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center, //控制上中下?
+            crossAxisAlignment: CrossAxisAlignment.center,//默认的,因此这里没发现作用?
             children: <Widget>[
               Image.asset(
                 "images/network_error.png",

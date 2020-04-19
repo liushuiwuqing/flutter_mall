@@ -29,10 +29,10 @@ class _ProjectSelectionViewState extends State<ProjectSelectionView> {
   }
 
   Widget _itemView(TopicList projectSelections) {
-    return Container(
+    return SizedBox( //这里我用SizedBox代替Container
       width: ScreenUtil.instance.setWidth(600.0),
-      child: Card(
-        child: InkWell(
+      child: Card( //Card内容不能滚动
+        child: InkWell( // card只能有一个widget，但这个widget内容可以包含其他的widget
           onTap: () => _goDetail(projectSelections.id),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

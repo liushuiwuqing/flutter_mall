@@ -16,9 +16,9 @@ class ProductView extends StatelessWidget {
       child: GridView.builder(
           shrinkWrap: true,
           itemCount: productList.length,
-          physics: NeverScrollableScrollPhysics(),
+          physics: NeverScrollableScrollPhysics(),//如果不加NeverScrollableScrollPhysics,我发现整个都不能滑动
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, childAspectRatio: 0.90),
+              crossAxisCount: 2, childAspectRatio: 0.90),// 0.90是宽与高的比例
           itemBuilder: (BuildContext context, int index) {
             return _getGridViewItem(context, productList[index]);
           }),
@@ -37,7 +37,7 @@ class ProductView extends StatelessWidget {
           elevation: 2.0,
           margin: EdgeInsets.all(6.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start, //没法发现什么用呢?
             children: <Widget>[
               Container(
                   margin: EdgeInsets.all(5.0),
@@ -58,11 +58,11 @@ class ProductView extends StatelessWidget {
                   style: TextStyle(color: Colors.black54, fontSize: 14.0),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 4.0),
-              ),
+//              Padding(
+//                padding: EdgeInsets.only(top: 4.0),
+//              ),
               Container(
-                padding: EdgeInsets.only(left: 4.0, top: 4.0),
+                padding: EdgeInsets.only(left: 4.0, top: 8.0),
                 alignment: Alignment.center,
                 child: Text(
                   "￥${productEntity.retailPrice}",

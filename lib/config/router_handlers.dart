@@ -36,8 +36,8 @@ var categoryGoodsListHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, List<Object>> parameters) {
   var cateforyName =
       StringUtils.decode(parameters["categoryName"].first).toString();
-  print("cateforyName" + cateforyName);
-  print("categoryId" + parameters["categoryId"].first);
+  print("cateforyName:" + cateforyName);
+  print("categoryId:" + parameters["categoryId"].first);
   var categoryId = int.parse(parameters["categoryId"].first);
   return CategoryListView(categoryName: cateforyName, categoryId: categoryId);
 });

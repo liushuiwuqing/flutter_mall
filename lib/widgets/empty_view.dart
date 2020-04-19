@@ -6,8 +6,9 @@ class EmptyView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.maxFinite,
-      height: double.maxFinite,
+//      width: double.maxFinite, //我发现width和height不能都使用double.maxFinite,否则整个页面是一片空白
+//      height: double.maxFinite,
+      width: double.infinity,
       alignment: Alignment.center,
       child: Center(
           child: Column(
@@ -16,8 +17,8 @@ class EmptyView extends StatelessWidget {
             children: <Widget>[
               Image.asset(
                 "images/no_data.png",
-                height: ScreenUtil.instance.setWidth(120.0),
                 width: ScreenUtil.instance.setWidth(120.0),
+                height: ScreenUtil.instance.setHeight(120.0),
               ),
               Padding(
                 padding: EdgeInsets.only(

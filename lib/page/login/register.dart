@@ -150,11 +150,11 @@ class _RegisterViewState extends State<RegisterView> {
       map.putIfAbsent("mobile", () => _accountTextControl.text.toString());
       map.putIfAbsent("code", () => "8888"); //测试验证码写死8888
       userService.register(map, (success) {
-        print(success);
+        print('userService.register:' + success);
         _showToast(Strings.REGISTER_SUCCESS);
         NavigatorUtils.popRegister(context);
       }, (onFail) {
-        print(onFail);
+        print('userService.register:' + onFail);
         _showToast(onFail);
       });
     } else {
