@@ -131,8 +131,8 @@ class _GoodsDetailState extends State<GoodsDetail> {
                               Strings.ADD_CART,
                               style: TextStyle(
                                   color: Colors.white, fontSize: 14.0),
-                            ),
-                          )),
+                            )),
+                          ),
                     )),
                 Expanded(
                   flex: 2,
@@ -196,23 +196,23 @@ class _GoodsDetailState extends State<GoodsDetail> {
                                     .specifications[_specificationIndex])
                           ],
                         ),
-                        Expanded(
+                        Expanded( //这里如果不用Expanded,直接使用Container,图标将处于左中央,为何?
                             child: Container(
-                          alignment: Alignment.centerRight,
-                          child: IconButton(
-                            icon: Icon(Icons.delete),
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                          ),
-                        )),
+                              alignment: Alignment.centerRight,
+                              child: IconButton(
+                                icon: Icon(Icons.delete),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ))
                       ],
                     ),
                   ),
                   Container(
                     margin: EdgeInsets.all(ScreenUtil.instance.setWidth(10.0)),
                     child: Text(
-                      Strings.SPECIFICATIONS,
+                      Strings.SPECIFICATIONS, //规格
                       style: TextStyle(
                           color: Colors.black54,
                           fontSize: ScreenUtil.instance.setSp(30.0)),
@@ -240,11 +240,11 @@ class _GoodsDetailState extends State<GoodsDetail> {
                       height: ScreenUtil.instance.setHeight(80),
                       alignment: Alignment.centerLeft,
                       child: CartNumberView(1, (number) {
-                        print("${number}");
+                        print("number:${number}");
                       })),
                   Expanded(
                       child: Stack(
-                    alignment: Alignment.bottomLeft,
+                    alignment: Alignment.bottomLeft, //children的位置
                     children: <Widget>[
                       SizedBox(
                         height: ScreenUtil.instance.setHeight(100.0),
@@ -252,7 +252,7 @@ class _GoodsDetailState extends State<GoodsDetail> {
                         child: InkWell(
                             onTap: () => showType == 1 ? _addCart() : _buy(),
                             child: Container(
-                              alignment: Alignment.center,
+                              alignment: Alignment.center,//指的是child的位置
                               color: Colors.deepOrangeAccent,
                               child: Text(
                                 showType == 1 ? Strings.ADD_CART : Strings.BUY,
@@ -289,7 +289,7 @@ class _GoodsDetailState extends State<GoodsDetail> {
               backgroundColor: i == _specificationIndex
                   ? Colors.deepOrangeAccent
                   : Colors.grey,
-            ),
+            )
           )));
     }
     return specificationsWidget;

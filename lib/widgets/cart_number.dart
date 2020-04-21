@@ -28,6 +28,7 @@ class _CartNumberViewState extends State<CartNumberView> {
   _listener() {
     cartNumberEventBus.on<CartNumberEvent>().listen((CartNumberEvent cartNumberEvent) {
       setState(() {
+        print('没有看到执行?.........');
         goodsNumber = cartNumberEvent.number;
       });
     });
@@ -48,16 +49,13 @@ class _CartNumberViewState extends State<CartNumberView> {
                 width: ScreenUtil.instance.setWidth(50),
                 height: double.infinity,
                 alignment: Alignment.center,
-                decoration: ShapeDecoration(
-                    shape: Border(
-                        left: BorderSide(color: Colors.grey, width: 1.0),
-                        top: BorderSide(color: Colors.grey, width: 1.0),
-                        right: BorderSide(color: Colors.grey, width: 1.0),
-                        bottom: BorderSide(color: Colors.grey, width: 1.0))),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(topLeft:Radius.circular(10.0),bottomLeft:Radius.circular(10.0)),
+                    border: Border.all(color: Colors.green,width: 1)),
                 child: Text(
                   "-",
                   style: TextStyle(
-                      color: Colors.black54,
+                      color: Colors.black,
                       fontSize: ScreenUtil.instance.setSp(26.0)),
                 ),
               )),
@@ -67,8 +65,8 @@ class _CartNumberViewState extends State<CartNumberView> {
             width: ScreenUtil.instance.setWidth(50),
             decoration: ShapeDecoration(
                 shape: Border(
-                    top: BorderSide(color: Colors.grey, width: 1.0),
-                    bottom: BorderSide(color: Colors.grey, width: 1.0))),
+                    top: BorderSide(color: Colors.green, width: 1.0),
+                    bottom: BorderSide(color: Colors.green, width: 1.0))),
             child: Text(
               "${goodsNumber}",
               style: TextStyle(
@@ -82,12 +80,9 @@ class _CartNumberViewState extends State<CartNumberView> {
                 alignment: Alignment.center,
                 width: ScreenUtil.instance.setWidth(50),
                 height: double.infinity,
-                decoration: ShapeDecoration(
-                    shape: Border(
-                        left: BorderSide(color: Colors.grey, width: 1.0),
-                        top: BorderSide(color: Colors.grey, width: 1.0),
-                        right: BorderSide(color: Colors.grey, width: 1.0),
-                        bottom: BorderSide(color: Colors.grey, width: 1.0))),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(topRight:Radius.circular(10.0),bottomRight:Radius.circular(10.0)),
+                    border: Border.all(color: Colors.green,width: 1)),
                 child: Text(
                   "+",
                   style: TextStyle(
