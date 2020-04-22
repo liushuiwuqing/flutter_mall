@@ -20,7 +20,7 @@ class _LoginViewState extends State<LoginView> {
   TextEditingController _passwordTextControl = TextEditingController();
   UserService userService = UserService();
   UserEntity userEntity;
-  bool _autovalidator = false;
+  bool _autovalidator = false;//刚开始不是自动验证,但一旦点击登录按钮,若验证失败,就变成自动验证
   final registerFormKey = GlobalKey<FormState>();
 
   @override
@@ -31,7 +31,7 @@ class _LoginViewState extends State<LoginView> {
         child: Container(
             alignment: Alignment.centerLeft,
             child: Center(
-                child: SingleChildScrollView(
+                child: SingleChildScrollView(//如果子组件超出范围了,可以滑动
               child: Container(
                 margin: EdgeInsets.fromLTRB(ScreenUtil().setWidth(30.0), 0,
                     ScreenUtil().setWidth(30.0), 0),

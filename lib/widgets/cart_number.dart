@@ -39,7 +39,7 @@ class _CartNumberViewState extends State<CartNumberView> {
     print("CartNumberView");
     _listener();
     return Container(
-      width: ScreenUtil.instance.setWidth(150),
+      width: ScreenUtil.instance.setWidth(166),//设置成150,提示:A RenderFlex overflowed by 16 pixels on the right.
       height: ScreenUtil.instance.setWidth(50),
       child: Row(
         children: <Widget>[

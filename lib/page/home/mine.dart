@@ -26,6 +26,7 @@ class _MineViewState extends State<MineView> {
     _getUserInfo();
   }
 
+  //注册登录事件监听器
   _refreshEvent() {
     loginEventBus.on<LoginEvent>().listen((LoginEvent loginEvent) {
       if (loginEvent.isLogin) {
@@ -40,6 +41,17 @@ class _MineViewState extends State<MineView> {
         });
       }
     });
+  }
+
+  //由于EventBus其核心是基于Dart Streams（流）,这里我定义了StreamSubscription _colorSubscription;相当于订阅者，因此在退出页面的时候也要取消订阅，防止内存泄漏：
+  //链接：https://www.jianshu.com/p/bc4ed6ca7d79
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    //取消订阅
+    print('取消订阅loginEventBus');
+    loginEventBus.destroy();
   }
 
   _getUserInfo() {
@@ -76,7 +88,7 @@ class _MineViewState extends State<MineView> {
             height: ScreenUtil.getInstance().setHeight(160.0),
             width: double.infinity,
             color: Colors.deepOrangeAccent,
-            alignment: Alignment.center,
+            alignment: Alignment.center, //
             child: isLogin
                 ? Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -89,7 +101,7 @@ class _MineViewState extends State<MineView> {
                             left: ScreenUtil.getInstance().setWidth(30.0)),
                         child: CircleAvatar(
                           radius: ScreenUtil.getInstance().setWidth(50),
-                          foregroundColor: Colors.deepOrangeAccent,
+//                          foregroundColor: Colors.deepOrangeAccent,//设不设都一样?
                           backgroundImage: NetworkImage(
                             imageHeadUrl,
                           ),
@@ -227,7 +239,7 @@ class _MineViewState extends State<MineView> {
 
   _loginOut() {
     _userService.loginOut((success) {
-      loginEventBus.fire(LoginEvent(false));
+      loginEventBus.fire(LoginEvent(false));//fire发送事件
     }, (error) {
       loginEventBus.fire(LoginEvent(false));
       ToastUtil.showToast(error);
