@@ -132,7 +132,7 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     height: 40.0,
                     alignment: Alignment.center,
-                    child: Text(Strings.HOT_PRODUCT),
+                    child: Text(Strings.HOT_PRODUCT),//热卖产品
                   ),
                   ProductView(_homeEntity.hotGoodsList),
                   ListView.builder(

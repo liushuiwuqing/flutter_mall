@@ -243,7 +243,7 @@ class _GoodsDetailState extends State<GoodsDetail> {
                         print("number:${number}");
                       })),
                   Expanded(
-                      child: Stack(
+                      child: Stack( //StackFit.loose 指的是子Widget 多大就多大,子组件高度100,所以Stack高度100;
                     alignment: Alignment.bottomLeft, //children的位置
                     children: <Widget>[
                       SizedBox(
