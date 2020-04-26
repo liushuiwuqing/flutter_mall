@@ -343,7 +343,7 @@ class _EditAddressViewState extends State<EditAddressView> {
         "tel": _phoneController.text.toString(),
       };
       _addressService.addAddress(parameters, (success) {
-        ToastUtil.showToast(Strings.SUBMIT_SUCCESS);
+         ToastUtil.showToast(Strings.SUBMIT_SUCCESS);
         Navigator.of(context).pop(true);
       }, (error) {
         ToastUtil.showToast(error);
