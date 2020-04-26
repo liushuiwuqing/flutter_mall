@@ -32,9 +32,8 @@ class _CollectViewState extends State<CollectView> {
   }
 
   _queryCollect() {
-
     var parameters = {"type": _type, "page": _page, "limit": _limit};
-    _mineService.queryCollect(parameters,(successList) {
+    _mineService.queryCollect(parameters, (successList) {
       setState(() {
         _collects = successList;
       });
@@ -69,6 +68,7 @@ class _CollectViewState extends State<CollectView> {
 
   Widget getGoodsItemView(ListData collect, int index) {
     return GestureDetector(
+      //GestureDetector并不具有显示效果，而是检测由用户做出的手势(点击拖动和缩放)
       child: Container(
         alignment: Alignment.center,
         child: SizedBox(
@@ -113,7 +113,7 @@ class _CollectViewState extends State<CollectView> {
   _showDeleteDialog(ListData collect, int index) {
     showDialog(
         context: context,
-        barrierDismissible: true,
+        barrierDismissible: true, //如设置为false,比如点击按钮才能取消;
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text(

@@ -42,7 +42,7 @@ class IconTextArrowView extends StatelessWidget {
                     fontSize: ScreenUtil.getInstance().setSp(26.0),
                     color: Colors.black54),
               ),
-              Expanded(
+              Expanded( //如果没有Expanded,那么child将不能居右,作用:在Expanded的子控件,会自动缩放,使得整个父控件被填充
                 child: Container(
                   alignment: Alignment.centerRight,
                   margin: EdgeInsets.only(

@@ -121,7 +121,7 @@ class _MineViewState extends State<MineView> {
                         child: InkWell(
                             onTap: () => _loginOutDialog(),
                             child: Offstage(
-                              offstage: !isLogin,
+                              offstage: !isLogin, //控制child是否显示
                               child: Container(
                                 padding: EdgeInsets.only(right: ScreenUtil.getInstance().setWidth(30)),
                                 alignment: Alignment.centerRight,

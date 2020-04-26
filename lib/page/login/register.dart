@@ -21,98 +21,103 @@ class _RegisterViewState extends State<RegisterView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepOrangeAccent,
-      body: SafeArea(
-         child: Container(
-           child: Center(
-             child: Container(
-               margin: EdgeInsets.fromLTRB(
-                   ScreenUtil().setWidth(30.0), 0, ScreenUtil().setWidth(30.0), 0),
-               height: ScreenUtil.instance.setHeight(700.0),
-               decoration: BoxDecoration(
-                   color: Colors.white, borderRadius: BorderRadius.circular(10.0)),
-               child: Form(
-                 key: registerFormKey,
-                 child: Column(
-                   children: <Widget>[
-                     Padding(
-                         padding: EdgeInsets.only(
-                             top: ScreenUtil.instance.setHeight(60.0))),
-                     Container(
-                       margin: EdgeInsets.all(ScreenUtil.instance.setWidth(30.0)),
-                       child: TextFormField(
-                         maxLines: 1,
-                         maxLength: 11,
-                         autovalidate: _autovalidator,
-                         keyboardType: TextInputType.phone,
-                         validator: _validatorAccount,
-                         decoration: InputDecoration(
-                           icon: Icon(
-                             Icons.account_circle,
-                             color: Colors.deepOrangeAccent,
-                             size: ScreenUtil.instance.setWidth(60.0),
-                           ),
-                           hintText: Strings.ACCOUNT_HINT,
-                           hintStyle: TextStyle(
-                               color: Colors.grey,
-                               fontSize: ScreenUtil.instance.setSp(28.0)),
-                           labelStyle: TextStyle(
-                               color: Colors.black54,
-                               fontSize: ScreenUtil.instance.setSp(28.0)),
-                           labelText: Strings.ACCOUNT,
-                         ),
-                         controller: _accountTextControl,
-                       ),
-                     ),
-                     Container(
-                       margin: EdgeInsets.all(ScreenUtil.instance.setWidth(30.0)),
-                       child: TextFormField(
-                         maxLines: 1,
-                         maxLength: 12,
-                         autovalidate: _autovalidator,
-                         validator: __validatorPassWord,
-                         decoration: InputDecoration(
-                           icon: Icon(
-                             MallIcon.PASS_WORD,
-                             color: Colors.deepOrangeAccent,
-                             size: ScreenUtil.instance.setWidth(60.0),
-                           ),
-                           hintText: Strings.PASSWORD_HINT,
-                           hintStyle: TextStyle(
-                               color: Colors.grey,
-                               fontSize: ScreenUtil.instance.setSp(28.0)),
-                           labelStyle: TextStyle(
-                               color: Colors.black54,
-                               fontSize: ScreenUtil.instance.setSp(28.0)),
-                           labelText: Strings.PASSWORD,
-                         ),
-                         controller: _passwordTextControl,
-                       ),
-                     ),
-                     Container(
-                         margin:
-                         EdgeInsets.all(ScreenUtil.instance.setWidth(30.0)),
-                         child: SizedBox(
-                           height: ScreenUtil.instance.setHeight(80.0),
-                           width: ScreenUtil.instance.setWidth(600.0),
-                           child: RaisedButton(
-                             onPressed: _register,
-                             color: Colors.deepOrangeAccent,
-                             child: Text(
-                               Strings.REGISTER,
-                               style: TextStyle(
-                                   color: Colors.white,
-                                   fontSize: ScreenUtil.instance.setSp(28.0)),
-                             ),
-                           ),
-                         )),
-                   ],
-                 ),
-               ),
-             ),
-           ),
-         ),
-      ));
+        backgroundColor: Colors.deepOrangeAccent,
+        body: SafeArea(
+          //使用SafeArea能很好的解决刘海，不规则屏幕的显示问题,这样显示的区域就不会触顶,也就是不会使用电量和信号栏所使用的区域
+          child: Container(
+            child: Center(
+              //没有Center,显示的区域就会到达顶部
+              child: Container(
+                margin: EdgeInsets.fromLTRB(ScreenUtil().setWidth(30.0), 0,
+                    ScreenUtil().setWidth(30.0), 0),
+                height: ScreenUtil.instance.setHeight(700.0),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10.0)),
+                child: Form(
+                  key: registerFormKey,
+                  child: Column(
+                    children: <Widget>[
+                      Padding(
+                          padding: EdgeInsets.only(
+                              top: ScreenUtil.instance.setHeight(60.0))),
+                      Container(
+                        margin:
+                            EdgeInsets.all(ScreenUtil.instance.setWidth(30.0)),
+                        child: TextFormField(
+                          maxLines: 1,
+                          maxLength: 11,
+                          autovalidate: _autovalidator,
+                          keyboardType: TextInputType.phone,
+                          validator: _validatorAccount,
+                          decoration: InputDecoration(
+                            icon: Icon(
+                              Icons.account_circle,
+                              color: Colors.deepOrangeAccent,
+                              size: ScreenUtil.instance.setWidth(60.0),
+                            ),
+                            hintText: Strings.ACCOUNT_HINT,
+                            hintStyle: TextStyle(
+                                color: Colors.grey,
+                                fontSize: ScreenUtil.instance.setSp(28.0)),
+                            labelStyle: TextStyle(
+                                color: Colors.black54,
+                                fontSize: ScreenUtil.instance.setSp(28.0)),
+                            labelText: Strings.ACCOUNT,
+                          ),
+                          controller: _accountTextControl,
+                        ),
+                      ),
+                      Container(
+                        margin:
+                            EdgeInsets.all(ScreenUtil.instance.setWidth(30.0)),
+                        child: TextFormField(
+                          maxLines: 1,
+                          maxLength: 12,
+                          autovalidate: _autovalidator,
+                          validator: __validatorPassWord,
+                          decoration: InputDecoration(
+                            icon: Icon(
+                              MallIcon.PASS_WORD,
+                              color: Colors.deepOrangeAccent,
+                              size: ScreenUtil.instance.setWidth(60.0),
+                            ),
+                            hintText: Strings.PASSWORD_HINT,
+                            hintStyle: TextStyle(
+                                color: Colors.grey,
+                                fontSize: ScreenUtil.instance.setSp(28.0)),
+                            labelStyle: TextStyle(
+                                color: Colors.black54,
+                                fontSize: ScreenUtil.instance.setSp(28.0)),
+                            labelText: Strings.PASSWORD,
+                          ),
+                          controller: _passwordTextControl,
+                        ),
+                      ),
+                      Container(
+                          margin: EdgeInsets.all(
+                              ScreenUtil.instance.setWidth(30.0)),
+                          child: SizedBox(
+                            height: ScreenUtil.instance.setHeight(80.0),
+                            width: ScreenUtil.instance.setWidth(600.0),
+                            child: RaisedButton(
+                              onPressed: _register,
+                              color: Colors.deepOrangeAccent,
+                              child: Text(
+                                Strings.REGISTER,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: ScreenUtil.instance.setSp(28.0)),
+                              ),
+                            ),
+                          )),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ));
   }
 
   String _validatorAccount(String value) {

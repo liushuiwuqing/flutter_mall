@@ -100,13 +100,13 @@ class Strings {
   static const String MINE_ABOUT_US_CONTENT =
       "Flutter Mall是一个企业级商城Flutter项目，通过学习Flutter Mall项目可以让读者达到具有开发企业项目的实战能力";
   static const String MINE_ABOUT_AUTHOR_TITLE = "作者";
-  static const String MINE_ABOUT_AUTHOR = "路由新";
+  static const String MINE_ABOUT_AUTHOR = "流水无情";
   static const String MINE_ABOUT_EMAIL_TITLE = "邮箱";
-  static const String MINE_ABOUT_EMAIL = "lizhenghuatoec@gmail.com";
+  static const String MINE_ABOUT_EMAIL = "2064139462@qq.com";
   static const String MINE_ABOUT_QQ_TITLE = "QQ";
-  static const String MINE_ABOUT_QQ = "443765662";
+  static const String MINE_ABOUT_QQ = "2064139462";
   static const String MINE_ABOUT_WX_TITLE = "微信";
-  static const String MINE_ABOUT_WX = "lizhenghua0126";
+  static const String MINE_ABOUT_WX = "weixinqiaoqin";
   static const String MINE_ORDER = "我的订单";
   static const String MALL = "Mall";
   static const String MINE_ORDER_TAG_ONE = "无忧购";
