@@ -11,9 +11,7 @@ class ItemTextView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        callback();
-      },
+      onTap: callback,
       child: Container(
         padding: EdgeInsets.only(
             left: ScreenUtil.instance.setWidth(20.0),

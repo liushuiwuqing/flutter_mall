@@ -18,7 +18,6 @@ class _FeedBackViewState extends State<FeedBackView> {
   TextEditingController _phoneController = TextEditingController();
   MineService _mineService = MineService();
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,7 +77,11 @@ class _FeedBackViewState extends State<FeedBackView> {
                 ),
                 DividerLineView(),
                 Container(
-                  margin: EdgeInsets.all(ScreenUtil.instance.setWidth(20.0)),
+                  margin: EdgeInsets.only(
+                      left: 0,
+                      top: ScreenUtil.instance.setWidth(20.0),
+                      right: 0,
+                      bottom: ScreenUtil.instance.setWidth(20.0)),
                   width: double.infinity,
                   height: ScreenUtil.instance.setHeight(300.0),
                   child: TextField(
@@ -148,9 +151,9 @@ class _FeedBackViewState extends State<FeedBackView> {
                       right: ScreenUtil.instance.setWidth(20)),
                   child: MaterialButton(
                     color: Colors.deepOrangeAccent,
-                    splashColor: Colors.deepOrange,
+                    splashColor: Colors.deepOrange, //长按可以查看效果
                     minWidth: double.infinity,
-                    onPressed: ()=>_submit(),
+                    onPressed: () => _submit(),
                     child: Text(
                       Strings.SUBMIT,
                       style: TextStyle(
@@ -184,7 +187,7 @@ class _FeedBackViewState extends State<FeedBackView> {
       "hasPicture": "false",
       "mobile": _phoneController.text,
     };
-    _mineService.feedback(parameters,  (success) {
+    _mineService.feedback(parameters, (success) {
       ToastUtil.showToast(Strings.FEEDBACK_SUCCESS);
       Navigator.pop(context);
     }, (error) {

@@ -33,7 +33,6 @@ class _FootprintViewState extends State<FootprintView> {
   }
 
   _getFootprintData() {
-
     var parameters = {"page": _page, "limit": _limit};
     _mineService.footPrint(parameters,  (successList) {
       setState(() {
@@ -75,7 +74,8 @@ class _FootprintViewState extends State<FootprintView> {
         child: SizedBox(
             width: 320,
             height: 460,
-            child: Card(
+            child: Card( //有一种卡片的效果
+              elevation: 1,
               child: Column(
                 children: <Widget>[
                   Image.network(
@@ -157,7 +157,6 @@ class _FootprintViewState extends State<FootprintView> {
   }
 
   _deleteFootprint(int id, int index) {
-
     var parameters = {
       "id": id,
     };

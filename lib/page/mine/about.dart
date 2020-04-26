@@ -27,7 +27,7 @@ class AboutUsView extends StatelessWidget {
                 padding: EdgeInsets.all(ScreenUtil.instance.setHeight(10.0))),
             DividerLineView(),
             ItemTextView(
-                Strings.MINE_ABOUT_AUTHOR_TITLE, Strings.MINE_ABOUT_AUTHOR),
+                Strings.MINE_ABOUT_AUTHOR_TITLE, Strings.MINE_ABOUT_AUTHOR,callback:aaa),
             DividerLineView(),
             ItemTextView(
                 Strings.MINE_ABOUT_EMAIL_TITLE, Strings.MINE_ABOUT_EMAIL),
@@ -40,5 +40,9 @@ class AboutUsView extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void aaa() {
+    print('dddd');
   }
 }
