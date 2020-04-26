@@ -191,7 +191,7 @@ class _EditAddressViewState extends State<EditAddressView> {
                         activeColor: Colors.deepOrangeAccent,
                         onChanged: (bool) {
                           setState(() {
-                            this._isDefault = bool;
+                            this._isDefault = bool; //若不放到setState,将不会生效
                           });
                         }),
                   )),
@@ -203,7 +203,7 @@ class _EditAddressViewState extends State<EditAddressView> {
               height: ScreenUtil.instance.setHeight(1.0),
             ),
             Offstage(
-              offstage: _addressId == 0,
+              offstage: _addressId != 0,
               child: InkWell(
                   onTap: () => _delete(context),
                   child: Container(
@@ -259,13 +259,15 @@ class _EditAddressViewState extends State<EditAddressView> {
     );
 
     print(temp);
-    setState(() {
-      _cityText = temp.provinceName + temp.cityName + temp.areaName;
-      _areaId = temp.areaId;
-      _provinceName = temp.provinceName;
-      _cityName = temp.cityName;
-      _countryName = temp.areaName;
-    });
+    if (temp != null) {
+      setState(() {
+        _cityText = temp.provinceName + temp.cityName + temp.areaName;
+        _areaId = temp.areaId;
+        _provinceName = temp.provinceName;
+        _cityName = temp.cityName;
+        _countryName = temp.areaName;
+      });
+    }
   }
 
   _delete(BuildContext context) {
@@ -319,7 +321,7 @@ class _EditAddressViewState extends State<EditAddressView> {
 
   _deleteAddress() {
     var parameters = {"id": _addressData.id};
-    _addressService.deleteAddress( parameters, (onSuccess) {
+    _addressService.deleteAddress(parameters, (onSuccess) {
       ToastUtil.showToast(Strings.ADDRESS_DELETE_SUCCESS);
       Navigator.pop(context);
     }, (onFail) {
@@ -340,7 +342,7 @@ class _EditAddressViewState extends State<EditAddressView> {
         "province": _provinceName,
         "tel": _phoneController.text.toString(),
       };
-      _addressService.addAddress( parameters, (success) {
+      _addressService.addAddress(parameters, (success) {
         ToastUtil.showToast(Strings.SUBMIT_SUCCESS);
         Navigator.of(context).pop(true);
       }, (error) {
