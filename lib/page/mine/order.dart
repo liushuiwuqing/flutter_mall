@@ -202,7 +202,7 @@ class _OrderViewState extends State<OrderView> {
                             width: ScreenUtil.instance.setWidth(1.0)), // 边色与边宽度
                         color: Colors.deepOrangeAccent, // 底色
                         borderRadius: new BorderRadius.circular(
-                            (ScreenUtil.instance.setWidth(20.0))), // 圆角度
+                            ScreenUtil.instance.setWidth(20.0)), // 圆角度
                       ),
                       child: Text(
                         Strings.MINE_ORDER_TAG_ONE,
