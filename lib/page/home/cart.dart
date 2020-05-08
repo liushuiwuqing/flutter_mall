@@ -52,7 +52,7 @@ class _CartViewState extends State<CartView> {
         _cartList = cartListEntity.cartList;
       });
       _isAllCheck = _checkedAll();
-      print("_getCartItemView:${_cartList.length}");
+      print("_cartList.length:${_cartList.length}");
     }, options: options);
   }
 
@@ -88,7 +88,6 @@ class _CartViewState extends State<CartView> {
                           ListView.builder(
                               itemCount: _cartList.length,
                               itemBuilder: (BuildContext context, int index) {
-                                print("_getCartItemView itemBuilder");
                                 return _getCartItemView(index);
                               }),
                           Container(
@@ -113,6 +112,7 @@ class _CartViewState extends State<CartView> {
                                       "${cartListEntity.cartTotal.checkedGoodsAmount}"),
                                 ),
                                 Expanded(
+                                    //这里Expanded可以让child充满整个区域,要看效果,可以删除 alignment: Alignment.centerRight,
                                     child: Container(
                                   margin: EdgeInsets.only(
                                       right: ScreenUtil.getInstance()
@@ -122,6 +122,9 @@ class _CartViewState extends State<CartView> {
                                     onPressed: () {
                                       _fillInOrder();
                                     },
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
                                     color: Colors.deepOrangeAccent,
                                     child: Text(
                                       Strings.SETTLEMENT,
@@ -182,8 +185,7 @@ class _CartViewState extends State<CartView> {
   }
 
   Widget _getCartItemView(int index) {
-    print("_getCartItemView:${index}");
-
+    print("_getCartItemView:$index");
     return Container(
       height: ScreenUtil.getInstance().setHeight(180.0),
       width: double.infinity,
@@ -207,8 +209,8 @@ class _CartViewState extends State<CartView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text(
-                    _cartList[index].goodsName,
+                  Text( //这里应该有一个最大宽度,不然把右边的CartNumberView挤不见了
+                    _cartList[index].goodsName.length>16?_cartList[index].goodsName.substring(0,17):_cartList[index].goodsName,
                     style: TextStyle(
                         fontSize: ScreenUtil.getInstance().setSp(24.0),
                         color: Colors.black54),
@@ -226,7 +228,8 @@ class _CartViewState extends State<CartView> {
               ),
               Expanded(
                   child: Container(
-                    padding: EdgeInsets.only(right: ScreenUtil.getInstance().setWidth(20.0)),
+                padding: EdgeInsets.only(
+                    right: ScreenUtil.getInstance().setWidth(20.0)),
                 alignment: Alignment.centerRight,
                 child: CartNumberView(_cartList[index].number, (value) {
                   _updateCart(index, value);
@@ -293,7 +296,7 @@ class _CartViewState extends State<CartView> {
                   style: TextStyle(color: Colors.black54),
                 ),
               ),
-              FlatButton(
+              RaisedButton(
                 onPressed: () {
                   _deleteGoods(index);
                 },

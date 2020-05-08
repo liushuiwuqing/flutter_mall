@@ -4,9 +4,9 @@ import 'package:mall/constant/string.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CachedImageView extends StatelessWidget {
-  double width;
-  double height;
-  String url;
+  final double width;
+  final double height;
+  final String url;
 
   CachedImageView(this.width, this.height, this.url);
 

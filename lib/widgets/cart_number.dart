@@ -26,7 +26,9 @@ class _CartNumberViewState extends State<CartNumberView> {
   }
 
   _listener() {
-    cartNumberEventBus.on<CartNumberEvent>().listen((CartNumberEvent cartNumberEvent) {
+    cartNumberEventBus
+        .on<CartNumberEvent>()
+        .listen((CartNumberEvent cartNumberEvent) {
       setState(() {
         print('没有看到执行?.........');
         goodsNumber = cartNumberEvent.number;
@@ -36,10 +38,11 @@ class _CartNumberViewState extends State<CartNumberView> {
 
   @override
   Widget build(BuildContext context) {
-    print("CartNumberView");
+    print("CartNumberView build");
     _listener();
     return Container(
-      width: ScreenUtil.instance.setWidth(166),//设置成150,提示:A RenderFlex overflowed by 16 pixels on the right.
+      width: ScreenUtil.instance.setWidth(150),
+      //设置成150,提示:A RenderFlex overflowed by 16 pixels on the right.
       height: ScreenUtil.instance.setWidth(50),
       child: Row(
         children: <Widget>[
@@ -48,10 +51,13 @@ class _CartNumberViewState extends State<CartNumberView> {
               child: Container(
                 width: ScreenUtil.instance.setWidth(50),
                 height: double.infinity,
+                //由此可以看出,受父组件高度的影响
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(topLeft:Radius.circular(10.0),bottomLeft:Radius.circular(10.0)),
-                    border: Border.all(color: Colors.green,width: 1)),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10.0),
+                        bottomLeft: Radius.circular(10.0)),
+                    border: Border.all(color: Colors.green, width: 1)),
                 child: Text(
                   "-",
                   style: TextStyle(
@@ -60,15 +66,15 @@ class _CartNumberViewState extends State<CartNumberView> {
                 ),
               )),
           Container(
-            alignment: Alignment.center,
-            height: double.infinity,
             width: ScreenUtil.instance.setWidth(50),
+            height: double.infinity,
+            alignment: Alignment.center,
             decoration: ShapeDecoration(
                 shape: Border(
                     top: BorderSide(color: Colors.green, width: 1.0),
                     bottom: BorderSide(color: Colors.green, width: 1.0))),
             child: Text(
-              "${goodsNumber}",
+              "$goodsNumber",
               style: TextStyle(
                   color: Colors.black54,
                   fontSize: ScreenUtil.instance.setSp(26.0)),
@@ -81,8 +87,10 @@ class _CartNumberViewState extends State<CartNumberView> {
                 width: ScreenUtil.instance.setWidth(50),
                 height: double.infinity,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(topRight:Radius.circular(10.0),bottomRight:Radius.circular(10.0)),
-                    border: Border.all(color: Colors.green,width: 1)),
+                    borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(10.0),
+                        bottomRight: Radius.circular(10.0)),
+                    border: Border.all(color: Colors.green, width: 1)),
                 child: Text(
                   "+",
                   style: TextStyle(
@@ -101,15 +109,24 @@ class _CartNumberViewState extends State<CartNumberView> {
         goodsNumber = goodsNumber - 1;
       });
     }
-    print("${widget._number}");
+    print("减少之前widget._number:${widget._number}");
     onNumberChange(goodsNumber);
   }
 
   _add() {
-    setState(() {
+    print("增加之前goodsNumber:$goodsNumber");
+    /*setState(() {
+      //我感觉不用把下面这句放到setState代码块里面,因为onNumberChange方法会执行build方法
       goodsNumber = goodsNumber + 1;
-    });
-    print("${goodsNumber}");
+    });*/
+    goodsNumber = goodsNumber + 1;
+    print("增加之后goodsNumber:$goodsNumber");
     onNumberChange(goodsNumber);
+    /*await Future.delayed(Duration(seconds: 5)).then((_) {
+      print('onValue111');
+    });
+     Future.delayed(Duration(seconds: 5)).then((_) {
+      print('onValue222');
+    });*/
   }
 }
