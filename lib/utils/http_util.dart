@@ -36,7 +36,7 @@ class HttpUtil {
       return options;
     }, onResponse: (Response response) {
       print("code=${response.statusCode},response=${response.data}");
-      print("");
+      print("..................................");
     }, onError: (DioError error) {
       print("========================请求错误===================");
       print("message =${error.message}");

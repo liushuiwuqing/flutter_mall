@@ -14,13 +14,10 @@ typedef OnSuccess<T>(T data);
 class CategoryService {
   Future getCategoryData(OnSuccessList onSuccessList, {OnFail onFail}) async {
     try {
-      var responseList = [];
       var response = await HttpUtil.instance.get(Api.HOME_FIRST_CATEGORY);
       if (response['errno'] == 0) {
-        responseList = response['data'];
-        FirstLevelListCategory firstLevelListCategory =
-            FirstLevelListCategory.fromJson(responseList);
-        onSuccessList(firstLevelListCategory.firstLevelCategory);
+        onSuccessList(FirstLevelListCategory.fromJson(response['data'])
+            .firstLevelCategory);
       } else {
         onFail(response['errmsg']);
       }

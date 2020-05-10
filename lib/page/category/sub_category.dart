@@ -26,6 +26,7 @@ class _SubCategoryViewState extends State<SubCategoryView> {
     super.initState();
     print("SubCategoryView_initState");
   }
+
   _listener() {
     eventBus
         .on<CategoryEvent>()
@@ -35,7 +36,7 @@ class _SubCategoryViewState extends State<SubCategoryView> {
   _updateView(CategoryEvent categoryEvent) {
     if (flag) {
       flag = false;
-      print("_updateView");
+      print("_SubCategoryViewState_updateView");
       setState(() {
         categoryName = categoryEvent.categoryName;
         categoryImage = categoryEvent.categoryImage;
@@ -61,8 +62,6 @@ class _SubCategoryViewState extends State<SubCategoryView> {
 
   _getSubCategory(int id) {
     var params = {"id": id};
-    print(params);
-    print("_getSubCategory");
     categoryService.getSubCategoryData(params, (subCategoryEntityList) {
       flag = true;
       setState(() {
@@ -74,7 +73,8 @@ class _SubCategoryViewState extends State<SubCategoryView> {
   @override
   Widget build(BuildContext context) {
     _listener();
-    return Container(
+    return Container( //整个容器没有感受到作用?我添加了alignment,让其始终保持在最顶上,不然可能在界面的中间
+//      alignment:Alignment.topCenter,
       child: ListView(
         shrinkWrap: true,
         children: <Widget>[
@@ -100,17 +100,17 @@ class _SubCategoryViewState extends State<SubCategoryView> {
               itemCount: subCategoryEntitys.length,
               shrinkWrap: true,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  mainAxisSpacing: 20.0,
-                  childAspectRatio: 0.85,
-                  //垂直单个子Widget之间间距
-                  crossAxisSpacing: 20.0),
+                  crossAxisCount: 3, //
+                  crossAxisSpacing: 10.0, // 横轴元素个数
+                  mainAxisSpacing: 10.0,
+                  childAspectRatio: 0.85 //宽与高的比例
+              ),
               itemBuilder: (BuildContext context, int index) {
                 return getItemView(subCategoryEntitys[index]);
               }),
           Padding(
-            padding: EdgeInsets.only(top: 10.0),
-          ),
+              padding: EdgeInsets.only(top: 10.0)),
+          //当向上滑动时,可保证下面还有10的空间        ),
         ],
       ),
     );
@@ -123,10 +123,10 @@ class _SubCategoryViewState extends State<SubCategoryView> {
 //        return new GoodsList(1008002);
 //      }),
 //    );
-    NavigatorUtils.goCategoryGoodsListPage(context,categoryName,id);
+    NavigatorUtils.goCategoryGoodsListPage(context, categoryName, id);
   }
 
-  Widget getItemView(SubCategoryEntity categoryName) {
+  Widget getItemView(SubCategoryEntity category) {
     return GestureDetector(
       child: Container(
           alignment: Alignment.center,
@@ -134,21 +134,21 @@ class _SubCategoryViewState extends State<SubCategoryView> {
             child: Column(
               children: <Widget>[
                 Image.network(
-                  categoryName.picUrl,
+                  category.picUrl,
                   fit: BoxFit.fill,
-                  height: 60,
+                  height: 60,//这里需要设置高度,不然提示底部溢出
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 5.0),
                 ),
                 Text(
-                  categoryName.name,
+                  category.name,
                   style: TextStyle(fontSize: 14.0, color: Colors.black54),
                 ),
               ],
             ),
           )),
-      onTap: () => _itemClick(categoryName.id),
+      onTap: () => _itemClick(category.id),
     );
   }
 }

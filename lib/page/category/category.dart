@@ -24,7 +24,7 @@ class _CategoryViewState extends State<CategoryView> {
         appBar: AppBar(
           title: Text(Strings.MALL),
           centerTitle: true,
-          actions: <Widget>[
+          actions: <Widget>[ //Widgets to display after the [title] widget.右边的搜索按钮
             IconButton(
                 icon: Icon(
                   Icons.search,
@@ -34,7 +34,7 @@ class _CategoryViewState extends State<CategoryView> {
           ],
         ),
         body: Container(
-            child: Row(children: <Widget>[
+            child: Row(children: <Widget>[ //2:8来平分整行
           new Expanded(
             flex: 2,
             child: FirstLevelCategoryView(),

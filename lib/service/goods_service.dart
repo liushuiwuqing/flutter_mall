@@ -112,6 +112,7 @@ class GoodsService {
       }
     } catch (e) {
       print(e);
+      //如果回调没有接收onFail,将报空指针异常
       onFail(Strings.SERVER_EXCEPTION);
     }
   }

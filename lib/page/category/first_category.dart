@@ -41,8 +41,9 @@ class _FirstLevelCategoryViewState extends State<FirstLevelCategoryView> {
 
   @override
   Widget build(BuildContext context) {
+    print("FirstLevelCategoryView_build");
     return Container(
-        color: Colors.white,
+        color: Colors.white, //背景颜色
         child: ListView.builder(
             itemCount: firstLevelLisCategorys.length,
             itemBuilder: (BuildContext context, int index) {
@@ -65,14 +66,14 @@ class _FirstLevelCategoryViewState extends State<FirstLevelCategoryView> {
     return GestureDetector(
       onTap: () => _itemClick(index),
       child: Container(
-          width: 100.0,
+          width: 10.0, //这里设置宽是不是没什么用?因为父元素是Expanded
           height: 50.0,
           alignment: Alignment.center,
           child: Column(
             children: <Widget>[
               Container(
                 height: 48,
-                alignment: Alignment.center,
+                alignment: Alignment.bottomCenter,
                 child: Text(firstLevelCategory.name,
                     style: index == _selectIndex
                         ? TextStyle(
@@ -81,6 +82,8 @@ class _FirstLevelCategoryViewState extends State<FirstLevelCategoryView> {
               ),
               index == _selectIndex
                   ? Divider(
+                      indent: 10,
+                      endIndent: 15,
                       height: 2.0,
                       color: Colors.deepOrangeAccent,
                     )

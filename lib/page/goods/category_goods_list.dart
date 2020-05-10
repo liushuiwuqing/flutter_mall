@@ -10,16 +10,13 @@ class CategoryListView extends StatefulWidget {
   String categoryName;
   int categoryId;
 
-  CategoryListView(
-      {Key key, @required this.categoryName, @required this.categoryId})
-      : super(key: key);
+  CategoryListView({Key key, @required this.categoryName, @required this.categoryId}) : super(key: key);
 
   @override
   _CategoryListViewState createState() => _CategoryListViewState();
 }
 
-class _CategoryListViewState extends State<CategoryListView>
-    with TickerProviderStateMixin {
+class _CategoryListViewState extends State<CategoryListView> with TickerProviderStateMixin {
   ScrollController _scrollController;
   TabController _tabController;
   GoodsService goodsService = GoodsService();
@@ -32,8 +29,7 @@ class _CategoryListViewState extends State<CategoryListView>
   @override
   void initState() {
     super.initState();
-    categoryFuture = _categoryService
-        .getCategoryTitle({"id": widget.categoryId}, (categoryTitles) {
+    categoryFuture = _categoryService.getCategoryTitle({"id": widget.categoryId}, (categoryTitles) {
       _categoryTitleEntity = categoryTitles;
       brotherCategory = _categoryTitleEntity.brotherCategory;
       currentIndex = getCurrentIndex();
@@ -73,11 +69,7 @@ class _CategoryListViewState extends State<CategoryListView>
                   return new Text(Strings.SERVER_EXCEPTION);
                 else
                   _scrollController = ScrollController();
-                _tabController = TabController(
-                    initialIndex: currentIndex,
-                    length: brotherCategory.length,
-                    vsync: this)
-                  ..addListener(() {});
+                _tabController = TabController(initialIndex: currentIndex, length: brotherCategory.length, vsync: this)..addListener(() {});
                 return getCategoryView();
             }
           }),
@@ -89,11 +81,7 @@ class _CategoryListViewState extends State<CategoryListView>
       appBar: AppBar(
         title: Text(widget.categoryName),
         centerTitle: true,
-        bottom: TabBar(
-            isScrollable: true,
-            controller: _tabController,
-            indicatorColor: Colors.deepOrangeAccent,
-            tabs: getTabBars()),
+        bottom: TabBar(isScrollable: true, controller: _tabController, indicatorColor: Colors.deepOrangeAccent, tabs: getTabBars()),
       ),
       body: TabBarView(
         children: getTabBarViews(),
