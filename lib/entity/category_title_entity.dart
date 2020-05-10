@@ -4,12 +4,15 @@ part 'category_title_entity.g.dart';
 
 @JsonSerializable()
 class CategoryTitleEntity extends Object {
+  //当前分类
   @JsonKey(name: 'currentCategory')
   CurrentCategory currentCategory;
 
+  //兄弟分类
   @JsonKey(name: 'brotherCategory')
   List<BrotherCategory> brotherCategory;
 
+  //父分类
   @JsonKey(name: 'parentCategory')
   ParentCategory parentCategory;
 

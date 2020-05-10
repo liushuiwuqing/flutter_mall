@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:mall/service/goods_service.dart';
-import 'package:mall/entity/goods_entity.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mall/constant/string.dart';
+import 'package:mall/entity/goods_entity.dart';
+import 'package:mall/service/goods_service.dart';
 import 'package:mall/utils/navigator_util.dart';
 import 'package:mall/widgets/cached_image.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class GoodsList extends StatefulWidget {
-  int categoryId;
+  final int categoryId;
 
   GoodsList(this.categoryId);
 
@@ -45,6 +45,8 @@ class _GoodsListState extends State<GoodsList> {
 
   @override
   Widget build(BuildContext context) {
+    print('goodsEntitys != null && goodsEntitys.length != 0:');
+    print(goodsEntitys != null && goodsEntitys.length != 0); //先显示false,后是true
     return Scaffold(
 //        key: ObjectKey("${categoryId}"),
         body: Container(
@@ -84,6 +86,7 @@ class _GoodsListState extends State<GoodsList> {
       child: Container(
         alignment: Alignment.center,
         child: SizedBox(
+            //我发现这里设置宽高没什么用?因为父类要求横着2个,宽高比1:1
             width: 320,
             height: 460,
             child: Card(

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:mall/service/goods_service.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:mall/constant/string.dart';
+import 'package:mall/entity/category_title_entity.dart';
 import 'package:mall/page/goods/goods_list.dart';
 import 'package:mall/service/category_service.dart';
-import 'package:mall/entity/category_title_entity.dart';
+import 'package:mall/service/goods_service.dart';
 
 class CategoryListView extends StatefulWidget {
-  String categoryName;
-  int categoryId;
+  final String categoryName;
+  final int categoryId;
 
   CategoryListView({Key key, @required this.categoryName, @required this.categoryId}) : super(key: key);
 
@@ -46,6 +46,7 @@ class _CategoryListViewState extends State<CategoryListView> with TickerProvider
 
   @override
   void dispose() {
+    //释放资源
     _scrollController.dispose();
     _tabController.dispose();
     super.dispose();
@@ -80,7 +81,7 @@ class _CategoryListViewState extends State<CategoryListView> with TickerProvider
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.categoryName),
-        centerTitle: true,
+        centerTitle: true, //经测试,TabBar和TabBarView的_tabController是必需的
         bottom: TabBar(isScrollable: true, controller: _tabController, indicatorColor: Colors.deepOrangeAccent, tabs: getTabBars()),
       ),
       body: TabBarView(

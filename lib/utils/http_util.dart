@@ -25,8 +25,7 @@ class HttpUtil {
     );
     dio = new Dio(options);
     dio.interceptors.add(InterceptorsWrapper(onRequest: (RequestOptions options) async {
-      print("\n========================请求数据===================");
-      print("url=${options.uri.toString()},params=${options.data}");
+      print("========================请求数据===================\nurl=${options.uri.toString()},params=${options.data}");
       dio.lock();
       await SharedPreferencesUtils.getToken().then((token) {
         options.headers[Strings.TOKEN] = token;
