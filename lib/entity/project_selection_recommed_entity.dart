@@ -2,10 +2,8 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'project_selection_recommed_entity.g.dart';
 
-
 @JsonSerializable()
 class ProjectSelectionRecommedEntity extends Object {
-
   @JsonKey(name: 'total')
   int total;
 
@@ -21,18 +19,21 @@ class ProjectSelectionRecommedEntity extends Object {
   @JsonKey(name: 'page')
   int page;
 
-  ProjectSelectionRecommedEntity(this.total,this.pages,this.recommed,this.limit,this.page,);
+  ProjectSelectionRecommedEntity(
+    this.total,
+    this.pages,
+    this.recommed,
+    this.limit,
+    this.page,
+  );
 
   factory ProjectSelectionRecommedEntity.fromJson(Map<String, dynamic> srcJson) => _$ProjectSelectionRecommedEntityFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$ProjectSelectionRecommedEntityToJson(this);
-
 }
-
 
 @JsonSerializable()
 class Recommed extends Object {
-
   @JsonKey(name: 'id')
   int id;
 
@@ -69,12 +70,22 @@ class Recommed extends Object {
   @JsonKey(name: 'content')
   String content;
 
-  Recommed(this.id,this.title,this.subtitle,this.price,this.readCount,this.picUrl,this.sortOrder,this.goods,this.addTime,this.updateTime,this.deleted,this.content,);
+  Recommed(
+    this.id,
+    this.title,
+    this.subtitle,
+    this.price,
+    this.readCount,
+    this.picUrl,
+    this.sortOrder,
+    this.goods,
+    this.addTime,
+    this.updateTime,
+    this.deleted,
+    this.content,
+  );
 
   factory Recommed.fromJson(Map<String, dynamic> srcJson) => _$RecommedFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$RecommedToJson(this);
-
 }
-
-

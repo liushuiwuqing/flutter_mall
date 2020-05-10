@@ -74,8 +74,7 @@ class _FillInOrderViewState extends State<FillInOrderView> {
                   child: Center(
                     child: Text(
                       Strings.SERVER_EXCEPTION,
-                      style:
-                          TextStyle(fontSize: ScreenUtil.instance.setSp(26.0)),
+                      style: TextStyle(fontSize: ScreenUtil.instance.setSp(26.0)),
                     ),
                   ),
                 );
@@ -109,20 +108,17 @@ class _FillInOrderViewState extends State<FillInOrderView> {
               height: ScreenUtil.instance.setHeight(1.0),
               color: Colors.grey[350],
             ),
-            ItemTextView(
-                Strings.GOODS_TOTAL, "¥${_fillInOrderEntity.goodsTotalPrice}"),
+            ItemTextView(Strings.GOODS_TOTAL, "¥${_fillInOrderEntity.goodsTotalPrice}"),
             Divider(
               height: ScreenUtil.instance.setHeight(1.0),
               color: Colors.grey,
             ),
-            ItemTextView(
-                Strings.FREIGHT, "¥${_fillInOrderEntity.freightPrice}"),
+            ItemTextView(Strings.FREIGHT, "¥${_fillInOrderEntity.freightPrice}"),
             Divider(
               height: ScreenUtil.instance.setHeight(1.0),
               color: Colors.grey[350],
             ),
-            ItemTextView(
-                Strings.GOODS_TOTAL, "¥${_fillInOrderEntity.couponPrice}"),
+            ItemTextView(Strings.GOODS_TOTAL, "¥${_fillInOrderEntity.couponPrice}"),
             Divider(
               height: ScreenUtil.instance.setHeight(1.0),
               color: Colors.grey[350],
@@ -142,8 +138,7 @@ class _FillInOrderViewState extends State<FillInOrderView> {
           height: ScreenUtil.instance.setHeight(100.0),
           child: Row(
             children: <Widget>[
-              Expanded(
-                  child: Text("实付：¥${_fillInOrderEntity.orderTotalPrice}")),
+              Expanded(child: Text("实付：¥${_fillInOrderEntity.orderTotalPrice}")),
               InkWell(
                 onTap: () => _submitOrder(),
                 child: Container(
@@ -153,9 +148,7 @@ class _FillInOrderViewState extends State<FillInOrderView> {
                   color: Colors.deepOrangeAccent,
                   child: Text(
                     Strings.PAY,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: ScreenUtil.instance.setSp(28.0)),
+                    style: TextStyle(color: Colors.white, fontSize: ScreenUtil.instance.setSp(28.0)),
                   ),
                 ),
               )
@@ -180,15 +173,12 @@ class _FillInOrderViewState extends State<FillInOrderView> {
 
   Widget _goodsItem(CheckedGoodsList checkedGoods) {
     return Container(
-      padding: EdgeInsets.only(
-          left: ScreenUtil.instance.setWidth(20.0),
-          right: ScreenUtil.instance.setWidth(20.0)),
+      padding: EdgeInsets.only(left: ScreenUtil.instance.setWidth(20.0), right: ScreenUtil.instance.setWidth(20.0)),
       height: ScreenUtil.instance.setHeight(180.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          CachedImageView(ScreenUtil.instance.setWidth(140),
-              ScreenUtil.instance.setWidth(140), checkedGoods.picUrl),
+          CachedImageView(ScreenUtil.instance.setWidth(140), ScreenUtil.instance.setWidth(140), checkedGoods.picUrl),
           Padding(
             padding: EdgeInsets.only(left: ScreenUtil.instance.setWidth(10.0)),
           ),
@@ -198,27 +188,17 @@ class _FillInOrderViewState extends State<FillInOrderView> {
             children: <Widget>[
               Text(
                 checkedGoods.goodsName,
-                style: TextStyle(
-                    color: Colors.black54,
-                    fontSize: ScreenUtil.instance.setSp(26.0)),
+                style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
               ),
-              Padding(
-                  padding:
-                      EdgeInsets.only(top: ScreenUtil.instance.setHeight(6.0))),
+              Padding(padding: EdgeInsets.only(top: ScreenUtil.instance.setHeight(6.0))),
               Text(
                 checkedGoods.specifications[0],
-                style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: ScreenUtil.instance.setSp(22.0)),
+                style: TextStyle(color: Colors.grey, fontSize: ScreenUtil.instance.setSp(22.0)),
               ),
-              Padding(
-                  padding: EdgeInsets.only(
-                      top: ScreenUtil.instance.setHeight(20.0))),
+              Padding(padding: EdgeInsets.only(top: ScreenUtil.instance.setHeight(20.0))),
               Text(
                 "¥${checkedGoods.price}",
-                style: TextStyle(
-                    color: Colors.deepOrangeAccent,
-                    fontSize: ScreenUtil.instance.setSp(26.0)),
+                style: TextStyle(color: Colors.deepOrangeAccent, fontSize: ScreenUtil.instance.setSp(26.0)),
               )
             ],
           ),
@@ -238,17 +218,13 @@ class _FillInOrderViewState extends State<FillInOrderView> {
       width: double.infinity,
       alignment: Alignment.center,
       margin: EdgeInsets.only(top: ScreenUtil.instance.setHeight(10.0)),
-      padding: EdgeInsets.only(
-          left: ScreenUtil.instance.setWidth(20.0),
-          right: ScreenUtil.instance.setWidth(20.0)),
+      padding: EdgeInsets.only(left: ScreenUtil.instance.setWidth(20.0), right: ScreenUtil.instance.setWidth(20.0)),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Text(
             Strings.REMARK,
-            style: TextStyle(
-                color: Colors.black54,
-                fontSize: ScreenUtil.instance.setSp(26.0)),
+            style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
           ),
           Expanded(
               child: Container(
@@ -260,22 +236,12 @@ class _FillInOrderViewState extends State<FillInOrderView> {
               decoration: InputDecoration(
                 hintText: Strings.REMARK,
                 //border: OutlineInputBorder(borderSide: BorderSide.none),
-                hintStyle: TextStyle(
-                    color: Colors.grey[350],
-                    fontSize: ScreenUtil.instance.setSp(26.0)),
+                hintStyle: TextStyle(color: Colors.grey[350], fontSize: ScreenUtil.instance.setSp(26.0)),
                 hasFloatingPlaceholder: false,
-                enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Colors.transparent,
-                        width: ScreenUtil.instance.setHeight(1.0))),
-                focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Colors.transparent,
-                        width: ScreenUtil.instance.setHeight(1.0))),
+                enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.transparent, width: ScreenUtil.instance.setHeight(1.0))),
+                focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.transparent, width: ScreenUtil.instance.setHeight(1.0))),
               ),
-              style: TextStyle(
-                  color: Colors.black54,
-                  fontSize: ScreenUtil.instance.setSp(26.0)),
+              style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
               controller: _controller,
             ),
           ))
@@ -289,23 +255,17 @@ class _FillInOrderViewState extends State<FillInOrderView> {
       width: double.infinity,
       height: ScreenUtil.instance.setHeight(100),
       margin: EdgeInsets.only(top: ScreenUtil.instance.setHeight(10.0)),
-      padding: EdgeInsets.only(
-          left: ScreenUtil.instance.setWidth(20.0),
-          right: ScreenUtil.instance.setWidth(20.0)),
+      padding: EdgeInsets.only(left: ScreenUtil.instance.setWidth(20.0), right: ScreenUtil.instance.setWidth(20.0)),
       child: Row(
         children: <Widget>[
           _fillInOrderEntity.availableCouponLength == 0
               ? Text(
                   Strings.NOT_AVAILABLE_COUPON,
-                  style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: ScreenUtil.instance.setSp(26.0)),
+                  style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
                 )
               : Text(
                   Strings.COUPON,
-                  style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: ScreenUtil.instance.setSp(26.0)),
+                  style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
                 ),
           Expanded(
               child: Container(
@@ -314,13 +274,10 @@ class _FillInOrderViewState extends State<FillInOrderView> {
               children: <Widget>[
                 Text(
                   "${_fillInOrderEntity.couponPrice}元",
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: ScreenUtil.instance.setSp(24.0)),
+                  style: TextStyle(color: Colors.grey, fontSize: ScreenUtil.instance.setSp(24.0)),
                 ),
                 Padding(
-                  padding:
-                      EdgeInsets.only(left: ScreenUtil.instance.setWidth(10.0)),
+                  padding: EdgeInsets.only(left: ScreenUtil.instance.setWidth(10.0)),
                 ),
                 Icon(
                   Icons.arrow_forward_ios,
@@ -338,19 +295,16 @@ class _FillInOrderViewState extends State<FillInOrderView> {
     return Container(
       height: ScreenUtil.instance.setHeight(120.0),
       margin: EdgeInsets.all(ScreenUtil.instance.setWidth(10.0)),
-      padding: EdgeInsets.only(
-          left: ScreenUtil.instance.setWidth(20.0),
-          right: ScreenUtil.instance.setWidth(20.0)),
+      padding: EdgeInsets.only(left: ScreenUtil.instance.setWidth(20.0), right: ScreenUtil.instance.setWidth(20.0)),
       child: _fillInOrderEntity.checkedAddress.id != 0
           ? InkWell(
               onTap: () {
                 NavigatorUtils.goAddress(context).then((value) {
-                  print("value.toString():"+value.toString());
+                  print("value.toString():" + value.toString());
                   Map<String, dynamic> srcJson = new Map();
                   srcJson = FluroConvertUtil.stringToMap(value);
                   setState(() {
-                    _fillInOrderEntity.checkedAddress =
-                        CheckedAddress.fromJson(srcJson);
+                    _fillInOrderEntity.checkedAddress = CheckedAddress.fromJson(srcJson);
                   });
                 });
               },
@@ -367,34 +321,26 @@ class _FillInOrderViewState extends State<FillInOrderView> {
                         children: <Widget>[
                           Text(
                             _fillInOrderEntity.checkedAddress.name,
-                            style: TextStyle(
-                                color: Colors.black54,
-                                fontSize: ScreenUtil.instance.setSp(28.0)),
+                            style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(28.0)),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(
-                                left: ScreenUtil.instance.setHeight(20.0)),
+                            padding: EdgeInsets.only(left: ScreenUtil.instance.setHeight(20.0)),
                           ),
                           Text(
                             _fillInOrderEntity.checkedAddress.tel,
-                            style: TextStyle(
-                                color: Colors.black54,
-                                fontSize: ScreenUtil.instance.setSp(26.0)),
+                            style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
                           ),
                         ],
                       ),
                       Padding(
-                        padding: EdgeInsets.only(
-                            top: ScreenUtil.instance.setHeight(10.0)),
+                        padding: EdgeInsets.only(top: ScreenUtil.instance.setHeight(10.0)),
                       ),
                       Text(
                         _fillInOrderEntity.checkedAddress.province +
                             _fillInOrderEntity.checkedAddress.city +
                             _fillInOrderEntity.checkedAddress.county +
                             _fillInOrderEntity.checkedAddress.addressDetail,
-                        style: TextStyle(
-                            color: Colors.black54,
-                            fontSize: ScreenUtil.instance.setSp(26.0)),
+                        style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
                       ),
                     ],
                   ),
@@ -418,9 +364,7 @@ class _FillInOrderViewState extends State<FillInOrderView> {
                 children: <Widget>[
                   Text(
                     Strings.PLEASE_SELECT_ADDRESS,
-                    style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: ScreenUtil.instance.setSp(30.0)),
+                    style: TextStyle(color: Colors.grey, fontSize: ScreenUtil.instance.setSp(30.0)),
                   ),
                   Expanded(
                       child: Container(
@@ -441,17 +385,10 @@ class _FillInOrderViewState extends State<FillInOrderView> {
       ToastUtil.showToast(Strings.PLEASE_SELECT_ADDRESS);
       return;
     }
-    var parameters = {
-      "cartId": 0,
-      "addressId": _fillInOrderEntity.checkedAddress.id,
-      "message": _controller.text,
-      "couponId": 0,
-      "grouponRulesId":0,
-      "grouponLinkId":0
-    };
+    var parameters = {"cartId": 0, "addressId": _fillInOrderEntity.checkedAddress.id, "message": _controller.text, "couponId": 0, "grouponRulesId": 0, "grouponLinkId": 0};
     _goodsService.submitOrder(options, parameters, (success) {
-      print('_goodsService.submitOrder:' +success);
-     // NavigatorUtils.submitOrderSuccessPop(context);
+      print('_goodsService.submitOrder:' + success);
+      // NavigatorUtils.submitOrderSuccessPop(context);
     }, (error) {
       ToastUtil.showToast(error);
     });

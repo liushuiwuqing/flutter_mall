@@ -2,10 +2,8 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'coupon_list_entity.g.dart';
 
-
 @JsonSerializable()
 class CouponListEntity extends Object {
-
   @JsonKey(name: 'total')
   int total;
 
@@ -21,18 +19,21 @@ class CouponListEntity extends Object {
   @JsonKey(name: 'list')
   List<ListData> list;
 
-  CouponListEntity(this.total,this.pages,this.limit,this.page,this.list,);
+  CouponListEntity(
+    this.total,
+    this.pages,
+    this.limit,
+    this.page,
+    this.list,
+  );
 
   factory CouponListEntity.fromJson(Map<String, dynamic> srcJson) => _$CouponListEntityFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$CouponListEntityToJson(this);
-
 }
-
 
 @JsonSerializable()
 class ListData extends Object {
-
   @JsonKey(name: 'id')
   int id;
 
@@ -57,12 +58,18 @@ class ListData extends Object {
   @JsonKey(name: 'endTime')
   String endTime;
 
-  ListData(this.id,this.name,this.desc,this.tag,this.min,this.discount,this.startTime,this.endTime,);
+  ListData(
+    this.id,
+    this.name,
+    this.desc,
+    this.tag,
+    this.min,
+    this.discount,
+    this.startTime,
+    this.endTime,
+  );
 
   factory ListData.fromJson(Map<String, dynamic> srcJson) => _$ListDataFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$ListDataToJson(this);
-
 }
-
-

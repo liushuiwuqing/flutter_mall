@@ -9,8 +9,7 @@ class SubCategoryListEntity {
 
   factory SubCategoryListEntity.fromJson(List<dynamic> parseJson) {
     List<SubCategoryEntity> productEntitys;
-    productEntitys =
-        parseJson.map((i) => SubCategoryEntity.fromJson(i)).toList();
+    productEntitys = parseJson.map((i) => SubCategoryEntity.fromJson(i)).toList();
     return SubCategoryListEntity(productEntitys);
   }
 }
@@ -68,8 +67,7 @@ class SubCategoryEntity extends Object {
     this.deleted,
   );
 
-  factory SubCategoryEntity.fromJson(Map<String, dynamic> srcJson) =>
-      _$SubCategoryEntityFromJson(srcJson);
+  factory SubCategoryEntity.fromJson(Map<String, dynamic> srcJson) => _$SubCategoryEntityFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$SubCategoryEntityToJson(this);
 }

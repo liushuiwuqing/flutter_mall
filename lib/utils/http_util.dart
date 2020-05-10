@@ -24,12 +24,11 @@ class HttpUtil {
       receiveTimeout: 5000,
     );
     dio = new Dio(options);
-    dio.interceptors
-        .add(InterceptorsWrapper(onRequest: (RequestOptions options) async {
+    dio.interceptors.add(InterceptorsWrapper(onRequest: (RequestOptions options) async {
       print("\n========================请求数据===================");
       print("url=${options.uri.toString()},params=${options.data}");
       dio.lock();
-     await SharedPreferencesUtils.getToken().then((token) {
+      await SharedPreferencesUtils.getToken().then((token) {
         options.headers[Strings.TOKEN] = token;
       });
       dio.unlock();
@@ -44,12 +43,10 @@ class HttpUtil {
     }));
   }
 
-  Future get(String url,
-      {Map<String, dynamic> parameters, Options options}) async {
+  Future get(String url, {Map<String, dynamic> parameters, Options options}) async {
     Response response;
     if (parameters != null && options != null) {
-      response =
-          await dio.get(url, queryParameters: parameters, options: options);
+      response = await dio.get(url, queryParameters: parameters, options: options);
     } else if (parameters != null && options == null) {
       response = await dio.get(url, queryParameters: parameters);
     } else if (parameters == null && options != null) {
@@ -60,8 +57,7 @@ class HttpUtil {
     return response.data;
   }
 
-  Future post(String url,
-      {Map<String, dynamic> parameters, Options options}) async {
+  Future post(String url, {Map<String, dynamic> parameters, Options options}) async {
     Response response;
     if (parameters != null && options != null) {
       response = await dio.post(url, data: parameters, options: options);

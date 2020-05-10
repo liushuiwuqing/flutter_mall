@@ -28,22 +28,16 @@ class _RegisterViewState extends State<RegisterView> {
             child: Center(
               //没有Center,显示的区域就会到达顶部
               child: Container(
-                margin: EdgeInsets.fromLTRB(ScreenUtil().setWidth(30.0), 0,
-                    ScreenUtil().setWidth(30.0), 0),
+                margin: EdgeInsets.fromLTRB(ScreenUtil().setWidth(30.0), 0, ScreenUtil().setWidth(30.0), 0),
                 height: ScreenUtil.instance.setHeight(700.0),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10.0)),
+                decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10.0)),
                 child: Form(
                   key: registerFormKey,
                   child: Column(
                     children: <Widget>[
-                      Padding(
-                          padding: EdgeInsets.only(
-                              top: ScreenUtil.instance.setHeight(60.0))),
+                      Padding(padding: EdgeInsets.only(top: ScreenUtil.instance.setHeight(60.0))),
                       Container(
-                        margin:
-                            EdgeInsets.all(ScreenUtil.instance.setWidth(30.0)),
+                        margin: EdgeInsets.all(ScreenUtil.instance.setWidth(30.0)),
                         child: TextFormField(
                           maxLines: 1,
                           maxLength: 11,
@@ -57,20 +51,15 @@ class _RegisterViewState extends State<RegisterView> {
                               size: ScreenUtil.instance.setWidth(60.0),
                             ),
                             hintText: Strings.ACCOUNT_HINT,
-                            hintStyle: TextStyle(
-                                color: Colors.grey,
-                                fontSize: ScreenUtil.instance.setSp(28.0)),
-                            labelStyle: TextStyle(
-                                color: Colors.black54,
-                                fontSize: ScreenUtil.instance.setSp(28.0)),
+                            hintStyle: TextStyle(color: Colors.grey, fontSize: ScreenUtil.instance.setSp(28.0)),
+                            labelStyle: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(28.0)),
                             labelText: Strings.ACCOUNT,
                           ),
                           controller: _accountTextControl,
                         ),
                       ),
                       Container(
-                        margin:
-                            EdgeInsets.all(ScreenUtil.instance.setWidth(30.0)),
+                        margin: EdgeInsets.all(ScreenUtil.instance.setWidth(30.0)),
                         child: TextFormField(
                           maxLines: 1,
                           maxLength: 12,
@@ -83,20 +72,15 @@ class _RegisterViewState extends State<RegisterView> {
                               size: ScreenUtil.instance.setWidth(60.0),
                             ),
                             hintText: Strings.PASSWORD_HINT,
-                            hintStyle: TextStyle(
-                                color: Colors.grey,
-                                fontSize: ScreenUtil.instance.setSp(28.0)),
-                            labelStyle: TextStyle(
-                                color: Colors.black54,
-                                fontSize: ScreenUtil.instance.setSp(28.0)),
+                            hintStyle: TextStyle(color: Colors.grey, fontSize: ScreenUtil.instance.setSp(28.0)),
+                            labelStyle: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(28.0)),
                             labelText: Strings.PASSWORD,
                           ),
                           controller: _passwordTextControl,
                         ),
                       ),
                       Container(
-                          margin: EdgeInsets.all(
-                              ScreenUtil.instance.setWidth(30.0)),
+                          margin: EdgeInsets.all(ScreenUtil.instance.setWidth(30.0)),
                           child: SizedBox(
                             height: ScreenUtil.instance.setHeight(80.0),
                             width: ScreenUtil.instance.setWidth(600.0),
@@ -105,9 +89,7 @@ class _RegisterViewState extends State<RegisterView> {
                               color: Colors.deepOrangeAccent,
                               child: Text(
                                 Strings.REGISTER,
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: ScreenUtil.instance.setSp(28.0)),
+                                style: TextStyle(color: Colors.white, fontSize: ScreenUtil.instance.setSp(28.0)),
                               ),
                             ),
                           )),

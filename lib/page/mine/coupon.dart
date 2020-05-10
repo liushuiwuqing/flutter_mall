@@ -68,72 +68,55 @@ class _CouponViewState extends State<CouponView> {
         ),
         child: Card(
           margin: EdgeInsets.all(ScreenUtil.instance.setWidth(10.0)),
-         child: Container(
-           padding: EdgeInsets.all(ScreenUtil.instance.setWidth(10.0)),
-           child: Row(
-             crossAxisAlignment: CrossAxisAlignment.center,
-             mainAxisAlignment: MainAxisAlignment.start,
-             children: <Widget>[
-               Icon(
-                 MallIcon.COUPON,
-                 size: ScreenUtil.instance.setWidth(100),
-                 color: Colors.deepOrangeAccent,
-               ),
-               Expanded(
-                  child: Container(
-                    padding: EdgeInsets.only(left: ScreenUtil.instance.setWidth(30.0)),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                "${coupon.discount}" + Strings.unit,
-                                style: TextStyle(
-                                    fontSize: ScreenUtil.instance.setSp(30.0),
-                                    color: Colors.deepOrangeAccent),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    left: ScreenUtil.instance.setWidth(10.0)),
-                              ),
-                              Text(
-                                Strings.FULL +
-                                    "${coupon.min}" +
-                                    Strings.REDUCE +
-                                    "${coupon.discount}",
-                                style: TextStyle(
-                                    fontSize: ScreenUtil.instance.setSp(24.0),
-                                    color: Colors.deepOrangeAccent),
-                              )
-                            ],
-                          ),
-                          Padding(
-                              padding: EdgeInsets.only(
-                                  top: ScreenUtil.instance.setHeight(10.0))),
-                          Text(
-                            coupon.name + coupon.desc,
-                            style: TextStyle(
-                                color: Colors.black54,
-                                fontSize: ScreenUtil.instance.setSp(26.0)),
-                          ),
-                          Padding(
-                              padding: EdgeInsets.only(
-                                  top: ScreenUtil.instance.setHeight(10.0))),
-                          Text(
-                            coupon.startTime + "-" + coupon.endTime,
-                            style: TextStyle(
-                                color: Colors.black54,
-                                fontSize: ScreenUtil.instance.setSp(26.0)),
-                          ),
-                        ],
-                      ))
-                  ),
-             ],
-           ),
-         ),
+          child: Container(
+            padding: EdgeInsets.all(ScreenUtil.instance.setWidth(10.0)),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Icon(
+                  MallIcon.COUPON,
+                  size: ScreenUtil.instance.setWidth(100),
+                  color: Colors.deepOrangeAccent,
+                ),
+                Expanded(
+                    child: Container(
+                        padding: EdgeInsets.only(left: ScreenUtil.instance.setWidth(30.0)),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "${coupon.discount}" + Strings.unit,
+                                  style: TextStyle(fontSize: ScreenUtil.instance.setSp(30.0), color: Colors.deepOrangeAccent),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: ScreenUtil.instance.setWidth(10.0)),
+                                ),
+                                Text(
+                                  Strings.FULL + "${coupon.min}" + Strings.REDUCE + "${coupon.discount}",
+                                  style: TextStyle(fontSize: ScreenUtil.instance.setSp(24.0), color: Colors.deepOrangeAccent),
+                                )
+                              ],
+                            ),
+                            Padding(padding: EdgeInsets.only(top: ScreenUtil.instance.setHeight(10.0))),
+                            Text(
+                              coupon.name + coupon.desc,
+                              style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
+                            ),
+                            Padding(padding: EdgeInsets.only(top: ScreenUtil.instance.setHeight(10.0))),
+                            Text(
+                              coupon.startTime + "-" + coupon.endTime,
+                              style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
+                            ),
+                          ],
+                        ))),
+              ],
+            ),
+          ),
         ));
   }
 }

@@ -26,8 +26,7 @@ class SwiperView extends StatelessWidget {
               child: Text(Strings.NO_DATA_TEXT),
             )
           : Swiper(
-              onTap: (index) => NavigatorUtils.goWebView(
-                  context, bannerData[index].name, bannerData[index].link),
+              onTap: (index) => NavigatorUtils.goWebView(context, bannerData[index].name, bannerData[index].link),
 //              onTap: (index) {
 //                NavigatorUtils.goWebView(
 //                    context, bannerData[index].name, bannerData[index].link);
@@ -42,16 +41,10 @@ class SwiperView extends StatelessWidget {
               autoplay: false,
               itemBuilder: (BuildContext buildContext, int index) {
 //                print("bannerData[index].url:" + bannerData[index].url);
-                return CachedImageView(
-                    double.infinity, double.infinity, bannerData[index].url);
+                return CachedImageView(double.infinity, double.infinity, bannerData[index].url);
               },
               duration: 10000,
-              pagination: SwiperPagination(
-                  alignment: Alignment.bottomCenter,
-                  builder: DotSwiperPaginationBuilder(
-                      size: 8.0,
-                      color: Colors.white,
-                      activeColor: Colors.deepOrangeAccent)),
+              pagination: SwiperPagination(alignment: Alignment.bottomCenter, builder: DotSwiperPaginationBuilder(size: 8.0, color: Colors.white, activeColor: Colors.deepOrangeAccent)),
             ),
     );
   }

@@ -57,9 +57,7 @@ class _CartViewState extends State<CartView> {
   }
 
   _refreshEvent() {
-    eventBus
-        .on<RefreshEvent>()
-        .listen((RefreshEvent refreshEvent) => _getCartData(token));
+    eventBus.on<RefreshEvent>().listen((RefreshEvent refreshEvent) => _getCartData(token));
     loginEventBus.on<LoginEvent>().listen((LoginEvent loginEvent) {
       if (loginEvent.isLogin) {
         _getCartData(SharedPreferencesUtils.token);
@@ -92,10 +90,7 @@ class _CartViewState extends State<CartView> {
                               }),
                           Container(
                             height: ScreenUtil.getInstance().setHeight(120.0),
-                            decoration: ShapeDecoration(
-                                shape: Border(
-                                    top: BorderSide(
-                                        color: Colors.grey, width: 1.0))),
+                            decoration: ShapeDecoration(shape: Border(top: BorderSide(color: Colors.grey, width: 1.0))),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
@@ -106,32 +101,23 @@ class _CartViewState extends State<CartView> {
                                       _setCartItemCheck(bool);
                                     }),
                                 Container(
-                                  width:
-                                      ScreenUtil.getInstance().setWidth(200.0),
-                                  child: Text(Strings.TOTAL_MONEY +
-                                      "${cartListEntity.cartTotal.checkedGoodsAmount}"),
+                                  width: ScreenUtil.getInstance().setWidth(200.0),
+                                  child: Text(Strings.TOTAL_MONEY + "${cartListEntity.cartTotal.checkedGoodsAmount}"),
                                 ),
                                 Expanded(
                                     //这里Expanded可以让child充满整个区域,要看效果,可以删除 alignment: Alignment.centerRight,
                                     child: Container(
-                                  margin: EdgeInsets.only(
-                                      right: ScreenUtil.getInstance()
-                                          .setWidth(30.0)),
+                                  margin: EdgeInsets.only(right: ScreenUtil.getInstance().setWidth(30.0)),
                                   alignment: Alignment.centerRight,
                                   child: RaisedButton(
                                     onPressed: () {
                                       _fillInOrder();
                                     },
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
+                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                                     color: Colors.deepOrangeAccent,
                                     child: Text(
                                       Strings.SETTLEMENT,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: ScreenUtil.getInstance()
-                                              .setSp(26.0)),
+                                      style: TextStyle(color: Colors.white, fontSize: ScreenUtil.getInstance().setSp(26.0)),
                                     ),
                                   ),
                                 ))
@@ -154,9 +140,7 @@ class _CartViewState extends State<CartView> {
                             ),
                             Text(
                               Strings.NO_DATA_TEXT,
-                              style: TextStyle(
-                                  fontSize: 16.0,
-                                  color: Colors.deepOrangeAccent),
+                              style: TextStyle(fontSize: 16.0, color: Colors.deepOrangeAccent),
                             )
                           ],
                         ),
@@ -171,9 +155,7 @@ class _CartViewState extends State<CartView> {
                     },
                     child: Text(
                       Strings.LOGIN,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: ScreenUtil.getInstance().setSp(30.0)),
+                      style: TextStyle(color: Colors.white, fontSize: ScreenUtil.getInstance().setSp(30.0)),
                     ),
                   ),
                 ),
@@ -201,35 +183,26 @@ class _CartViewState extends State<CartView> {
                   onChanged: (bool) {
                     _checkCart(index, bool);
                   }),
-              CachedImageView(
-                  ScreenUtil.getInstance().setWidth(140.0),
-                  ScreenUtil.getInstance().setWidth(140.0),
-                  _cartList[index].picUrl),
+              CachedImageView(ScreenUtil.getInstance().setWidth(140.0), ScreenUtil.getInstance().setWidth(140.0), _cartList[index].picUrl),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text( //这里应该有一个最大宽度,不然把右边的CartNumberView挤不见了
-                    _cartList[index].goodsName.length>16?_cartList[index].goodsName.substring(0,17):_cartList[index].goodsName,
-                    style: TextStyle(
-                        fontSize: ScreenUtil.getInstance().setSp(24.0),
-                        color: Colors.black54),
+                  Text(
+                    //这里应该有一个最大宽度,不然把右边的CartNumberView挤不见了
+                    _cartList[index].goodsName.length > 16 ? _cartList[index].goodsName.substring(0, 17) : _cartList[index].goodsName,
+                    style: TextStyle(fontSize: ScreenUtil.getInstance().setSp(24.0), color: Colors.black54),
                   ),
-                  Padding(
-                      padding: EdgeInsets.only(
-                          top: ScreenUtil.getInstance().setHeight(10.0))),
+                  Padding(padding: EdgeInsets.only(top: ScreenUtil.getInstance().setHeight(10.0))),
                   Text(
                     "¥${_cartList[index].price}",
-                    style: TextStyle(
-                        fontSize: ScreenUtil.getInstance().setSp(24.0),
-                        color: Colors.grey),
+                    style: TextStyle(fontSize: ScreenUtil.getInstance().setSp(24.0), color: Colors.grey),
                   )
                 ],
               ),
               Expanded(
                   child: Container(
-                padding: EdgeInsets.only(
-                    right: ScreenUtil.getInstance().setWidth(20.0)),
+                padding: EdgeInsets.only(right: ScreenUtil.getInstance().setWidth(20.0)),
                 alignment: Alignment.centerRight,
                 child: CartNumberView(_cartList[index].number, (value) {
                   _updateCart(index, value);

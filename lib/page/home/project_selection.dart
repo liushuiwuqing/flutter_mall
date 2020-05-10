@@ -29,59 +29,44 @@ class _ProjectSelectionViewState extends State<ProjectSelectionView> {
   }
 
   Widget _itemView(TopicList projectSelections) {
-    return SizedBox( //这里我用SizedBox代替Container
+    return SizedBox(
+      //这里我用SizedBox代替Container
       width: ScreenUtil.instance.setWidth(600.0),
-      child: Card( //Card内容不能滚动
-        child: InkWell( // card只能有一个widget，但这个widget内容可以包含其他的widget
+      child: Card(
+        //Card内容不能滚动
+        child: InkWell(
+          // card只能有一个widget，但这个widget内容可以包含其他的widget
           onTap: () => _goDetail(projectSelections.id),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
-                child: CachedImageView(
-                    ScreenUtil.instance.setWidth(600.0),
-                    ScreenUtil.instance.setHeight(260.0),
-                    projectSelections.picUrl),
+                child: CachedImageView(ScreenUtil.instance.setWidth(600.0), ScreenUtil.instance.setHeight(260.0), projectSelections.picUrl),
               ),
-              Padding(
-                  padding: EdgeInsets.only(
-                      top: ScreenUtil.instance.setHeight(10.0))),
+              Padding(padding: EdgeInsets.only(top: ScreenUtil.instance.setHeight(10.0))),
               Container(
-                  padding:
-                      EdgeInsets.only(left: ScreenUtil.instance.setWidth(10.0)),
+                  padding: EdgeInsets.only(left: ScreenUtil.instance.setWidth(10.0)),
                   child: Text(
                     projectSelections.title,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                        color: Colors.black54,
-                        fontSize: ScreenUtil.instance.setSp(26.0)),
+                    style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
                   )),
-              Padding(
-                  padding:
-                      EdgeInsets.only(top: ScreenUtil.instance.setHeight(6.0))),
+              Padding(padding: EdgeInsets.only(top: ScreenUtil.instance.setHeight(6.0))),
               Container(
-                  padding:
-                      EdgeInsets.only(left: ScreenUtil.instance.setWidth(10.0)),
+                  padding: EdgeInsets.only(left: ScreenUtil.instance.setWidth(10.0)),
                   child: Text(
                     projectSelections.subtitle,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                        color: Colors.black54,
-                        fontSize: ScreenUtil.instance.setSp(26.0)),
+                    style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
                   )),
-              Padding(
-                  padding:
-                      EdgeInsets.only(top: ScreenUtil.instance.setHeight(6.0))),
+              Padding(padding: EdgeInsets.only(top: ScreenUtil.instance.setHeight(6.0))),
               Container(
-                  padding:
-                      EdgeInsets.only(left: ScreenUtil.instance.setWidth(10.0)),
+                  padding: EdgeInsets.only(left: ScreenUtil.instance.setWidth(10.0)),
                   child: Text(
                     Strings.DOLLAR + "${projectSelections.price}",
-                    style: TextStyle(
-                        color: Colors.deepOrangeAccent,
-                        fontSize: ScreenUtil.instance.setSp(26.0)),
+                    style: TextStyle(color: Colors.deepOrangeAccent, fontSize: ScreenUtil.instance.setSp(26.0)),
                   )),
             ],
           ),

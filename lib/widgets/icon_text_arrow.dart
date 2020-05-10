@@ -20,7 +20,7 @@ class IconTextArrowView extends StatelessWidget {
         height: ScreenUtil.getInstance().setHeight(100.0),
         width: double.infinity,
         child: InkWell(
-          onTap:callback,
+          onTap: callback,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
@@ -33,20 +33,17 @@ class IconTextArrowView extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(
-                    left: ScreenUtil.getInstance().setWidth(20.0)),
+                padding: EdgeInsets.only(left: ScreenUtil.getInstance().setWidth(20.0)),
               ),
               Text(
                 title,
-                style: TextStyle(
-                    fontSize: ScreenUtil.getInstance().setSp(26.0),
-                    color: Colors.black54),
+                style: TextStyle(fontSize: ScreenUtil.getInstance().setSp(26.0), color: Colors.black54),
               ),
-              Expanded( //如果没有Expanded,那么child将不能居右,作用:在Expanded的子控件,会自动缩放,使得整个父控件被填充
+              Expanded(
+                //如果没有Expanded,那么child将不能居右,作用:在Expanded的子控件,会自动缩放,使得整个父控件被填充
                 child: Container(
                   alignment: Alignment.centerRight,
-                  margin: EdgeInsets.only(
-                      right: ScreenUtil.getInstance().setWidth(30.0)),
+                  margin: EdgeInsets.only(right: ScreenUtil.getInstance().setWidth(30.0)),
                   child: Icon(
                     Icons.arrow_forward_ios,
                     color: Colors.grey,

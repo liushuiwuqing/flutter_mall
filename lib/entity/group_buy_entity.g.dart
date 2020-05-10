@@ -7,20 +7,11 @@ part of 'group_buy_entity.dart';
 // **************************************************************************
 
 GroupBuyEntity _$GroupBuyEntityFromJson(Map<String, dynamic> json) {
-  return GroupBuyEntity(
-      json['id'] as int,
-      json['name'] as String,
-      json['brief'] as String,
-      json['picUrl'] as String,
-      (json['counterPrice'] as num)?.toDouble(),
-      (json['retailPrice'] as num)?.toDouble(),
-      (json['grouponPrice'] as num)?.toDouble(),
-      json['grouponDiscount'] as int,
-      json['grouponMember'] as int);
+  return GroupBuyEntity(json['id'] as int, json['name'] as String, json['brief'] as String, json['picUrl'] as String, (json['counterPrice'] as num)?.toDouble(),
+      (json['retailPrice'] as num)?.toDouble(), (json['grouponPrice'] as num)?.toDouble(), json['grouponDiscount'] as int, json['grouponMember'] as int);
 }
 
-Map<String, dynamic> _$GroupBuyEntityToJson(GroupBuyEntity instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$GroupBuyEntityToJson(GroupBuyEntity instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'brief': instance.brief,

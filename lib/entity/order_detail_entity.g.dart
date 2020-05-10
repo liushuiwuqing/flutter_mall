@@ -7,21 +7,11 @@ part of 'order_detail_entity.dart';
 // **************************************************************************
 
 OrderDetailEntity _$OrderDetailEntityFromJson(Map<String, dynamic> json) {
-  return OrderDetailEntity(
-      json['orderInfo'] == null
-          ? null
-          : OrderInfo.fromJson(json['orderInfo'] as Map<String, dynamic>),
-      (json['orderGoods'] as List)
-          ?.map((e) =>
-              e == null ? null : OrderGoods.fromJson(e as Map<String, dynamic>))
-          ?.toList());
+  return OrderDetailEntity(json['orderInfo'] == null ? null : OrderInfo.fromJson(json['orderInfo'] as Map<String, dynamic>),
+      (json['orderGoods'] as List)?.map((e) => e == null ? null : OrderGoods.fromJson(e as Map<String, dynamic>))?.toList());
 }
 
-Map<String, dynamic> _$OrderDetailEntityToJson(OrderDetailEntity instance) =>
-    <String, dynamic>{
-      'orderInfo': instance.orderInfo,
-      'orderGoods': instance.orderGoods
-    };
+Map<String, dynamic> _$OrderDetailEntityToJson(OrderDetailEntity instance) => <String, dynamic>{'orderInfo': instance.orderInfo, 'orderGoods': instance.orderGoods};
 
 OrderInfo _$OrderInfoFromJson(Map<String, dynamic> json) {
   return OrderInfo(
@@ -36,10 +26,7 @@ OrderInfo _$OrderInfoFromJson(Map<String, dynamic> json) {
       (json['couponPrice'] as num)?.toDouble(),
       json['id'] as int,
       (json['freightPrice'] as num)?.toDouble(),
-      json['handleOption'] == null
-          ? null
-          : HandleOption.fromJson(
-              json['handleOption'] as Map<String, dynamic>));
+      json['handleOption'] == null ? null : HandleOption.fromJson(json['handleOption'] as Map<String, dynamic>));
 }
 
 Map<String, dynamic> _$OrderInfoToJson(OrderInfo instance) => <String, dynamic>{
@@ -58,18 +45,10 @@ Map<String, dynamic> _$OrderInfoToJson(OrderInfo instance) => <String, dynamic>{
     };
 
 HandleOption _$HandleOptionFromJson(Map<String, dynamic> json) {
-  return HandleOption(
-      json['cancel'] as bool,
-      json['delete'] as bool,
-      json['pay'] as bool,
-      json['comment'] as bool,
-      json['confirm'] as bool,
-      json['refund'] as bool,
-      json['rebuy'] as bool);
+  return HandleOption(json['cancel'] as bool, json['delete'] as bool, json['pay'] as bool, json['comment'] as bool, json['confirm'] as bool, json['refund'] as bool, json['rebuy'] as bool);
 }
 
-Map<String, dynamic> _$HandleOptionToJson(HandleOption instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$HandleOptionToJson(HandleOption instance) => <String, dynamic>{
       'cancel': instance.cancel,
       'delete': instance.delete,
       'pay': instance.pay,
@@ -97,8 +76,7 @@ OrderGoods _$OrderGoodsFromJson(Map<String, dynamic> json) {
       json['deleted'] as bool);
 }
 
-Map<String, dynamic> _$OrderGoodsToJson(OrderGoods instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$OrderGoodsToJson(OrderGoods instance) => <String, dynamic>{
       'id': instance.id,
       'orderId': instance.orderId,
       'goodsId': instance.goodsId,

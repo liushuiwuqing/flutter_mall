@@ -24,8 +24,7 @@ class HomeService {
       if (response['errno'] == 0) {
         responseList = response['data'];
         print(responseList);
-        BannerListEntity bannerListEntity =
-            BannerListEntity.fromJson(responseList);
+        BannerListEntity bannerListEntity = BannerListEntity.fromJson(responseList);
         onSuccessList(bannerListEntity.bannerEntitys);
       } else {
         onFail(response['errmsg']);
@@ -42,8 +41,7 @@ class HomeService {
       var response = await HttpUtil.instance.get(Api.CATEGORY_URL);
       if (response['errno'] == 0) {
         responseList = response['data'];
-        CategoryListEntity categoryListEntity =
-            CategoryListEntity.fromJson(responseList);
+        CategoryListEntity categoryListEntity = CategoryListEntity.fromJson(responseList);
         onSuccessList(categoryListEntity.categoryEntityList);
       } else {
         onFail(response['errmsg']);
@@ -60,8 +58,7 @@ class HomeService {
       var response = await HttpUtil.instance.get(Api.COUPON_URL);
       if (response['errno'] == 0) {
         responseList = response['data'];
-        CouponListEntity couponListEntity =
-            CouponListEntity.fromJson(responseList);
+        CouponListEntity couponListEntity = CouponListEntity.fromJson(responseList);
         onSuccessList(couponListEntity.couponEntityList);
       } else {
         onFail(response['errmsg']);
@@ -78,8 +75,7 @@ class HomeService {
       var response = await HttpUtil.instance.get(Api.GROUP_BY_URL);
       if (response['errno'] == 0) {
         responseList = response['data'];
-        GroupBuyListEntity groupBugListEntity =
-            GroupBuyListEntity.fromJson(responseList);
+        GroupBuyListEntity groupBugListEntity = GroupBuyListEntity.fromJson(responseList);
         onSuccessList(groupBugListEntity.groupBuyEntitys);
       } else {
         onFail(response['errmsg']);
@@ -96,8 +92,7 @@ class HomeService {
       var response = await HttpUtil.instance.get(Api.HOME_PRODUCT_URL);
       if (response['errno'] == 0) {
         responseList = response['data'];
-        ProductListEntity productListEntity =
-            ProductListEntity.fromJson(responseList);
+        ProductListEntity productListEntity = ProductListEntity.fromJson(responseList);
         onSuccessList(productListEntity.productEntitys);
       } else {
         onFail(response['errmsg']);
@@ -114,8 +109,7 @@ class HomeService {
       var response = await HttpUtil.instance.get(Api.HOME_HOT_PRODUCT_URL);
       if (response['errno'] == 0) {
         responseList = response['data'];
-        ProductListEntity productListEntity =
-            ProductListEntity.fromJson(responseList);
+        ProductListEntity productListEntity = ProductListEntity.fromJson(responseList);
         onSuccessList(productListEntity.productEntitys);
       } else {
         onFail(response['errmsg']);
@@ -141,14 +135,11 @@ class HomeService {
     }
   }
 
-  Future queryBrandDetail(Map<String, dynamic> parameters, OnSuccess onSuccess,
-      OnFail onFail) async {
+  Future queryBrandDetail(Map<String, dynamic> parameters, OnSuccess onSuccess, OnFail onFail) async {
     try {
-      var response =
-          await HttpUtil.instance.get(Api.BRAND_DETAIL, parameters: parameters);
+      var response = await HttpUtil.instance.get(Api.BRAND_DETAIL, parameters: parameters);
       if (response['errno'] == 0) {
-        BrandDetailEntity brandDetailEntity =
-            BrandDetailEntity.fromJson(response['data']);
+        BrandDetailEntity brandDetailEntity = BrandDetailEntity.fromJson(response['data']);
         onSuccess(brandDetailEntity);
       } else {
         onFail(response['errmsg']);
@@ -159,11 +150,9 @@ class HomeService {
     }
   }
 
-  Future receiveCoupon(Map<String, dynamic> parameters, OnSuccess onSuccess,
-      OnFail onFail) async {
+  Future receiveCoupon(Map<String, dynamic> parameters, OnSuccess onSuccess, OnFail onFail) async {
     try {
-      var response =
-          await HttpUtil.instance.post(Api.RECEIVE_COUPON, parameters: parameters);
+      var response = await HttpUtil.instance.post(Api.RECEIVE_COUPON, parameters: parameters);
       if (response['errno'] == 0) {
         onSuccess(Strings.SUCCESS);
       } else {

@@ -16,22 +16,14 @@ FillInOrderEntity _$FillInOrderEntityFromJson(Map<String, dynamic> json) {
       (json['goodsTotalPrice'] as num)?.toDouble(),
       json['addressId'] as int,
       (json['grouponPrice'] as num)?.toDouble(),
-      json['checkedAddress'] == null
-          ? null
-          : CheckedAddress.fromJson(
-              json['checkedAddress'] as Map<String, dynamic>),
+      json['checkedAddress'] == null ? null : CheckedAddress.fromJson(json['checkedAddress'] as Map<String, dynamic>),
       (json['couponPrice'] as num)?.toDouble(),
       json['availableCouponLength'] as int,
       (json['freightPrice'] as num)?.toDouble(),
-      (json['checkedGoodsList'] as List)
-          ?.map((e) => e == null
-              ? null
-              : CheckedGoodsList.fromJson(e as Map<String, dynamic>))
-          ?.toList());
+      (json['checkedGoodsList'] as List)?.map((e) => e == null ? null : CheckedGoodsList.fromJson(e as Map<String, dynamic>))?.toList());
 }
 
-Map<String, dynamic> _$FillInOrderEntityToJson(FillInOrderEntity instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$FillInOrderEntityToJson(FillInOrderEntity instance) => <String, dynamic>{
       'grouponRulesId': instance.grouponRulesId,
       'actualPrice': instance.actualPrice,
       'orderTotalPrice': instance.orderTotalPrice,
@@ -48,24 +40,11 @@ Map<String, dynamic> _$FillInOrderEntityToJson(FillInOrderEntity instance) =>
     };
 
 CheckedAddress _$CheckedAddressFromJson(Map<String, dynamic> json) {
-  return CheckedAddress(
-      json['id'] as int,
-      json['name'] as String,
-      json['userId'] as int,
-      json['province'] as String,
-      json['city'] as String,
-      json['county'] as String,
-      json['addressDetail'] as String,
-      json['areaCode'] as String,
-      json['tel'] as String,
-      json['isDefault'] as bool,
-      json['addTime'] as String,
-      json['updateTime'] as String,
-      json['deleted'] as bool);
+  return CheckedAddress(json['id'] as int, json['name'] as String, json['userId'] as int, json['province'] as String, json['city'] as String, json['county'] as String, json['addressDetail'] as String,
+      json['areaCode'] as String, json['tel'] as String, json['isDefault'] as bool, json['addTime'] as String, json['updateTime'] as String, json['deleted'] as bool);
 }
 
-Map<String, dynamic> _$CheckedAddressToJson(CheckedAddress instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$CheckedAddressToJson(CheckedAddress instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'userId': instance.userId,
@@ -99,8 +78,7 @@ CheckedGoodsList _$CheckedGoodsListFromJson(Map<String, dynamic> json) {
       json['deleted'] as bool);
 }
 
-Map<String, dynamic> _$CheckedGoodsListToJson(CheckedGoodsList instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$CheckedGoodsListToJson(CheckedGoodsList instance) => <String, dynamic>{
       'id': instance.id,
       'userId': instance.userId,
       'goodsId': instance.goodsId,

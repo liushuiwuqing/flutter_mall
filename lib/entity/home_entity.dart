@@ -2,10 +2,8 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'home_entity.g.dart';
 
-
 @JsonSerializable()
 class HomeEntity extends Object {
-
   @JsonKey(name: 'newGoodsList')
   List<Goods> newGoodsList;
 
@@ -33,18 +31,25 @@ class HomeEntity extends Object {
   @JsonKey(name: 'floorGoodsList')
   List<FloorGoodsList> floorGoodsList;
 
-  HomeEntity(this.newGoodsList,this.couponList,this.channel,this.grouponList,this.banner,this.brandList,this.hotGoodsList,this.topicList,this.floorGoodsList,);
+  HomeEntity(
+    this.newGoodsList,
+    this.couponList,
+    this.channel,
+    this.grouponList,
+    this.banner,
+    this.brandList,
+    this.hotGoodsList,
+    this.topicList,
+    this.floorGoodsList,
+  );
 
   factory HomeEntity.fromJson(Map<String, dynamic> srcJson) => _$HomeEntityFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$HomeEntityToJson(this);
-
 }
-
 
 @JsonSerializable()
 class Goods extends Object {
-
   @JsonKey(name: 'id')
   int id;
 
@@ -69,18 +74,24 @@ class Goods extends Object {
   @JsonKey(name: 'retailPrice')
   double retailPrice;
 
-  Goods(this.id,this.name,this.brief,this.picUrl,this.isNew,this.isHot,this.counterPrice,this.retailPrice,);
+  Goods(
+    this.id,
+    this.name,
+    this.brief,
+    this.picUrl,
+    this.isNew,
+    this.isHot,
+    this.counterPrice,
+    this.retailPrice,
+  );
 
   factory Goods.fromJson(Map<String, dynamic> srcJson) => _$GoodsFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$GoodsToJson(this);
-
 }
-
 
 @JsonSerializable()
 class CouponList extends Object {
-
   @JsonKey(name: 'id')
   int id;
 
@@ -102,18 +113,23 @@ class CouponList extends Object {
   @JsonKey(name: 'days')
   int days;
 
-  CouponList(this.id,this.name,this.desc,this.tag,this.discount,this.min,this.days,);
+  CouponList(
+    this.id,
+    this.name,
+    this.desc,
+    this.tag,
+    this.discount,
+    this.min,
+    this.days,
+  );
 
   factory CouponList.fromJson(Map<String, dynamic> srcJson) => _$CouponListFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$CouponListToJson(this);
-
 }
-
 
 @JsonSerializable()
 class Channel extends Object {
-
   @JsonKey(name: 'id')
   int id;
 
@@ -123,18 +139,19 @@ class Channel extends Object {
   @JsonKey(name: 'iconUrl')
   String iconUrl;
 
-  Channel(this.id,this.name,this.iconUrl,);
+  Channel(
+    this.id,
+    this.name,
+    this.iconUrl,
+  );
 
   factory Channel.fromJson(Map<String, dynamic> srcJson) => _$ChannelFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$ChannelToJson(this);
-
 }
-
 
 @JsonSerializable()
 class GrouponList extends Object {
-
   @JsonKey(name: 'id')
   int id;
 
@@ -162,18 +179,25 @@ class GrouponList extends Object {
   @JsonKey(name: 'grouponMember')
   int grouponMember;
 
-  GrouponList(this.id,this.name,this.brief,this.picUrl,this.counterPrice,this.retailPrice,this.grouponPrice,this.grouponDiscount,this.grouponMember,);
+  GrouponList(
+    this.id,
+    this.name,
+    this.brief,
+    this.picUrl,
+    this.counterPrice,
+    this.retailPrice,
+    this.grouponPrice,
+    this.grouponDiscount,
+    this.grouponMember,
+  );
 
   factory GrouponList.fromJson(Map<String, dynamic> srcJson) => _$GrouponListFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$GrouponListToJson(this);
-
 }
-
 
 @JsonSerializable()
 class MallBanner extends Object {
-
   @JsonKey(name: 'id')
   int id;
 
@@ -204,18 +228,26 @@ class MallBanner extends Object {
   @JsonKey(name: 'deleted')
   bool deleted;
 
-  MallBanner(this.id,this.name,this.link,this.url,this.position,this.content,this.enabled,this.addTime,this.updateTime,this.deleted,);
+  MallBanner(
+    this.id,
+    this.name,
+    this.link,
+    this.url,
+    this.position,
+    this.content,
+    this.enabled,
+    this.addTime,
+    this.updateTime,
+    this.deleted,
+  );
 
   factory MallBanner.fromJson(Map<String, dynamic> srcJson) => _$MallBannerFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$MallBannerToJson(this);
-
 }
-
 
 @JsonSerializable()
 class BrandList extends Object {
-
   @JsonKey(name: 'id')
   int id;
 
@@ -231,18 +263,21 @@ class BrandList extends Object {
   @JsonKey(name: 'floorPrice')
   double floorPrice;
 
-  BrandList(this.id,this.name,this.desc,this.picUrl,this.floorPrice,);
+  BrandList(
+    this.id,
+    this.name,
+    this.desc,
+    this.picUrl,
+    this.floorPrice,
+  );
 
   factory BrandList.fromJson(Map<String, dynamic> srcJson) => _$BrandListFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$BrandListToJson(this);
-
 }
-
 
 @JsonSerializable()
 class HotGoodsList extends Object {
-
   @JsonKey(name: 'id')
   int id;
 
@@ -267,18 +302,24 @@ class HotGoodsList extends Object {
   @JsonKey(name: 'retailPrice')
   double retailPrice;
 
-  HotGoodsList(this.id,this.name,this.brief,this.picUrl,this.isNew,this.isHot,this.counterPrice,this.retailPrice,);
+  HotGoodsList(
+    this.id,
+    this.name,
+    this.brief,
+    this.picUrl,
+    this.isNew,
+    this.isHot,
+    this.counterPrice,
+    this.retailPrice,
+  );
 
   factory HotGoodsList.fromJson(Map<String, dynamic> srcJson) => _$HotGoodsListFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$HotGoodsListToJson(this);
-
 }
-
 
 @JsonSerializable()
 class TopicList extends Object {
-
   @JsonKey(name: 'id')
   int id;
 
@@ -297,18 +338,22 @@ class TopicList extends Object {
   @JsonKey(name: 'picUrl')
   String picUrl;
 
-  TopicList(this.id,this.title,this.subtitle,this.price,this.readCount,this.picUrl,);
+  TopicList(
+    this.id,
+    this.title,
+    this.subtitle,
+    this.price,
+    this.readCount,
+    this.picUrl,
+  );
 
   factory TopicList.fromJson(Map<String, dynamic> srcJson) => _$TopicListFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$TopicListToJson(this);
-
 }
-
 
 @JsonSerializable()
 class FloorGoodsList extends Object {
-
   @JsonKey(name: 'name')
   String name;
 
@@ -318,16 +363,13 @@ class FloorGoodsList extends Object {
   @JsonKey(name: 'id')
   int id;
 
-  FloorGoodsList(this.name,this.goodsList,this.id,);
+  FloorGoodsList(
+    this.name,
+    this.goodsList,
+    this.id,
+  );
 
   factory FloorGoodsList.fromJson(Map<String, dynamic> srcJson) => _$FloorGoodsListFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$FloorGoodsListToJson(this);
-
 }
-
-
-
-
-
-

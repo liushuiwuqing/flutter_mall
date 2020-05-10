@@ -15,8 +15,7 @@ class CartListEntity extends Object {
     this.cartList,
   );
 
-  factory CartListEntity.fromJson(Map<String, dynamic> srcJson) =>
-      _$CartListEntityFromJson(srcJson);
+  factory CartListEntity.fromJson(Map<String, dynamic> srcJson) => _$CartListEntityFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$CartListEntityToJson(this);
 }
@@ -42,8 +41,7 @@ class CartTotal extends Object {
     this.checkedGoodsAmount,
   );
 
-  factory CartTotal.fromJson(Map<String, dynamic> srcJson) =>
-      _$CartTotalFromJson(srcJson);
+  factory CartTotal.fromJson(Map<String, dynamic> srcJson) => _$CartTotalFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$CartTotalToJson(this);
 }
@@ -54,7 +52,7 @@ class CartList extends Object {
   int id;
 
   @JsonKey(name: 'isCheck')
-  bool isCheck ;
+  bool isCheck;
 
   @JsonKey(name: 'userId')
   int userId;
@@ -113,8 +111,7 @@ class CartList extends Object {
     this.deleted,
   );
 
-  factory CartList.fromJson(Map<String, dynamic> srcJson) =>
-      _$CartListFromJson(srcJson);
+  factory CartList.fromJson(Map<String, dynamic> srcJson) => _$CartListFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$CartListToJson(this);
 }

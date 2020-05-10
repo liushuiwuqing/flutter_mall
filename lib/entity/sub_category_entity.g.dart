@@ -7,23 +7,11 @@ part of 'sub_category_entity.dart';
 // **************************************************************************
 
 SubCategoryEntity _$SubCategoryEntityFromJson(Map<String, dynamic> json) {
-  return SubCategoryEntity(
-      json['id'] as int,
-      json['name'] as String,
-      json['keywords'] as String,
-      json['desc'] as String,
-      json['pid'] as int,
-      json['iconUrl'] as String,
-      json['picUrl'] as String,
-      json['level'] as String,
-      json['sortOrder'] as int,
-      json['addTime'] as String,
-      json['updateTime'] as String,
-      json['deleted'] as bool);
+  return SubCategoryEntity(json['id'] as int, json['name'] as String, json['keywords'] as String, json['desc'] as String, json['pid'] as int, json['iconUrl'] as String, json['picUrl'] as String,
+      json['level'] as String, json['sortOrder'] as int, json['addTime'] as String, json['updateTime'] as String, json['deleted'] as bool);
 }
 
-Map<String, dynamic> _$SubCategoryEntityToJson(SubCategoryEntity instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$SubCategoryEntityToJson(SubCategoryEntity instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'keywords': instance.keywords,

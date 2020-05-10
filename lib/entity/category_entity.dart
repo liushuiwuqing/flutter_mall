@@ -9,8 +9,7 @@ class CategoryListEntity {
 
   factory CategoryListEntity.fromJson(List<dynamic> parseJson) {
     List<CategoryEntity> categoryEntityList;
-    categoryEntityList =
-        parseJson.map((i) => CategoryEntity.fromJson(i)).toList();
+    categoryEntityList = parseJson.map((i) => CategoryEntity.fromJson(i)).toList();
     return CategoryListEntity(categoryEntityList);
   }
 }
@@ -32,8 +31,7 @@ class CategoryEntity extends Object {
     this.iconUrl,
   );
 
-  factory CategoryEntity.fromJson(Map<String, dynamic> srcJson) =>
-      _$CategoryEntityFromJson(srcJson);
+  factory CategoryEntity.fromJson(Map<String, dynamic> srcJson) => _$CategoryEntityFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$CategoryEntityToJson(this);
 }

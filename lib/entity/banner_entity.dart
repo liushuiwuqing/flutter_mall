@@ -59,8 +59,7 @@ class BannerEntity extends Object {
     this.deleted,
   );
 
-  factory BannerEntity.fromJson(Map<String, dynamic> srcJson) =>
-      _$BannerEntityFromJson(srcJson);
+  factory BannerEntity.fromJson(Map<String, dynamic> srcJson) => _$BannerEntityFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$BannerEntityToJson(this);
 }

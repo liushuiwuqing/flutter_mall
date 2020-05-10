@@ -6,8 +6,7 @@ class FutureBuilderWidget extends StatefulWidget {
   Widget errorWidget;
   Widget resultWidget;
 
-  FutureBuilderWidget(
-      this.future, this.loadingWidget, this.errorWidget, this.resultWidget);
+  FutureBuilderWidget(this.future, this.loadingWidget, this.errorWidget, this.resultWidget);
 
   @override
   _FutureBuilderWidgetState createState() => _FutureBuilderWidgetState();
@@ -27,7 +26,7 @@ class _FutureBuilderWidgetState extends State<FutureBuilderWidget> {
           case ConnectionState.done:
             if (asyncSnapshot.hasError) {
               return widget.errorWidget;
-            }else {
+            } else {
               return widget.resultWidget;
             }
         }

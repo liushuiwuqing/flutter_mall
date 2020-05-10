@@ -19,7 +19,7 @@ class NetWorkErrorView extends StatelessWidget {
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center, //控制上中下?
-            crossAxisAlignment: CrossAxisAlignment.center,//默认的,因此这里没发现作用?
+            crossAxisAlignment: CrossAxisAlignment.center, //默认的,因此这里没发现作用?
             children: <Widget>[
               Image.asset(
                 "images/network_error.png",
@@ -27,14 +27,11 @@ class NetWorkErrorView extends StatelessWidget {
                 width: ScreenUtil.instance.setWidth(120.0),
               ),
               Padding(
-                padding:
-                    EdgeInsets.only(top: ScreenUtil.instance.setHeight(20.0)),
+                padding: EdgeInsets.only(top: ScreenUtil.instance.setHeight(20.0)),
               ),
               Text(
                 Strings.NO_DATA_TEXT,
-                style: TextStyle(
-                    fontSize: ScreenUtil.instance.setSp(28.0),
-                    color: Colors.deepOrangeAccent),
+                style: TextStyle(fontSize: ScreenUtil.instance.setSp(28.0), color: Colors.deepOrangeAccent),
               )
             ],
           ),

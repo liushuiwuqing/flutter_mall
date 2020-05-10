@@ -21,8 +21,7 @@ class _GoodsListState extends State<GoodsList> {
   var categoryId;
 
   _getGoodsData(int categoryId) {
-    goodsService.getCategoryGoodsListData(
-        {"categoryId": categoryId, "page": 1, "limit": 100}, (goodsEntityList) {
+    goodsService.getCategoryGoodsListData({"categoryId": categoryId, "page": 1, "limit": 100}, (goodsEntityList) {
       setState(() {
         goodsEntitys = goodsEntityList;
       });
@@ -53,11 +52,7 @@ class _GoodsListState extends State<GoodsList> {
         child: goodsEntitys != null && goodsEntitys.length != 0
             ? GridView.builder(
                 itemCount: goodsEntitys == null ? 0 : goodsEntitys.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 6.0,
-                    crossAxisSpacing: 6.0,
-                    childAspectRatio: 1.0),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 6.0, crossAxisSpacing: 6.0, childAspectRatio: 1.0),
                 itemBuilder: (BuildContext context, int index) {
                   return getGoodsItemView(goodsEntitys[index]);
                 })
@@ -75,8 +70,7 @@ class _GoodsListState extends State<GoodsList> {
                     ),
                     Text(
                       Strings.NO_DATA_TEXT,
-                      style: TextStyle(
-                          fontSize: 16.0, color: Colors.deepOrangeAccent),
+                      style: TextStyle(fontSize: 16.0, color: Colors.deepOrangeAccent),
                     )
                   ],
                 ),
@@ -116,8 +110,7 @@ class _GoodsListState extends State<GoodsList> {
                     "¥${goodsEntity.retailPrice}",
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                        fontSize: 14.0, color: Colors.deepOrangeAccent),
+                    style: TextStyle(fontSize: 14.0, color: Colors.deepOrangeAccent),
                   ),
                 ],
               ),

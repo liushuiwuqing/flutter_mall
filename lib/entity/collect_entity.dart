@@ -2,10 +2,8 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'collect_entity.g.dart';
 
-
 @JsonSerializable()
 class CollectEntity extends Object {
-
   @JsonKey(name: 'total')
   int total;
 
@@ -21,18 +19,21 @@ class CollectEntity extends Object {
   @JsonKey(name: 'list')
   List<ListData> list;
 
-  CollectEntity(this.total,this.pages,this.limit,this.page,this.list,);
+  CollectEntity(
+    this.total,
+    this.pages,
+    this.limit,
+    this.page,
+    this.list,
+  );
 
   factory CollectEntity.fromJson(Map<String, dynamic> srcJson) => _$CollectEntityFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$CollectEntityToJson(this);
-
 }
-
 
 @JsonSerializable()
 class ListData extends Object {
-
   @JsonKey(name: 'brief')
   String brief;
 
@@ -54,12 +55,17 @@ class ListData extends Object {
   @JsonKey(name: 'retailPrice')
   double retailPrice;
 
-  ListData(this.brief,this.picUrl,this.valueId,this.name,this.id,this.type,this.retailPrice,);
+  ListData(
+    this.brief,
+    this.picUrl,
+    this.valueId,
+    this.name,
+    this.id,
+    this.type,
+    this.retailPrice,
+  );
 
   factory ListData.fromJson(Map<String, dynamic> srcJson) => _$ListDataFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$ListDataToJson(this);
-
 }
-
-

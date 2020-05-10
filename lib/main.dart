@@ -26,7 +26,6 @@ class MallApp extends StatelessWidget {
       onGenerateRoute: Application.router.generator,
       theme: ThemeData(
         primaryColor: Colors.deepOrangeAccent,
-
       ),
     );
   }

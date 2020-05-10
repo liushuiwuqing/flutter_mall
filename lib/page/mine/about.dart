@@ -19,18 +19,13 @@ class AboutUsView extends StatelessWidget {
           children: <Widget>[
             Text(
               Strings.MINE_ABOUT_US_CONTENT,
-              style: TextStyle(
-                  color: Colors.black54,
-                  fontSize: ScreenUtil.instance.setSp(26.0)),
+              style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
             ),
-            Padding(
-                padding: EdgeInsets.all(ScreenUtil.instance.setHeight(10.0))),
+            Padding(padding: EdgeInsets.all(ScreenUtil.instance.setHeight(10.0))),
             DividerLineView(),
-            ItemTextView(
-                Strings.MINE_ABOUT_AUTHOR_TITLE, Strings.MINE_ABOUT_AUTHOR,callback:aaa),
+            ItemTextView(Strings.MINE_ABOUT_AUTHOR_TITLE, Strings.MINE_ABOUT_AUTHOR, callback: aaa),
             DividerLineView(),
-            ItemTextView(
-                Strings.MINE_ABOUT_EMAIL_TITLE, Strings.MINE_ABOUT_EMAIL),
+            ItemTextView(Strings.MINE_ABOUT_EMAIL_TITLE, Strings.MINE_ABOUT_EMAIL),
             DividerLineView(),
             ItemTextView(Strings.MINE_ABOUT_QQ_TITLE, Strings.MINE_ABOUT_QQ),
             DividerLineView(),

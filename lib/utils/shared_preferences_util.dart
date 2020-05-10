@@ -6,8 +6,7 @@ class SharedPreferencesUtils {
 
   static Future getToken() async {
     if (token == null || token.isEmpty) {
-      SharedPreferences sharedPreferences =
-          await SharedPreferences.getInstance();
+      SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
       token = sharedPreferences.getString(Strings.TOKEN) ?? null;
     }
     return token;

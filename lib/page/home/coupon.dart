@@ -39,29 +39,27 @@ class CouponView extends StatelessWidget {
                   width: ScreenUtil.instance.setWidth(200.0),
                   child: Text(
                     "${couponEntity.discount}元",
-                    style: TextStyle(
-                        fontSize: ScreenUtil.instance.setSp(26.0),
-                        color: Colors.grey),
+                    style: TextStyle(fontSize: ScreenUtil.instance.setSp(26.0), color: Colors.grey),
                   ),
                 ),
-                Divider( //此组件没有看出效果?
+                Divider(
+                  //此组件没有看出效果?
                   color: Colors.grey,
                   height: ScreenUtil.instance.setHeight(200.0),
                 ),
                 Expanded(
                   child: Container(
-                    child: Column( //显示成多行
+                    child: Column(
+                      //显示成多行
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(couponEntity.name),
                         Padding(
-                          padding: EdgeInsets.only(
-                              top: ScreenUtil.instance.setWidth(10.0)),
+                          padding: EdgeInsets.only(top: ScreenUtil.instance.setWidth(10.0)),
                         ),
                         Text("满${couponEntity.min}使用"),
                         Padding(
-                          padding: EdgeInsets.only(
-                              top: ScreenUtil.instance.setWidth(10.0)),
+                          padding: EdgeInsets.only(top: ScreenUtil.instance.setWidth(10.0)),
                         ),
                         Text("有效期${couponEntity.days}天"),
                       ],

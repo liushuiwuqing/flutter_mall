@@ -2,10 +2,8 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'address_entity.g.dart';
 
-
 @JsonSerializable()
 class AddressEntity extends Object {
-
   @JsonKey(name: 'total')
   int total;
 
@@ -21,18 +19,21 @@ class AddressEntity extends Object {
   @JsonKey(name: 'list')
   List<ListData> list;
 
-  AddressEntity(this.total,this.pages,this.limit,this.page,this.list,);
+  AddressEntity(
+    this.total,
+    this.pages,
+    this.limit,
+    this.page,
+    this.list,
+  );
 
   factory AddressEntity.fromJson(Map<String, dynamic> srcJson) => _$AddressEntityFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$AddressEntityToJson(this);
-
 }
-
 
 @JsonSerializable()
 class ListData extends Object {
-
   @JsonKey(name: 'id')
   int id;
 
@@ -72,12 +73,23 @@ class ListData extends Object {
   @JsonKey(name: 'deleted')
   bool deleted;
 
-  ListData(this.id,this.name,this.userId,this.province,this.city,this.county,this.addressDetail,this.areaCode,this.tel,this.isDefault,this.addTime,this.updateTime,this.deleted,);
+  ListData(
+    this.id,
+    this.name,
+    this.userId,
+    this.province,
+    this.city,
+    this.county,
+    this.addressDetail,
+    this.areaCode,
+    this.tel,
+    this.isDefault,
+    this.addTime,
+    this.updateTime,
+    this.deleted,
+  );
 
   factory ListData.fromJson(Map<String, dynamic> srcJson) => _$ListDataFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$ListDataToJson(this);
-
 }
-
-

@@ -7,23 +7,11 @@ part of 'first_level_category.dart';
 // **************************************************************************
 
 FirstLevelCategory _$FirstLevelCategoryFromJson(Map<String, dynamic> json) {
-  return FirstLevelCategory(
-      json['id'] as int,
-      json['name'] as String,
-      json['keywords'] as String,
-      json['desc'] as String,
-      json['pid'] as int,
-      json['iconUrl'] as String,
-      json['picUrl'] as String,
-      json['level'] as String,
-      json['sortOrder'] as int,
-      json['addTime'] as String,
-      json['updateTime'] as String,
-      json['deleted'] as bool);
+  return FirstLevelCategory(json['id'] as int, json['name'] as String, json['keywords'] as String, json['desc'] as String, json['pid'] as int, json['iconUrl'] as String, json['picUrl'] as String,
+      json['level'] as String, json['sortOrder'] as int, json['addTime'] as String, json['updateTime'] as String, json['deleted'] as bool);
 }
 
-Map<String, dynamic> _$FirstLevelCategoryToJson(FirstLevelCategory instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$FirstLevelCategoryToJson(FirstLevelCategory instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'keywords': instance.keywords,

@@ -7,19 +7,11 @@ part of 'product_entity.dart';
 // **************************************************************************
 
 ProductEntity _$ProductEntityFromJson(Map<String, dynamic> json) {
-  return ProductEntity(
-      json['id'] as int,
-      json['name'] as String,
-      json['brief'] as String,
-      json['picUrl'] as String,
-      json['isNew'] as bool,
-      json['isHot'] as bool,
-      (json['counterPrice'] as num)?.toDouble(),
-      (json['retailPrice'] as num)?.toDouble());
+  return ProductEntity(json['id'] as int, json['name'] as String, json['brief'] as String, json['picUrl'] as String, json['isNew'] as bool, json['isHot'] as bool,
+      (json['counterPrice'] as num)?.toDouble(), (json['retailPrice'] as num)?.toDouble());
 }
 
-Map<String, dynamic> _$ProductEntityToJson(ProductEntity instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ProductEntityToJson(ProductEntity instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'brief': instance.brief,

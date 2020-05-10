@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
 part 'group_buy_entity.g.dart';
+
 class GroupBuyListEntity {
   List<GroupBuyEntity> groupBuyEntitys;
 
@@ -15,7 +16,6 @@ class GroupBuyListEntity {
 
 @JsonSerializable()
 class GroupBuyEntity extends Object {
-
   @JsonKey(name: 'id')
   int id;
 
@@ -43,12 +43,19 @@ class GroupBuyEntity extends Object {
   @JsonKey(name: 'grouponMember')
   int grouponMember;
 
-  GroupBuyEntity(this.id,this.name,this.brief,this.picUrl,this.counterPrice,this.retailPrice,this.grouponPrice,this.grouponDiscount,this.grouponMember,);
+  GroupBuyEntity(
+    this.id,
+    this.name,
+    this.brief,
+    this.picUrl,
+    this.counterPrice,
+    this.retailPrice,
+    this.grouponPrice,
+    this.grouponDiscount,
+    this.grouponMember,
+  );
 
   factory GroupBuyEntity.fromJson(Map<String, dynamic> srcJson) => _$GroupBuyEntityFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$GroupBuyEntityToJson(this);
-
 }
-
-

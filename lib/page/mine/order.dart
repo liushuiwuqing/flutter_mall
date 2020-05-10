@@ -31,9 +31,8 @@ class _OrderViewState extends State<OrderView> {
   }
 
   _orderData() {
-
     var parameters = {"page": _page, "limit": _limit};
-    _mineService.queryOrder(parameters,(success) {
+    _mineService.queryOrder(parameters, (success) {
       setState(() {
         _orders = success;
       });
@@ -83,18 +82,12 @@ class _OrderViewState extends State<OrderView> {
                           size: ScreenUtil.instance.setWidth(60),
                           color: Colors.deepOrangeAccent,
                         ),
-                        Padding(
-                            padding: EdgeInsets.only(
-                                left: ScreenUtil.instance.setWidth(10.0))),
+                        Padding(padding: EdgeInsets.only(left: ScreenUtil.instance.setWidth(10.0))),
                         Text(
                           Strings.MALL,
-                          style: TextStyle(
-                              color: Colors.black54,
-                              fontSize: ScreenUtil.instance.setSp(26.0)),
+                          style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
                         ),
-                        Padding(
-                            padding: EdgeInsets.only(
-                                left: ScreenUtil.instance.setWidth(10.0))),
+                        Padding(padding: EdgeInsets.only(left: ScreenUtil.instance.setWidth(10.0))),
                         Expanded(
                             child: Container(
                                 alignment: Alignment.centerRight,
@@ -102,8 +95,7 @@ class _OrderViewState extends State<OrderView> {
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-                                    Text(Strings.MINE_ORDER_SN +
-                                        "${order.orderSn}"),
+                                    Text(Strings.MINE_ORDER_SN + "${order.orderSn}"),
                                     Icon(
                                       Icons.arrow_forward_ios,
                                       size: ScreenUtil.instance.setWidth(40),
@@ -123,14 +115,9 @@ class _OrderViewState extends State<OrderView> {
 //                  return Text("data");
                       }),
                   Container(
-                    margin: EdgeInsets.only(
-                        top: ScreenUtil.instance.setHeight(10.0)),
+                    margin: EdgeInsets.only(top: ScreenUtil.instance.setHeight(10.0)),
                     alignment: Alignment.centerRight,
-                    child: Text(Strings.MINE_ORDER_TOTAL_GOODS +
-                        "${goodNumber(order)}" +
-                        Strings.MINE_ORDER_GOODS_TOTAL +
-                        Strings.MINE_ORDER_PRICE +
-                        "${order.actualPrice}"),
+                    child: Text(Strings.MINE_ORDER_TOTAL_GOODS + "${goodNumber(order)}" + Strings.MINE_ORDER_GOODS_TOTAL + Strings.MINE_ORDER_PRICE + "${order.actualPrice}"),
                   )
                 ],
               ),
@@ -165,71 +152,48 @@ class _OrderViewState extends State<OrderView> {
             height: ScreenUtil.instance.setHeight(160.0),
           ),
           Container(
-            margin: EdgeInsets.only(
-                left: ScreenUtil.instance.setWidth(20.0),
-                top: ScreenUtil.instance.setHeight(20.0)),
+            margin: EdgeInsets.only(left: ScreenUtil.instance.setWidth(20.0), top: ScreenUtil.instance.setHeight(20.0)),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
                   good.goodsName,
-                  style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: ScreenUtil.instance.setSp(26.0)),
+                  style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
                 ),
-                Padding(
-                    padding: EdgeInsets.only(
-                        top: ScreenUtil.instance.setHeight(10.0))),
+                Padding(padding: EdgeInsets.only(top: ScreenUtil.instance.setHeight(10.0))),
                 Text(
                   good.specifications[0],
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: ScreenUtil.instance.setSp(26.0)),
+                  style: TextStyle(color: Colors.grey, fontSize: ScreenUtil.instance.setSp(26.0)),
                 ),
-                Padding(
-                    padding: EdgeInsets.only(
-                        top: ScreenUtil.instance.setHeight(10.0))),
+                Padding(padding: EdgeInsets.only(top: ScreenUtil.instance.setHeight(10.0))),
                 Wrap(
                   alignment: WrapAlignment.center,
                   children: <Widget>[
                     Container(
-                      padding:
-                          EdgeInsets.all(ScreenUtil.instance.setWidth(6.0)),
+                      padding: EdgeInsets.all(ScreenUtil.instance.setWidth(6.0)),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        border: new Border.all(
-                            color: Colors.deepOrangeAccent,
-                            width: ScreenUtil.instance.setWidth(1.0)), // 边色与边宽度
+                        border: new Border.all(color: Colors.deepOrangeAccent, width: ScreenUtil.instance.setWidth(1.0)), // 边色与边宽度
                         color: Colors.deepOrangeAccent, // 底色
-                        borderRadius: new BorderRadius.circular(
-                            ScreenUtil.instance.setWidth(20.0)), // 圆角度
+                        borderRadius: new BorderRadius.circular(ScreenUtil.instance.setWidth(20.0)), // 圆角度
                       ),
                       child: Text(
                         Strings.MINE_ORDER_TAG_ONE,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: ScreenUtil.instance.setSp(20.0)),
+                        style: TextStyle(color: Colors.white, fontSize: ScreenUtil.instance.setSp(20.0)),
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(
-                          left: ScreenUtil.instance.setWidth(10.0)),
-                      padding:
-                          EdgeInsets.all(ScreenUtil.instance.setWidth(6.0)),
+                      margin: EdgeInsets.only(left: ScreenUtil.instance.setWidth(10.0)),
+                      padding: EdgeInsets.all(ScreenUtil.instance.setWidth(6.0)),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        border: new Border.all(
-                            color: Colors.deepOrangeAccent,
-                            width: ScreenUtil.instance.setWidth(1.0)), // 边色与边宽度
+                        border: new Border.all(color: Colors.deepOrangeAccent, width: ScreenUtil.instance.setWidth(1.0)), // 边色与边宽度
                         color: Colors.deepOrangeAccent, // 底色
-                        borderRadius: new BorderRadius.circular(
-                            (ScreenUtil.instance.setWidth(20.0))), // 圆角度
+                        borderRadius: new BorderRadius.circular((ScreenUtil.instance.setWidth(20.0))), // 圆角度
                       ),
                       child: Text(
                         Strings.MINE_ORDER_TAG_TWO,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: ScreenUtil.instance.setSp(20.0)),
+                        style: TextStyle(color: Colors.white, fontSize: ScreenUtil.instance.setSp(20.0)),
                       ),
                     )
                   ],
@@ -248,18 +212,12 @@ class _OrderViewState extends State<OrderView> {
               children: <Widget>[
                 Text(
                   "¥${good.price}",
-                  style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: ScreenUtil.instance.setSp(24.0)),
+                  style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(24.0)),
                 ),
-                Padding(
-                    padding: EdgeInsets.only(
-                        top: ScreenUtil.instance.setHeight(20.0))),
+                Padding(padding: EdgeInsets.only(top: ScreenUtil.instance.setHeight(20.0))),
                 Text(
                   "X${good.number}",
-                  style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: ScreenUtil.instance.setSp(24.0)),
+                  style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(24.0)),
                 ),
               ],
             ),

@@ -2,10 +2,8 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'brand_detail_entity.g.dart';
 
-
 @JsonSerializable()
 class BrandDetailEntity extends Object {
-
   @JsonKey(name: 'id')
   int id;
 
@@ -21,12 +19,15 @@ class BrandDetailEntity extends Object {
   @JsonKey(name: 'floorPrice')
   double floorPrice;
 
-  BrandDetailEntity(this.id,this.name,this.desc,this.picUrl,this.floorPrice,);
+  BrandDetailEntity(
+    this.id,
+    this.name,
+    this.desc,
+    this.picUrl,
+    this.floorPrice,
+  );
 
   factory BrandDetailEntity.fromJson(Map<String, dynamic> srcJson) => _$BrandDetailEntityFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$BrandDetailEntityToJson(this);
-
 }
-
-

@@ -51,8 +51,7 @@ class GoodsEntity extends Object {
     this.retailPrice,
   );
 
-  factory GoodsEntity.fromJson(Map<String, dynamic> srcJson) =>
-      _$GoodsEntityFromJson(srcJson);
+  factory GoodsEntity.fromJson(Map<String, dynamic> srcJson) => _$GoodsEntityFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$GoodsEntityToJson(this);
 }

@@ -32,17 +32,11 @@ class DetailSwiperView extends StatelessWidget {
               //初始的时候下标位置
               autoplay: false,
               itemBuilder: (BuildContext buildContext, int index) {
-                print("bannerData[index]:"+bannerData[index]);
-                return CachedImageView(
-                    double.infinity, double.infinity, bannerData[index]);
+                print("bannerData[index]:" + bannerData[index]);
+                return CachedImageView(double.infinity, double.infinity, bannerData[index]);
               },
               duration: 10000,
-              pagination: SwiperPagination(
-                  alignment: Alignment.bottomCenter,
-                  builder: DotSwiperPaginationBuilder(
-                      size: 8.0,
-                      color: Colors.white,
-                      activeColor: Colors.deepOrangeAccent)),
+              pagination: SwiperPagination(alignment: Alignment.bottomCenter, builder: DotSwiperPaginationBuilder(size: 8.0, color: Colors.white, activeColor: Colors.deepOrangeAccent)),
             ),
     );
   }

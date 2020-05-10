@@ -51,8 +51,7 @@ class ProductEntity extends Object {
     this.retailPrice,
   );
 
-  factory ProductEntity.fromJson(Map<String, dynamic> srcJson) =>
-      _$ProductEntityFromJson(srcJson);
+  factory ProductEntity.fromJson(Map<String, dynamic> srcJson) => _$ProductEntityFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$ProductEntityToJson(this);
 }

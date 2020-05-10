@@ -9,8 +9,7 @@ class FirstLevelListCategory {
 
   factory FirstLevelListCategory.fromJson(List<dynamic> parseJson) {
     List<FirstLevelCategory> firstLevelCategorys;
-    firstLevelCategorys =
-        parseJson.map((i) => FirstLevelCategory.fromJson(i)).toList();
+    firstLevelCategorys = parseJson.map((i) => FirstLevelCategory.fromJson(i)).toList();
     return FirstLevelListCategory(firstLevelCategorys);
   }
 }
@@ -68,8 +67,7 @@ class FirstLevelCategory extends Object {
     this.deleted,
   );
 
-  factory FirstLevelCategory.fromJson(Map<String, dynamic> srcJson) =>
-      _$FirstLevelCategoryFromJson(srcJson);
+  factory FirstLevelCategory.fromJson(Map<String, dynamic> srcJson) => _$FirstLevelCategoryFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$FirstLevelCategoryToJson(this);
 }

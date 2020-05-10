@@ -8,7 +8,6 @@ import 'package:mall/page/goods/goods_list.dart';
 import 'package:mall/widgets/cached_image.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 class SubCategoryView extends StatefulWidget {
   @override
   _SubCategoryViewState createState() => _SubCategoryViewState();
@@ -28,9 +27,7 @@ class _SubCategoryViewState extends State<SubCategoryView> {
   }
 
   _listener() {
-    eventBus
-        .on<CategoryEvent>()
-        .listen((CategoryEvent event) => _updateView(event));
+    eventBus.on<CategoryEvent>().listen((CategoryEvent event) => _updateView(event));
   }
 
   _updateView(CategoryEvent categoryEvent) {
@@ -73,7 +70,8 @@ class _SubCategoryViewState extends State<SubCategoryView> {
   @override
   Widget build(BuildContext context) {
     _listener();
-    return Container( //整个容器没有感受到作用?我添加了alignment,让其始终保持在最顶上,不然可能在界面的中间
+    return Container(
+      //整个容器没有感受到作用?我添加了alignment,让其始终保持在最顶上,不然可能在界面的中间
 //      alignment:Alignment.topCenter,
       child: ListView(
         shrinkWrap: true,
@@ -104,12 +102,11 @@ class _SubCategoryViewState extends State<SubCategoryView> {
                   crossAxisSpacing: 10.0, // 横轴元素个数
                   mainAxisSpacing: 10.0,
                   childAspectRatio: 0.85 //宽与高的比例
-              ),
+                  ),
               itemBuilder: (BuildContext context, int index) {
                 return getItemView(subCategoryEntitys[index]);
               }),
-          Padding(
-              padding: EdgeInsets.only(top: 10.0)),
+          Padding(padding: EdgeInsets.only(top: 10.0)),
           //当向上滑动时,可保证下面还有10的空间        ),
         ],
       ),
@@ -136,7 +133,7 @@ class _SubCategoryViewState extends State<SubCategoryView> {
                 Image.network(
                   category.picUrl,
                   fit: BoxFit.fill,
-                  height: 60,//这里需要设置高度,不然提示底部溢出
+                  height: 60, //这里需要设置高度,不然提示底部溢出
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 5.0),

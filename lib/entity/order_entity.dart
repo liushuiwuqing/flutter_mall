@@ -2,10 +2,8 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'order_entity.g.dart';
 
-
 @JsonSerializable()
 class OrderEntity extends Object {
-
   @JsonKey(name: 'total')
   int total;
 
@@ -21,18 +19,21 @@ class OrderEntity extends Object {
   @JsonKey(name: 'list')
   List<ListData> list;
 
-  OrderEntity(this.total,this.pages,this.limit,this.page,this.list,);
+  OrderEntity(
+    this.total,
+    this.pages,
+    this.limit,
+    this.page,
+    this.list,
+  );
 
   factory OrderEntity.fromJson(Map<String, dynamic> srcJson) => _$OrderEntityFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$OrderEntityToJson(this);
-
 }
-
 
 @JsonSerializable()
 class ListData extends Object {
-
   @JsonKey(name: 'orderStatusText')
   String orderStatusText;
 
@@ -54,18 +55,23 @@ class ListData extends Object {
   @JsonKey(name: 'handleOption')
   HandleOption handleOption;
 
-  ListData(this.orderStatusText,this.isGroupin,this.orderSn,this.actualPrice,this.goodsList,this.id,this.handleOption,);
+  ListData(
+    this.orderStatusText,
+    this.isGroupin,
+    this.orderSn,
+    this.actualPrice,
+    this.goodsList,
+    this.id,
+    this.handleOption,
+  );
 
   factory ListData.fromJson(Map<String, dynamic> srcJson) => _$ListDataFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$ListDataToJson(this);
-
 }
-
 
 @JsonSerializable()
 class GoodsList extends Object {
-
   @JsonKey(name: 'number')
   int number;
 
@@ -84,18 +90,22 @@ class GoodsList extends Object {
   @JsonKey(name: 'specifications')
   List<String> specifications;
 
-  GoodsList(this.number,this.picUrl,this.price,this.id,this.goodsName,this.specifications,);
+  GoodsList(
+    this.number,
+    this.picUrl,
+    this.price,
+    this.id,
+    this.goodsName,
+    this.specifications,
+  );
 
   factory GoodsList.fromJson(Map<String, dynamic> srcJson) => _$GoodsListFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$GoodsListToJson(this);
-
 }
-
 
 @JsonSerializable()
 class HandleOption extends Object {
-
   @JsonKey(name: 'cancel')
   bool cancel;
 
@@ -117,12 +127,17 @@ class HandleOption extends Object {
   @JsonKey(name: 'rebuy')
   bool rebuy;
 
-  HandleOption(this.cancel,this.delete,this.pay,this.comment,this.confirm,this.refund,this.rebuy,);
+  HandleOption(
+    this.cancel,
+    this.delete,
+    this.pay,
+    this.comment,
+    this.confirm,
+    this.refund,
+    this.rebuy,
+  );
 
   factory HandleOption.fromJson(Map<String, dynamic> srcJson) => _$HandleOptionFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$HandleOptionToJson(this);
-
 }
-
-

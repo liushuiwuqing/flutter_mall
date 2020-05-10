@@ -20,7 +20,7 @@ class _LoginViewState extends State<LoginView> {
   TextEditingController _passwordTextControl = TextEditingController();
   UserService userService = UserService();
   UserEntity userEntity;
-  bool _autovalidator = false;//刚开始不是自动验证,但一旦点击登录按钮,若验证失败,就变成自动验证
+  bool _autovalidator = false; //刚开始不是自动验证,但一旦点击登录按钮,若验证失败,就变成自动验证
   final registerFormKey = GlobalKey<FormState>();
 
   @override
@@ -31,24 +31,19 @@ class _LoginViewState extends State<LoginView> {
         child: Container(
             alignment: Alignment.centerLeft,
             child: Center(
-                child: SingleChildScrollView(//如果子组件超出范围了,可以滑动
+                child: SingleChildScrollView(
+              //如果子组件超出范围了,可以滑动
               child: Container(
-                margin: EdgeInsets.fromLTRB(ScreenUtil().setWidth(30.0), 0,
-                    ScreenUtil().setWidth(30.0), 0),
+                margin: EdgeInsets.fromLTRB(ScreenUtil().setWidth(30.0), 0, ScreenUtil().setWidth(30.0), 0),
                 height: ScreenUtil.instance.setHeight(800.0),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10.0)),
+                decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10.0)),
                 child: Form(
                   key: registerFormKey,
                   child: Column(
                     children: <Widget>[
-                      Padding(
-                          padding: EdgeInsets.only(
-                              top: ScreenUtil.instance.setHeight(60.0))),
+                      Padding(padding: EdgeInsets.only(top: ScreenUtil.instance.setHeight(60.0))),
                       Container(
-                        margin:
-                            EdgeInsets.all(ScreenUtil.instance.setWidth(30.0)),
+                        margin: EdgeInsets.all(ScreenUtil.instance.setWidth(30.0)),
                         child: TextFormField(
                           maxLines: 1,
                           maxLength: 11,
@@ -62,20 +57,15 @@ class _LoginViewState extends State<LoginView> {
                               size: ScreenUtil.instance.setWidth(60.0),
                             ),
                             hintText: Strings.ACCOUNT_HINT,
-                            hintStyle: TextStyle(
-                                color: Colors.grey,
-                                fontSize: ScreenUtil.instance.setSp(28.0)),
-                            labelStyle: TextStyle(
-                                color: Colors.black54,
-                                fontSize: ScreenUtil.instance.setSp(28.0)),
+                            hintStyle: TextStyle(color: Colors.grey, fontSize: ScreenUtil.instance.setSp(28.0)),
+                            labelStyle: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(28.0)),
                             labelText: Strings.ACCOUNT,
                           ),
                           controller: _accountTextControl,
                         ),
                       ),
                       Container(
-                        margin:
-                            EdgeInsets.all(ScreenUtil.instance.setWidth(30.0)),
+                        margin: EdgeInsets.all(ScreenUtil.instance.setWidth(30.0)),
                         child: TextFormField(
                           maxLines: 1,
                           maxLength: 12,
@@ -89,20 +79,15 @@ class _LoginViewState extends State<LoginView> {
                               size: ScreenUtil.instance.setWidth(60.0),
                             ),
                             hintText: Strings.PASSWORD_HINT,
-                            hintStyle: TextStyle(
-                                color: Colors.grey,
-                                fontSize: ScreenUtil.instance.setSp(28.0)),
-                            labelStyle: TextStyle(
-                                color: Colors.black54,
-                                fontSize: ScreenUtil.instance.setSp(28.0)),
+                            hintStyle: TextStyle(color: Colors.grey, fontSize: ScreenUtil.instance.setSp(28.0)),
+                            labelStyle: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(28.0)),
                             labelText: Strings.PASSWORD,
                           ),
                           controller: _passwordTextControl,
                         ),
                       ),
                       Container(
-                          margin: EdgeInsets.all(
-                              ScreenUtil.instance.setWidth(30.0)),
+                          margin: EdgeInsets.all(ScreenUtil.instance.setWidth(30.0)),
                           child: SizedBox(
                             height: ScreenUtil.instance.setHeight(80.0),
                             width: ScreenUtil.instance.setWidth(600.0),
@@ -111,23 +96,18 @@ class _LoginViewState extends State<LoginView> {
                               color: Colors.deepOrangeAccent,
                               child: Text(
                                 Strings.LOGIN,
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: ScreenUtil.instance.setSp(28.0)),
+                                style: TextStyle(color: Colors.white, fontSize: ScreenUtil.instance.setSp(28.0)),
                               ),
                             ),
                           )),
                       Container(
-                        margin:
-                            EdgeInsets.all(ScreenUtil.instance.setWidth(20.0)),
+                        margin: EdgeInsets.all(ScreenUtil.instance.setWidth(20.0)),
                         alignment: Alignment.centerRight,
                         child: InkWell(
                           onTap: () => _register(),
                           child: Text(
                             Strings.NOW_REGISTER,
-                            style: TextStyle(
-                                color: Colors.deepOrangeAccent,
-                                fontSize: ScreenUtil.instance.setSp(24.0)),
+                            style: TextStyle(color: Colors.deepOrangeAccent, fontSize: ScreenUtil.instance.setSp(24.0)),
                           ),
                         ),
                       )
@@ -171,7 +151,7 @@ class _LoginViewState extends State<LoginView> {
         _showToast(Strings.LOGIN_SUCESS);
 //        Provider.of<UserInfoModel>(context, listen: true)
 //            .updateInfo(userEntity);
-        loginEventBus.fire(LoginEvent(true,url: userEntity.userInfo.avatarUrl,nickName: userEntity.userInfo.nickName));
+        loginEventBus.fire(LoginEvent(true, url: userEntity.userInfo.avatarUrl, nickName: userEntity.userInfo.nickName));
         Navigator.pop(context);
       }, (onFail) {
         print(onFail);
@@ -199,9 +179,7 @@ class _LoginViewState extends State<LoginView> {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     SharedPreferencesUtils.token = userEntity.token;
     await sharedPreferences.setString(Strings.TOKEN, userEntity.token);
-    await sharedPreferences.setString(
-        Strings.HEAD_URL, userEntity.userInfo.avatarUrl);
-    await sharedPreferences.setString(
-        Strings.NICK_NAME, userEntity.userInfo.nickName);
+    await sharedPreferences.setString(Strings.HEAD_URL, userEntity.userInfo.avatarUrl);
+    await sharedPreferences.setString(Strings.NICK_NAME, userEntity.userInfo.nickName);
   }
 }

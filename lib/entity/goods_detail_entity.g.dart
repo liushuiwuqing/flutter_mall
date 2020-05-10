@@ -8,40 +8,19 @@ part of 'goods_detail_entity.dart';
 
 GoodsDetailEntity _$GoodsDetailEntityFromJson(Map<String, dynamic> json) {
   return GoodsDetailEntity(
-      (json['specificationList'] as List)
-          ?.map((e) => e == null
-              ? null
-              : SpecificationList.fromJson(e as Map<String, dynamic>))
-          ?.toList(),
+      (json['specificationList'] as List)?.map((e) => e == null ? null : SpecificationList.fromJson(e as Map<String, dynamic>))?.toList(),
       json['groupon'] as List,
-      (json['issue'] as List)
-          ?.map((e) =>
-              e == null ? null : Issue.fromJson(e as Map<String, dynamic>))
-          ?.toList(),
+      (json['issue'] as List)?.map((e) => e == null ? null : Issue.fromJson(e as Map<String, dynamic>))?.toList(),
       json['userHasCollect'] as int,
       json['shareImage'] as String,
-      json['comment'] == null
-          ? null
-          : Comment.fromJson(json['comment'] as Map<String, dynamic>),
-      (json['attribute'] as List)
-          ?.map((e) =>
-              e == null ? null : Attribute.fromJson(e as Map<String, dynamic>))
-          ?.toList(),
-      json['brand'] == null
-          ? null
-          : Brand.fromJson(json['brand'] as Map<String, dynamic>),
-      (json['productList'] as List)
-          ?.map((e) => e == null
-              ? null
-              : ProductList.fromJson(e as Map<String, dynamic>))
-          ?.toList(),
-      json['info'] == null
-          ? null
-          : Info.fromJson(json['info'] as Map<String, dynamic>));
+      json['comment'] == null ? null : Comment.fromJson(json['comment'] as Map<String, dynamic>),
+      (json['attribute'] as List)?.map((e) => e == null ? null : Attribute.fromJson(e as Map<String, dynamic>))?.toList(),
+      json['brand'] == null ? null : Brand.fromJson(json['brand'] as Map<String, dynamic>),
+      (json['productList'] as List)?.map((e) => e == null ? null : ProductList.fromJson(e as Map<String, dynamic>))?.toList(),
+      json['info'] == null ? null : Info.fromJson(json['info'] as Map<String, dynamic>));
 }
 
-Map<String, dynamic> _$GoodsDetailEntityToJson(GoodsDetailEntity instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$GoodsDetailEntityToJson(GoodsDetailEntity instance) => <String, dynamic>{
       'specificationList': instance.specificationList,
       'groupon': instance.groupon,
       'issue': instance.issue,
@@ -55,27 +34,14 @@ Map<String, dynamic> _$GoodsDetailEntityToJson(GoodsDetailEntity instance) =>
     };
 
 SpecificationList _$SpecificationListFromJson(Map<String, dynamic> json) {
-  return SpecificationList(
-      json['name'] as String,
-      (json['valueList'] as List)
-          ?.map((e) =>
-              e == null ? null : ValueList.fromJson(e as Map<String, dynamic>))
-          ?.toList());
+  return SpecificationList(json['name'] as String, (json['valueList'] as List)?.map((e) => e == null ? null : ValueList.fromJson(e as Map<String, dynamic>))?.toList());
 }
 
-Map<String, dynamic> _$SpecificationListToJson(SpecificationList instance) =>
-    <String, dynamic>{'name': instance.name, 'valueList': instance.valueList};
+Map<String, dynamic> _$SpecificationListToJson(SpecificationList instance) => <String, dynamic>{'name': instance.name, 'valueList': instance.valueList};
 
 ValueList _$ValueListFromJson(Map<String, dynamic> json) {
-  return ValueList(
-      json['id'] as int,
-      json['goodsId'] as int,
-      json['specification'] as String,
-      json['value'] as String,
-      json['picUrl'] as String,
-      json['addTime'] as String,
-      json['updateTime'] as String,
-      json['deleted'] as bool);
+  return ValueList(json['id'] as int, json['goodsId'] as int, json['specification'] as String, json['value'] as String, json['picUrl'] as String, json['addTime'] as String,
+      json['updateTime'] as String, json['deleted'] as bool);
 }
 
 Map<String, dynamic> _$ValueListToJson(ValueList instance) => <String, dynamic>{
@@ -90,40 +56,20 @@ Map<String, dynamic> _$ValueListToJson(ValueList instance) => <String, dynamic>{
     };
 
 Issue _$IssueFromJson(Map<String, dynamic> json) {
-  return Issue(
-      json['id'] as int,
-      json['question'] as String,
-      json['answer'] as String,
-      json['addTime'] as String,
-      json['updateTime'] as String,
-      json['deleted'] as bool);
+  return Issue(json['id'] as int, json['question'] as String, json['answer'] as String, json['addTime'] as String, json['updateTime'] as String, json['deleted'] as bool);
 }
 
-Map<String, dynamic> _$IssueToJson(Issue instance) => <String, dynamic>{
-      'id': instance.id,
-      'question': instance.question,
-      'answer': instance.answer,
-      'addTime': instance.addTime,
-      'updateTime': instance.updateTime,
-      'deleted': instance.deleted
-    };
+Map<String, dynamic> _$IssueToJson(Issue instance) =>
+    <String, dynamic>{'id': instance.id, 'question': instance.question, 'answer': instance.answer, 'addTime': instance.addTime, 'updateTime': instance.updateTime, 'deleted': instance.deleted};
 
 Comment _$CommentFromJson(Map<String, dynamic> json) {
   return Comment(json['data'] as List, json['count'] as int);
 }
 
-Map<String, dynamic> _$CommentToJson(Comment instance) =>
-    <String, dynamic>{'data': instance.data, 'count': instance.count};
+Map<String, dynamic> _$CommentToJson(Comment instance) => <String, dynamic>{'data': instance.data, 'count': instance.count};
 
 Attribute _$AttributeFromJson(Map<String, dynamic> json) {
-  return Attribute(
-      json['id'] as int,
-      json['goodsId'] as int,
-      json['attribute'] as String,
-      json['value'] as String,
-      json['addTime'] as String,
-      json['updateTime'] as String,
-      json['deleted'] as bool);
+  return Attribute(json['id'] as int, json['goodsId'] as int, json['attribute'] as String, json['value'] as String, json['addTime'] as String, json['updateTime'] as String, json['deleted'] as bool);
 }
 
 Map<String, dynamic> _$AttributeToJson(Attribute instance) => <String, dynamic>{
@@ -137,16 +83,8 @@ Map<String, dynamic> _$AttributeToJson(Attribute instance) => <String, dynamic>{
     };
 
 Brand _$BrandFromJson(Map<String, dynamic> json) {
-  return Brand(
-      json['id'] as int,
-      json['name'] as String,
-      json['desc'] as String,
-      json['picUrl'] as String,
-      json['sortOrder'] as int,
-      (json['floorPrice'] as num)?.toDouble(),
-      json['addTime'] as String,
-      json['updateTime'] as String,
-      json['deleted'] as bool);
+  return Brand(json['id'] as int, json['name'] as String, json['desc'] as String, json['picUrl'] as String, json['sortOrder'] as int, (json['floorPrice'] as num)?.toDouble(),
+      json['addTime'] as String, json['updateTime'] as String, json['deleted'] as bool);
 }
 
 Map<String, dynamic> _$BrandToJson(Brand instance) => <String, dynamic>{
@@ -162,20 +100,11 @@ Map<String, dynamic> _$BrandToJson(Brand instance) => <String, dynamic>{
     };
 
 ProductList _$ProductListFromJson(Map<String, dynamic> json) {
-  return ProductList(
-      json['id'] as int,
-      json['goodsId'] as int,
-      (json['specifications'] as List)?.map((e) => e as String)?.toList(),
-      (json['price'] as num)?.toDouble(),
-      json['number'] as int,
-      json['url'] as String,
-      json['addTime'] as String,
-      json['updateTime'] as String,
-      json['deleted'] as bool);
+  return ProductList(json['id'] as int, json['goodsId'] as int, (json['specifications'] as List)?.map((e) => e as String)?.toList(), (json['price'] as num)?.toDouble(), json['number'] as int,
+      json['url'] as String, json['addTime'] as String, json['updateTime'] as String, json['deleted'] as bool);
 }
 
-Map<String, dynamic> _$ProductListToJson(ProductList instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ProductListToJson(ProductList instance) => <String, dynamic>{
       'id': instance.id,
       'goodsId': instance.goodsId,
       'specifications': instance.specifications,

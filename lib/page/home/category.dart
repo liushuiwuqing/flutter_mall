@@ -12,8 +12,7 @@ class CategoryMenu extends StatelessWidget {
   CategoryMenu(this.categoryList);
 
   _goCategoryView(BuildContext context, Channel channel) {
-    NavigatorUtils.goCategoryGoodsListPage(
-        context, channel.name, channel.id);
+    NavigatorUtils.goCategoryGoodsListPage(context, channel.name, channel.id);
   }
 
   @override
@@ -44,16 +43,13 @@ class CategoryMenu extends StatelessWidget {
         onTap: () => _goCategoryView(context, channel),
         child: Column(
           children: <Widget>[
-            CachedImageView(ScreenUtil.instance.setWidth(60.0),
-                ScreenUtil.instance.setWidth(60.0), channel.iconUrl),
+            CachedImageView(ScreenUtil.instance.setWidth(60.0), ScreenUtil.instance.setWidth(60.0), channel.iconUrl),
             Padding(
               padding: EdgeInsets.only(top: ScreenUtil.instance.setWidth(10.0)),
             ),
             Text(
               channel.name,
-              style: TextStyle(
-                  fontSize: ScreenUtil.instance.setSp(26.0),
-                  color: Colors.black87),
+              style: TextStyle(fontSize: ScreenUtil.instance.setSp(26.0), color: Colors.black87),
             )
           ],
         ),

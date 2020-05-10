@@ -16,9 +16,10 @@ class ProductView extends StatelessWidget {
       child: GridView.builder(
           shrinkWrap: true,
           itemCount: productList.length,
-          physics: NeverScrollableScrollPhysics(),//如果不加NeverScrollableScrollPhysics,我发现整个都不能滑动
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, childAspectRatio: 0.90),// 0.90是宽与高的比例
+          physics: NeverScrollableScrollPhysics(),
+          //如果不加NeverScrollableScrollPhysics,我发现整个都不能滑动
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, childAspectRatio: 0.90),
+          // 0.90是宽与高的比例
           itemBuilder: (BuildContext context, int index) {
             return _getGridViewItem(context, productList[index]);
           }),
@@ -39,12 +40,7 @@ class ProductView extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start, //没法发现什么用呢?
             children: <Widget>[
-              Container(
-                  margin: EdgeInsets.all(5.0),
-                  child: CachedImageView(
-                      ScreenUtil.instance.setHeight(200.0),
-                      ScreenUtil.instance.setHeight(200.0),
-                      productEntity.picUrl)),
+              Container(margin: EdgeInsets.all(5.0), child: CachedImageView(ScreenUtil.instance.setHeight(200.0), ScreenUtil.instance.setHeight(200.0), productEntity.picUrl)),
               Padding(
                 padding: EdgeInsets.only(top: 4.0),
               ),

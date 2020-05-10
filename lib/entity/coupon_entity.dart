@@ -48,8 +48,7 @@ class CouponEntity extends Object {
     this.days,
   );
 
-  factory CouponEntity.fromJson(Map<String, dynamic> srcJson) =>
-      _$CouponEntityFromJson(srcJson);
+  factory CouponEntity.fromJson(Map<String, dynamic> srcJson) => _$CouponEntityFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$CouponEntityToJson(this);
 }

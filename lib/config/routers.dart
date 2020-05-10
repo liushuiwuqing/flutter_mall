@@ -25,8 +25,7 @@ class Routers {
   static String brandDetail = "/brandDetail";
 
   static void configureRoutes(Router router) {
-    router.notFoundHandler = Handler(handlerFunc:
-        (BuildContext context, Map<String, List<String>> parameters) {
+    router.notFoundHandler = Handler(handlerFunc: (BuildContext context, Map<String, List<String>> parameters) {
       print("handler not find");
     });
 
@@ -47,8 +46,7 @@ class Routers {
     router.define(mineOrder, handler: orderHandler);
     router.define(mineOrderDetail, handler: orderDetailHandler);
     router.define(searchGoods, handler: searchGoodsHandler);
-    router.define(projectSelectionDetail,
-        handler: projectSelectionDetailHandler);
+    router.define(projectSelectionDetail, handler: projectSelectionDetailHandler);
     router.define(webView, handler: webViewHandler);
     router.define(brandDetail, handler: brandDetailHandler);
   }

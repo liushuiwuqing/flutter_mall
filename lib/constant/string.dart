@@ -97,8 +97,7 @@ class Strings {
   static const String MINE_COLLECT = "我的收藏";
   static const String MINE_CANCEL_COLLECT = "是否确定取消收藏此商品?";
   static const String MINE_ABOUT_US = "关于我们";
-  static const String MINE_ABOUT_US_CONTENT =
-      "Flutter Mall是一个企业级商城Flutter项目，通过学习Flutter Mall项目可以让读者达到具有开发企业项目的实战能力";
+  static const String MINE_ABOUT_US_CONTENT = "Flutter Mall是一个企业级商城Flutter项目，通过学习Flutter Mall项目可以让读者达到具有开发企业项目的实战能力";
   static const String MINE_ABOUT_AUTHOR_TITLE = "作者";
   static const String MINE_ABOUT_AUTHOR = "流水无情";
   static const String MINE_ABOUT_EMAIL_TITLE = "邮箱";
@@ -142,5 +141,5 @@ class Strings {
   static const String LOADING = "正在加载中...";
   static const String TOKEN = "X-Litemall-Token";
   static const String LOGIN_OUT = "退出登录";
-  static const String LOGIN_OUT_TIPS="是否确认退出当前账号";
+  static const String LOGIN_OUT_TIPS = "是否确认退出当前账号";
 }

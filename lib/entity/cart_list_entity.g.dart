@@ -7,36 +7,18 @@ part of 'cart_list_entity.dart';
 // **************************************************************************
 
 CartListEntity _$CartListEntityFromJson(Map<String, dynamic> json) {
-  return CartListEntity(
-      json['cartTotal'] == null
-          ? null
-          : CartTotal.fromJson(json['cartTotal'] as Map<String, dynamic>),
-      (json['cartList'] as List)
-          ?.map((e) =>
-              e == null ? null : CartList.fromJson(e as Map<String, dynamic>))
-          ?.toList());
+  return CartListEntity(json['cartTotal'] == null ? null : CartTotal.fromJson(json['cartTotal'] as Map<String, dynamic>),
+      (json['cartList'] as List)?.map((e) => e == null ? null : CartList.fromJson(e as Map<String, dynamic>))?.toList());
 }
 
-Map<String, dynamic> _$CartListEntityToJson(CartListEntity instance) =>
-    <String, dynamic>{
-      'cartTotal': instance.cartTotal,
-      'cartList': instance.cartList
-    };
+Map<String, dynamic> _$CartListEntityToJson(CartListEntity instance) => <String, dynamic>{'cartTotal': instance.cartTotal, 'cartList': instance.cartList};
 
 CartTotal _$CartTotalFromJson(Map<String, dynamic> json) {
-  return CartTotal(
-      json['goodsCount'] as int,
-      json['checkedGoodsCount'] as int,
-      (json['goodsAmount'] as num)?.toDouble(),
-      (json['checkedGoodsAmount'] as num)?.toDouble());
+  return CartTotal(json['goodsCount'] as int, json['checkedGoodsCount'] as int, (json['goodsAmount'] as num)?.toDouble(), (json['checkedGoodsAmount'] as num)?.toDouble());
 }
 
-Map<String, dynamic> _$CartTotalToJson(CartTotal instance) => <String, dynamic>{
-      'goodsCount': instance.goodsCount,
-      'checkedGoodsCount': instance.checkedGoodsCount,
-      'goodsAmount': instance.goodsAmount,
-      'checkedGoodsAmount': instance.checkedGoodsAmount
-    };
+Map<String, dynamic> _$CartTotalToJson(CartTotal instance) =>
+    <String, dynamic>{'goodsCount': instance.goodsCount, 'checkedGoodsCount': instance.checkedGoodsCount, 'goodsAmount': instance.goodsAmount, 'checkedGoodsAmount': instance.checkedGoodsAmount};
 
 CartList _$CartListFromJson(Map<String, dynamic> json) {
   return CartList(

@@ -26,9 +26,7 @@ class _CartNumberViewState extends State<CartNumberView> {
   }
 
   _listener() {
-    cartNumberEventBus
-        .on<CartNumberEvent>()
-        .listen((CartNumberEvent cartNumberEvent) {
+    cartNumberEventBus.on<CartNumberEvent>().listen((CartNumberEvent cartNumberEvent) {
       setState(() {
         print('没有看到执行?.........');
         goodsNumber = cartNumberEvent.number;
@@ -53,31 +51,20 @@ class _CartNumberViewState extends State<CartNumberView> {
                 height: double.infinity,
                 //由此可以看出,受父组件高度的影响
                 alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10.0),
-                        bottomLeft: Radius.circular(10.0)),
-                    border: Border.all(color: Colors.green, width: 1)),
+                decoration: BoxDecoration(borderRadius: BorderRadius.only(topLeft: Radius.circular(10.0), bottomLeft: Radius.circular(10.0)), border: Border.all(color: Colors.green, width: 1)),
                 child: Text(
                   "-",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: ScreenUtil.instance.setSp(26.0)),
+                  style: TextStyle(color: Colors.black, fontSize: ScreenUtil.instance.setSp(26.0)),
                 ),
               )),
           Container(
             width: ScreenUtil.instance.setWidth(50),
             height: double.infinity,
             alignment: Alignment.center,
-            decoration: ShapeDecoration(
-                shape: Border(
-                    top: BorderSide(color: Colors.green, width: 1.0),
-                    bottom: BorderSide(color: Colors.green, width: 1.0))),
+            decoration: ShapeDecoration(shape: Border(top: BorderSide(color: Colors.green, width: 1.0), bottom: BorderSide(color: Colors.green, width: 1.0))),
             child: Text(
               "$goodsNumber",
-              style: TextStyle(
-                  color: Colors.black54,
-                  fontSize: ScreenUtil.instance.setSp(26.0)),
+              style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
             ),
           ),
           InkWell(
@@ -86,16 +73,10 @@ class _CartNumberViewState extends State<CartNumberView> {
                 alignment: Alignment.center,
                 width: ScreenUtil.instance.setWidth(50),
                 height: double.infinity,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(10.0),
-                        bottomRight: Radius.circular(10.0)),
-                    border: Border.all(color: Colors.green, width: 1)),
+                decoration: BoxDecoration(borderRadius: BorderRadius.only(topRight: Radius.circular(10.0), bottomRight: Radius.circular(10.0)), border: Border.all(color: Colors.green, width: 1)),
                 child: Text(
                   "+",
-                  style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: ScreenUtil.instance.setSp(26.0)),
+                  style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
                 ),
               )),
         ],

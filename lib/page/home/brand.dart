@@ -42,45 +42,30 @@ class _BrandViewState extends State<BrandView> {
           children: <Widget>[
             Container(
               width: double.infinity,
-              child: CachedImageView(double.infinity,
-                  ScreenUtil.instance.setWidth(260.0), brand.picUrl),
+              child: CachedImageView(double.infinity, ScreenUtil.instance.setWidth(260.0), brand.picUrl),
             ),
-            Padding(
-                padding:
-                    EdgeInsets.only(top: ScreenUtil.instance.setHeight(10.0))),
+            Padding(padding: EdgeInsets.only(top: ScreenUtil.instance.setHeight(10.0))),
             Container(
-                padding:
-                    EdgeInsets.only(left: ScreenUtil.instance.setWidth(20.0)),
+                padding: EdgeInsets.only(left: ScreenUtil.instance.setWidth(20.0)),
                 child: Text(
                   brand.name,
                   maxLines: 1, //最大行数
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: ScreenUtil.instance.setSp(28.0)),
+                  style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(28.0)),
                 )),
             Container(
-                padding: EdgeInsets.only(
-                    left: ScreenUtil.instance.setWidth(20.0),
-                    top: ScreenUtil.instance.setWidth(6.0)),
+                padding: EdgeInsets.only(left: ScreenUtil.instance.setWidth(20.0), top: ScreenUtil.instance.setWidth(6.0)),
                 child: Text(
                   brand.desc,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: ScreenUtil.instance.setSp(26.0)),
+                  style: TextStyle(color: Colors.grey, fontSize: ScreenUtil.instance.setSp(26.0)),
                 )),
             Container(
-                padding: EdgeInsets.only(
-                    left: ScreenUtil.instance.setWidth(20.0),
-                    top: ScreenUtil.instance.setHeight(6.0),
-                    bottom: ScreenUtil.instance.setHeight(20.0)),
+                padding: EdgeInsets.only(left: ScreenUtil.instance.setWidth(20.0), top: ScreenUtil.instance.setHeight(6.0), bottom: ScreenUtil.instance.setHeight(20.0)),
                 child: Text(
                   Strings.DOLLAR + "${brand.floorPrice}",
-                  style: TextStyle(
-                      color: Colors.deepOrangeAccent,
-                      fontSize: ScreenUtil.instance.setSp(26.0)),
+                  style: TextStyle(color: Colors.deepOrangeAccent, fontSize: ScreenUtil.instance.setSp(26.0)),
                 )),
           ],
         ),

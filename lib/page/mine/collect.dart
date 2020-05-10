@@ -55,10 +55,7 @@ class _CollectViewState extends State<CollectView> {
             ? EmptyView()
             : GridView.builder(
                 itemCount: _collects.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: ScreenUtil.instance.setWidth(10.0),
-                    crossAxisSpacing: ScreenUtil.instance.setHeight(10.0)),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: ScreenUtil.instance.setWidth(10.0), crossAxisSpacing: ScreenUtil.instance.setHeight(10.0)),
                 itemBuilder: (BuildContext context, int index) {
                   return getGoodsItemView(_collects[index], index);
                 }),
@@ -98,8 +95,7 @@ class _CollectViewState extends State<CollectView> {
                     "¥${collect.retailPrice}",
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                        fontSize: 14.0, color: Colors.deepOrangeAccent),
+                    style: TextStyle(fontSize: 14.0, color: Colors.deepOrangeAccent),
                   ),
                 ],
               ),
@@ -118,15 +114,11 @@ class _CollectViewState extends State<CollectView> {
           return AlertDialog(
             title: Text(
               Strings.TIPS,
-              style: TextStyle(
-                  color: Colors.black54,
-                  fontSize: ScreenUtil.instance.setSp(28.0)),
+              style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(28.0)),
             ),
             content: Text(
               Strings.MINE_CANCEL_COLLECT,
-              style: TextStyle(
-                  color: Colors.black54,
-                  fontSize: ScreenUtil.instance.setSp(26.0)),
+              style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
             ),
             actions: <Widget>[
               FlatButton(
@@ -135,9 +127,7 @@ class _CollectViewState extends State<CollectView> {
                   },
                   child: Text(
                     Strings.CANCEL,
-                    style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: ScreenUtil.instance.setSp(26.0)),
+                    style: TextStyle(color: Colors.grey, fontSize: ScreenUtil.instance.setSp(26.0)),
                   )),
               FlatButton(
                   onPressed: () {
@@ -146,9 +136,7 @@ class _CollectViewState extends State<CollectView> {
                   },
                   child: Text(
                     Strings.CONFIRM,
-                    style: TextStyle(
-                        color: Colors.deepOrangeAccent,
-                        fontSize: ScreenUtil.instance.setSp(26.0)),
+                    style: TextStyle(color: Colors.deepOrangeAccent, fontSize: ScreenUtil.instance.setSp(26.0)),
                   )),
             ],
           );

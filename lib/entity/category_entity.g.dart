@@ -7,13 +7,7 @@ part of 'category_entity.dart';
 // **************************************************************************
 
 CategoryEntity _$CategoryEntityFromJson(Map<String, dynamic> json) {
-  return CategoryEntity(
-      json['id'] as int, json['name'] as String, json['iconUrl'] as String);
+  return CategoryEntity(json['id'] as int, json['name'] as String, json['iconUrl'] as String);
 }
 
-Map<String, dynamic> _$CategoryEntityToJson(CategoryEntity instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'iconUrl': instance.iconUrl
-    };
+Map<String, dynamic> _$CategoryEntityToJson(CategoryEntity instance) => <String, dynamic>{'id': instance.id, 'name': instance.name, 'iconUrl': instance.iconUrl};

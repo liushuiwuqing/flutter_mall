@@ -17,8 +17,7 @@ class _FirstLevelCategoryViewState extends State<FirstLevelCategoryView> {
   void initState() {
     super.initState();
     categoryService.getCategoryData((firstLevelCategoryList) {
-      eventBus.fire(CategoryEvent(firstLevelCategoryList[0].id,
-          firstLevelCategoryList[0].name, firstLevelCategoryList[0].picUrl));
+      eventBus.fire(CategoryEvent(firstLevelCategoryList[0].id, firstLevelCategoryList[0].name, firstLevelCategoryList[0].picUrl));
       setState(() {
         firstLevelLisCategorys = firstLevelCategoryList;
         // _getSubCategory();
@@ -55,10 +54,7 @@ class _FirstLevelCategoryViewState extends State<FirstLevelCategoryView> {
     setState(() {
       _selectIndex = index;
     });
-    eventBus.fire(CategoryEvent(
-        firstLevelLisCategorys[index].id,
-        firstLevelLisCategorys[index].name,
-        firstLevelLisCategorys[index].picUrl));
+    eventBus.fire(CategoryEvent(firstLevelLisCategorys[index].id, firstLevelLisCategorys[index].name, firstLevelLisCategorys[index].picUrl));
     print("_itemClick");
   }
 
@@ -74,11 +70,7 @@ class _FirstLevelCategoryViewState extends State<FirstLevelCategoryView> {
               Container(
                 height: 48,
                 alignment: Alignment.bottomCenter,
-                child: Text(firstLevelCategory.name,
-                    style: index == _selectIndex
-                        ? TextStyle(
-                            fontSize: 14.0, color: Colors.deepOrangeAccent)
-                        : TextStyle(fontSize: 14.0, color: Colors.black54)),
+                child: Text(firstLevelCategory.name, style: index == _selectIndex ? TextStyle(fontSize: 14.0, color: Colors.deepOrangeAccent) : TextStyle(fontSize: 14.0, color: Colors.black54)),
               ),
               index == _selectIndex
                   ? Divider(

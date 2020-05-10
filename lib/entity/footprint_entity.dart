@@ -2,10 +2,8 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'footprint_entity.g.dart';
 
-
 @JsonSerializable()
 class FootprintEntity extends Object {
-
   @JsonKey(name: 'total')
   int total;
 
@@ -21,18 +19,21 @@ class FootprintEntity extends Object {
   @JsonKey(name: 'list')
   List<ListData> list;
 
-  FootprintEntity(this.total,this.pages,this.limit,this.page,this.list,);
+  FootprintEntity(
+    this.total,
+    this.pages,
+    this.limit,
+    this.page,
+    this.list,
+  );
 
   factory FootprintEntity.fromJson(Map<String, dynamic> srcJson) => _$FootprintEntityFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$FootprintEntityToJson(this);
-
 }
-
 
 @JsonSerializable()
 class ListData extends Object {
-
   @JsonKey(name: 'brief')
   String brief;
 
@@ -54,12 +55,17 @@ class ListData extends Object {
   @JsonKey(name: 'retailPrice')
   double retailPrice;
 
-  ListData(this.brief,this.picUrl,this.addTime,this.goodsId,this.name,this.id,this.retailPrice,);
+  ListData(
+    this.brief,
+    this.picUrl,
+    this.addTime,
+    this.goodsId,
+    this.name,
+    this.id,
+    this.retailPrice,
+  );
 
   factory ListData.fromJson(Map<String, dynamic> srcJson) => _$ListDataFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$ListDataToJson(this);
-
 }
-
-

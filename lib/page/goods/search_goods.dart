@@ -27,8 +27,7 @@ class _SearchGoodsViewState extends State<SearchGoodsView> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
-      statusBarColor:
-          Colors.deepOrangeAccent, //or set color with: Color(0xFF0000FF)
+      statusBarColor: Colors.deepOrangeAccent, //or set color with: Color(0xFF0000FF)
     ));
     return Scaffold(
       body: SafeArea(
@@ -39,25 +38,17 @@ class _SearchGoodsViewState extends State<SearchGoodsView> {
               color: Colors.deepOrangeAccent,
               child: Container(
                   margin: EdgeInsets.only(
-                      left: ScreenUtil.instance.setWidth(60.0),
-                      top: ScreenUtil.instance.setHeight(10.0),
-                      bottom: ScreenUtil.instance.setHeight(10.0),
-                      right: ScreenUtil.instance.setWidth(60.0)),
+                      left: ScreenUtil.instance.setWidth(60.0), top: ScreenUtil.instance.setHeight(10.0), bottom: ScreenUtil.instance.setHeight(10.0), right: ScreenUtil.instance.setWidth(60.0)),
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    border: Border.all(
-                        color: Colors.white,
-                        width: ScreenUtil.instance.setWidth(1.0)),
-                    borderRadius: BorderRadius.circular(
-                        ScreenUtil.instance.setWidth(40.0)),
+                    border: Border.all(color: Colors.white, width: ScreenUtil.instance.setWidth(1.0)),
+                    borderRadius: BorderRadius.circular(ScreenUtil.instance.setWidth(40.0)),
                   ),
                   child: TextField(
                     onEditingComplete: _sort,
                     controller: _editingController,
                     textInputAction: TextInputAction.search,
-                    style: TextStyle(
-                        color: Colors.black54,
-                        fontSize: ScreenUtil.instance.setSp(26.0)),
+                    style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
                     decoration: InputDecoration(
                       prefixIcon: Icon(
                         Icons.search,
@@ -65,9 +56,7 @@ class _SearchGoodsViewState extends State<SearchGoodsView> {
                         color: Colors.deepOrangeAccent,
                       ),
                       hintText: Strings.GOODS_SEARCH_HINT,
-                      hintStyle: TextStyle(
-                          color: Colors.grey,
-                          fontSize: ScreenUtil.instance.setSp(26.0)),
+                      hintStyle: TextStyle(color: Colors.grey, fontSize: ScreenUtil.instance.setSp(26.0)),
                       focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color: Colors.transparent),
                       ),
@@ -80,19 +69,13 @@ class _SearchGoodsViewState extends State<SearchGoodsView> {
             _sortView(),
             Container(
                 height: double.infinity,
-                margin:
-                    EdgeInsets.only(top: ScreenUtil.instance.setHeight(210.0)),
+                margin: EdgeInsets.only(top: ScreenUtil.instance.setHeight(210.0)),
                 child: _goods == null || _goods.length == 0
                     ? EmptyView()
                     : GridView.builder(
                         itemCount: _goods.length,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            childAspectRatio: 1.0,
-                            crossAxisSpacing:
-                                ScreenUtil.instance.setWidth(10.0),
-                            mainAxisSpacing:
-                                ScreenUtil.instance.setHeight(10.0),
-                            crossAxisCount: 2),
+                            childAspectRatio: 1.0, crossAxisSpacing: ScreenUtil.instance.setWidth(10.0), mainAxisSpacing: ScreenUtil.instance.setHeight(10.0), crossAxisCount: 2),
                         itemBuilder: (BuildContext context, int index) {
                           return getGoodsItemView(_goods[index]);
                         }))
@@ -115,17 +98,11 @@ class _SearchGoodsViewState extends State<SearchGoodsView> {
               child: InkWell(
                 onTap: () => _comprehensive(),
                 child: Container(
-                  decoration: BoxDecoration(
-                      border: Border(
-                          right: BorderSide(
-                              color: Colors.deepOrangeAccent,
-                              width: ScreenUtil.instance.setWidth(1.0)))),
+                  decoration: BoxDecoration(border: Border(right: BorderSide(color: Colors.deepOrangeAccent, width: ScreenUtil.instance.setWidth(1.0)))),
                   alignment: Alignment.center,
                   child: Text(
                     Strings.COMPREHENSIVE,
-                    style: TextStyle(
-                        color: Colors.black54,
-                        fontSize: ScreenUtil.instance.setSp(26.0)),
+                    style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
                   ),
                 ),
               )),
@@ -138,13 +115,9 @@ class _SearchGoodsViewState extends State<SearchGoodsView> {
                   children: <Widget>[
                     Text(
                       Strings.SEARCH_GOODS_PRICE,
-                      style: TextStyle(
-                          fontSize: ScreenUtil.instance.setSp(26.0),
-                          color: Colors.black54),
+                      style: TextStyle(fontSize: ScreenUtil.instance.setSp(26.0), color: Colors.black54),
                     ),
-                    Padding(
-                        padding: EdgeInsets.only(
-                            left: ScreenUtil.instance.setWidth(10.0))),
+                    Padding(padding: EdgeInsets.only(left: ScreenUtil.instance.setWidth(10.0))),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
@@ -195,13 +168,7 @@ class _SearchGoodsViewState extends State<SearchGoodsView> {
 
   _sort() {
     FocusScope.of(context).requestFocus(FocusNode()); //隐藏键盘
-    var parameters = {
-      "keyword": _editingController.text,
-      "page": _page,
-      "limit": _limit,
-      "sort": _sortName,
-      "order": _orderType
-    };
+    var parameters = {"keyword": _editingController.text, "page": _page, "limit": _limit, "sort": _sortName, "order": _orderType};
     _goodsService.getCategoryGoodsListData(parameters, (onSuccessList) {
       setState(() {
         _goods = onSuccessList;
@@ -240,13 +207,9 @@ class _SearchGoodsViewState extends State<SearchGoodsView> {
             child: Card(
               child: Column(
                 children: <Widget>[
-                  CachedImageView(
-                      double.infinity,
-                      ScreenUtil.getInstance().setHeight(200),
-                      goodsEntity.picUrl),
+                  CachedImageView(double.infinity, ScreenUtil.getInstance().setHeight(200), goodsEntity.picUrl),
                   Padding(
-                    padding: EdgeInsets.only(
-                        top: ScreenUtil.getInstance().setHeight(10.0)),
+                    padding: EdgeInsets.only(top: ScreenUtil.getInstance().setHeight(10.0)),
                   ),
                   Text(
                     goodsEntity.name,
@@ -255,14 +218,13 @@ class _SearchGoodsViewState extends State<SearchGoodsView> {
                     style: TextStyle(fontSize: ScreenUtil.getInstance().setSp(26.0), color: Colors.black54),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top:ScreenUtil.getInstance().setHeight(10.0)),
+                    padding: EdgeInsets.only(top: ScreenUtil.getInstance().setHeight(10.0)),
                   ),
                   Text(
                     "¥${goodsEntity.retailPrice}",
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                        fontSize: ScreenUtil.getInstance().setSp(26.0), color: Colors.deepOrangeAccent),
+                    style: TextStyle(fontSize: ScreenUtil.getInstance().setSp(26.0), color: Colors.deepOrangeAccent),
                   ),
                 ],
               ),
@@ -280,8 +242,7 @@ class _SearchGoodsViewState extends State<SearchGoodsView> {
       child: InkWell(
         child: Text(
           keyword,
-          style: TextStyle(
-              color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
+          style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
         ),
       ),
     );

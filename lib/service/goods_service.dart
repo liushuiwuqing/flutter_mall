@@ -16,17 +16,13 @@ typedef OnFail(String message);
 typedef OnSuccess<T>(T onSuccess);
 
 class GoodsService {
-  Future getCategoryData(
-      Map<String, dynamic> parameters, OnSuccessList onSuccessList,
-      {OnFail onFail}) async {
+  Future getCategoryData(Map<String, dynamic> parameters, OnSuccessList onSuccessList, {OnFail onFail}) async {
     try {
       var responseList = [];
-      var response = await HttpUtil.instance
-          .get(Api.GOODS_CATEGORY_URL, parameters: parameters);
+      var response = await HttpUtil.instance.get(Api.GOODS_CATEGORY_URL, parameters: parameters);
       if (response['errno'] == 0) {
         responseList = response['data'];
-        SubCategoryListEntity subCategoryListEntity =
-            SubCategoryListEntity.fromJson(responseList);
+        SubCategoryListEntity subCategoryListEntity = SubCategoryListEntity.fromJson(responseList);
         onSuccessList(subCategoryListEntity.subCategoryEntitys);
       } else {
         onFail(response['errmsg']);
@@ -37,17 +33,13 @@ class GoodsService {
     }
   }
 
-  Future getCategoryGoodsListData(
-      Map<String, dynamic> parameters, OnSuccessList onSuccessList,
-      {OnFail onFail}) async {
+  Future getCategoryGoodsListData(Map<String, dynamic> parameters, OnSuccessList onSuccessList, {OnFail onFail}) async {
     try {
       var responseList = [];
-      var response = await HttpUtil.instance
-          .get(Api.GOODS_LIST_URL, parameters: parameters);
+      var response = await HttpUtil.instance.get(Api.GOODS_LIST_URL, parameters: parameters);
       if (response['errno'] == 0) {
         responseList = response['data']['list'];
-        GoodsListEntity goodsListEntitys =
-            GoodsListEntity.fromJson(responseList);
+        GoodsListEntity goodsListEntitys = GoodsListEntity.fromJson(responseList);
         onSuccessList(goodsListEntitys.goodsEntitys);
       } else {
         onFail(response['errmsg']);
@@ -58,15 +50,11 @@ class GoodsService {
     }
   }
 
-  Future getGoodsDetailData(
-      Map<String, dynamic> parameters, OnSuccess onSuccess,
-      {OnFail onFail}) async {
+  Future getGoodsDetailData(Map<String, dynamic> parameters, OnSuccess onSuccess, {OnFail onFail}) async {
     try {
-      var response = await HttpUtil.instance
-          .get(Api.GOODS_DETAILS_URL, parameters: parameters);
+      var response = await HttpUtil.instance.get(Api.GOODS_DETAILS_URL, parameters: parameters);
       if (response['errno'] == 0) {
-        GoodsDetailEntity goodsDetailEntity =
-            GoodsDetailEntity.fromJson(response['data']);
+        GoodsDetailEntity goodsDetailEntity = GoodsDetailEntity.fromJson(response['data']);
         onSuccess(goodsDetailEntity);
       } else {
         onFail(response['errmsg']);
@@ -77,16 +65,13 @@ class GoodsService {
     }
   }
 
-  Future addCart(Map<String, dynamic> parameters, OnSuccess onSuccess,
-      {OnFail onFail, Options options}) async {
+  Future addCart(Map<String, dynamic> parameters, OnSuccess onSuccess, {OnFail onFail, Options options}) async {
     try {
       var response;
       if (options == null) {
-        response =
-            await HttpUtil.instance.post(Api.ADD_CART, parameters: parameters);
+        response = await HttpUtil.instance.post(Api.ADD_CART, parameters: parameters);
       } else {
-        response = await HttpUtil.instance
-            .post(Api.ADD_CART, parameters: parameters, options: options);
+        response = await HttpUtil.instance.post(Api.ADD_CART, parameters: parameters, options: options);
       }
       if (response['errno'] == 0) {
         onSuccess(Strings.SUCCESS);
@@ -99,8 +84,7 @@ class GoodsService {
     }
   }
 
-  Future queryCart(OnSuccess onSuccess,
-      {OnFail onFail, Options options}) async {
+  Future queryCart(OnSuccess onSuccess, {OnFail onFail, Options options}) async {
     try {
       var response;
       response = await HttpUtil.instance.get(Api.CART_LIST, options: options);
@@ -117,12 +101,10 @@ class GoodsService {
     }
   }
 
-  Future deleteCart(OnSuccess onSuccess, OnFail onFail,
-      Map<String, dynamic> parameters) async {
+  Future deleteCart(OnSuccess onSuccess, OnFail onFail, Map<String, dynamic> parameters) async {
     try {
       var response;
-      response = await HttpUtil.instance
-          .post(Api.CART_DELETE,  parameters: parameters);
+      response = await HttpUtil.instance.post(Api.CART_DELETE, parameters: parameters);
       if (response['errno'] == 0) {
         onSuccess(Strings.SUCCESS);
       } else {
@@ -134,12 +116,10 @@ class GoodsService {
     }
   }
 
-  Future updateCart(OnSuccess onSuccess, OnFail onFail, Options options,
-      Map<String, dynamic> parameters) async {
+  Future updateCart(OnSuccess onSuccess, OnFail onFail, Options options, Map<String, dynamic> parameters) async {
     try {
       var response;
-      response = await HttpUtil.instance
-          .post(Api.CART_UPDATE, options: options, parameters: parameters);
+      response = await HttpUtil.instance.post(Api.CART_UPDATE, options: options, parameters: parameters);
       if (response['errno'] == 0) {
         onSuccess(Strings.SUCCESS);
       } else {
@@ -151,11 +131,9 @@ class GoodsService {
     }
   }
 
-  Future cartCheck(OnSuccess onSuccess, OnFail onFail,
-      Map<String, dynamic> parameters) async {
+  Future cartCheck(OnSuccess onSuccess, OnFail onFail, Map<String, dynamic> parameters) async {
     try {
-      var response = await HttpUtil.instance
-          .post(Api.CART_CHECK,parameters: parameters);
+      var response = await HttpUtil.instance.post(Api.CART_CHECK, parameters: parameters);
       if (response['errno'] == 0) {
         CartListEntity cartList = CartListEntity.fromJson(response['data']);
         onSuccess(cartList);
@@ -168,14 +146,11 @@ class GoodsService {
     }
   }
 
-  Future cartCheckOut(OnSuccess onSuccess, OnFail onFail,
-      Map<String, dynamic> parameters) async {
+  Future cartCheckOut(OnSuccess onSuccess, OnFail onFail, Map<String, dynamic> parameters) async {
     try {
-      var response = await HttpUtil.instance
-          .get(Api.CART_BUY, parameters: parameters);
+      var response = await HttpUtil.instance.get(Api.CART_BUY, parameters: parameters);
       if (response['errno'] == 0) {
-        FillInOrderEntity fillInOrderEntity =
-            FillInOrderEntity.fromJson(response['data']);
+        FillInOrderEntity fillInOrderEntity = FillInOrderEntity.fromJson(response['data']);
         onSuccess(fillInOrderEntity);
       } else {
         onFail(response['errmsg']);
@@ -193,8 +168,7 @@ class GoodsService {
     OnFail onFail,
   ) async {
     try {
-      var response = await HttpUtil.instance
-          .post(Api.SUBMIT_ORDER, parameters: parameters, options: options);
+      var response = await HttpUtil.instance.post(Api.SUBMIT_ORDER, parameters: parameters, options: options);
       if (response['errno'] == 0) {
         onSuccess(Strings.SUCCESS);
       } else {
@@ -212,8 +186,7 @@ class GoodsService {
     OnFail onFail,
   ) async {
     try {
-      var response =
-          await HttpUtil.instance.get(Api.SEARCH_GOODS, parameters: parameters);
+      var response = await HttpUtil.instance.get(Api.SEARCH_GOODS, parameters: parameters);
       if (response['errno'] == 0) {
         onSuccessList(SearchKeyEntity.fromJson(response["data"]).keyword);
       } else {
@@ -231,8 +204,7 @@ class GoodsService {
     OnFail onFail,
   ) async {
     try {
-      var response = await HttpUtil.instance
-          .get(Api.PROJECT_SELECTION_DETAIL, parameters: parameters);
+      var response = await HttpUtil.instance.get(Api.PROJECT_SELECTION_DETAIL, parameters: parameters);
       if (response['errno'] == 0) {
         onSuccess(ProjectSelectionDetailEntity.fromJson(response["data"]));
       } else {
@@ -250,8 +222,7 @@ class GoodsService {
     OnFail onFail,
   ) async {
     try {
-      var response = await HttpUtil.instance
-          .get(Api.PROJECT_SELECTION_RECOMMEND, parameters: parameters);
+      var response = await HttpUtil.instance.get(Api.PROJECT_SELECTION_RECOMMEND, parameters: parameters);
       if (response['errno'] == 0) {
         onSuccess(ProjectSelectionRecommedEntity.fromJson(response["data"]));
       } else {
@@ -262,14 +233,17 @@ class GoodsService {
       onFail(Strings.SERVER_EXCEPTION);
     }
   }
+
   Future buy(
-      Map<String, dynamic> parameters,
-      OnSuccess onSuccess,
-      OnFail onFail,
-      ) async {
+    Map<String, dynamic> parameters,
+    OnSuccess onSuccess,
+    OnFail onFail,
+  ) async {
     try {
-      var response = await HttpUtil.instance
-          .post(Api.FAST_BUY, parameters: parameters,);
+      var response = await HttpUtil.instance.post(
+        Api.FAST_BUY,
+        parameters: parameters,
+      );
       if (response['errno'] == 0) {
         onSuccess(response["data"]);
       } else {

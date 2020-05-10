@@ -45,8 +45,7 @@ class _GoodsDetailState extends State<GoodsDetail> {
     goodsId = widget.goodsId;
     var params = {"id": goodsId};
     print("GoodsDetail_initState");
-    _goodsDetailFuture =
-        _goodsService.getGoodsDetailData(params, (goodsDetail) {
+    _goodsDetailFuture = _goodsService.getGoodsDetailData(params, (goodsDetail) {
       _goodsDetail = goodsDetail;
     });
   }
@@ -67,7 +66,8 @@ class _GoodsDetailState extends State<GoodsDetail> {
                 case ConnectionState.waiting: //正在执行
                   return Container(
                     child: Center(
-                      child: SpinKitFoldingCube( //旋转套件折叠立方体
+                      child: SpinKitFoldingCube(
+                        //旋转套件折叠立方体
                         size: 40.0,
                         color: Colors.deepOrangeAccent,
                       ),
@@ -100,9 +100,7 @@ class _GoodsDetailState extends State<GoodsDetail> {
                         onTap: () => _collection(),
                         child: Icon(
                           Icons.star_border,
-                          color: _isCollection
-                              ? Colors.deepOrangeAccent
-                              : Colors.grey,
+                          color: _isCollection ? Colors.deepOrangeAccent : Colors.grey,
                           size: 30.0,
                         ),
                       ),
@@ -124,28 +122,24 @@ class _GoodsDetailState extends State<GoodsDetail> {
                     child: Container(
                       color: Colors.deepOrangeAccent,
                       child: InkWell(
-                          onTap: () => openBottomSheet(
-                              context, _goodsDetail.productList[0], 1),
-                          child: Center(
+                        onTap: () => openBottomSheet(context, _goodsDetail.productList[0], 1),
+                        child: Center(
                             child: Text(
-                              Strings.ADD_CART,
-                              style: TextStyle(
-                                  color: Colors.white, fontSize: 14.0),
-                            )),
-                          ),
+                          Strings.ADD_CART,
+                          style: TextStyle(color: Colors.white, fontSize: 14.0),
+                        )),
+                      ),
                     )),
                 Expanded(
                   flex: 2,
                   child: Container(
                       color: Colors.red,
                       child: InkWell(
-                          onTap: () => openBottomSheet(
-                              context, _goodsDetail.productList[0], 2),
+                          onTap: () => openBottomSheet(context, _goodsDetail.productList[0], 2),
                           child: Center(
                             child: Text(
                               Strings.BUY,
-                              style: TextStyle(
-                                  color: Colors.white, fontSize: 14.0),
+                              style: TextStyle(color: Colors.white, fontSize: 14.0),
                             ),
                           ))),
                 ),
@@ -173,39 +167,31 @@ class _GoodsDetailState extends State<GoodsDetail> {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        CachedImageView(
-                            ScreenUtil.instance.setWidth(120.0),
-                            ScreenUtil.instance.setWidth(120.0),
-                            productList.url),
+                        CachedImageView(ScreenUtil.instance.setWidth(120.0), ScreenUtil.instance.setWidth(120.0), productList.url),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
                               Strings.PRICE + "：" + "${productList.price}",
-                              style: TextStyle(
-                                  color: Colors.black54,
-                                  fontSize: ScreenUtil.instance.setSp(24.0)),
+                              style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(24.0)),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(
-                                  top: ScreenUtil.instance.setHeight(10.0)),
+                              padding: EdgeInsets.only(top: ScreenUtil.instance.setHeight(10.0)),
                             ),
-                            Text(Strings.ALREAD_SELECTED +
-                                "：" +
-                                _goodsDetail.productList[0]
-                                    .specifications[_specificationIndex])
+                            Text(Strings.ALREAD_SELECTED + "：" + _goodsDetail.productList[0].specifications[_specificationIndex])
                           ],
                         ),
-                        Expanded( //这里如果不用Expanded,直接使用Container,图标将处于左中央,为何?
+                        Expanded(
+                            //这里如果不用Expanded,直接使用Container,图标将处于左中央,为何?
                             child: Container(
-                              alignment: Alignment.centerRight,
-                              child: IconButton(
-                                icon: Icon(Icons.delete),
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                              ),
-                            ))
+                          alignment: Alignment.centerRight,
+                          child: IconButton(
+                            icon: Icon(Icons.delete),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+                        ))
                       ],
                     ),
                   ),
@@ -213,37 +199,30 @@ class _GoodsDetailState extends State<GoodsDetail> {
                     margin: EdgeInsets.all(ScreenUtil.instance.setWidth(10.0)),
                     child: Text(
                       Strings.SPECIFICATIONS, //规格
-                      style: TextStyle(
-                          color: Colors.black54,
-                          fontSize: ScreenUtil.instance.setSp(30.0)),
+                      style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(30.0)),
                     ),
                   ),
-                  Wrap(
-                      children:
-                          _specificationsWidget(productList.specifications)),
+                  Wrap(children: _specificationsWidget(productList.specifications)),
                   Padding(
-                    padding: EdgeInsets.only(
-                        top: ScreenUtil.instance.setHeight(10.0)),
+                    padding: EdgeInsets.only(top: ScreenUtil.instance.setHeight(10.0)),
                   ),
                   Container(
                     margin: EdgeInsets.all(ScreenUtil.instance.setWidth(10.0)),
                     child: Text(
                       Strings.NUMBER,
-                      style: TextStyle(
-                          color: Colors.black54,
-                          fontSize: ScreenUtil.instance.setSp(30.0)),
+                      style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(30.0)),
                     ),
                   ),
                   Container(
-                      margin:
-                          EdgeInsets.all(ScreenUtil.instance.setWidth(10.0)),
+                      margin: EdgeInsets.all(ScreenUtil.instance.setWidth(10.0)),
                       height: ScreenUtil.instance.setHeight(80),
                       alignment: Alignment.centerLeft,
                       child: CartNumberView(1, (number) {
                         print("number:${number}");
                       })),
                   Expanded(
-                      child: Stack( //StackFit.loose 指的是子Widget 多大就多大,子组件高度100,所以Stack高度100;
+                      child: Stack(
+                    //StackFit.loose 指的是子Widget 多大就多大,子组件高度100,所以Stack高度100;
                     alignment: Alignment.bottomLeft, //children的位置
                     children: <Widget>[
                       SizedBox(
@@ -252,13 +231,11 @@ class _GoodsDetailState extends State<GoodsDetail> {
                         child: InkWell(
                             onTap: () => showType == 1 ? _addCart() : _buy(),
                             child: Container(
-                              alignment: Alignment.center,//指的是child的位置
+                              alignment: Alignment.center, //指的是child的位置
                               color: Colors.deepOrangeAccent,
                               child: Text(
                                 showType == 1 ? Strings.ADD_CART : Strings.BUY,
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: ScreenUtil.instance.setSp(30.0)),
+                                style: TextStyle(color: Colors.white, fontSize: ScreenUtil.instance.setSp(30.0)),
                               ),
                             )),
                       ),
@@ -277,20 +254,13 @@ class _GoodsDetailState extends State<GoodsDetail> {
       specificationsWidget.add(Container(
           padding: EdgeInsets.all(ScreenUtil.instance.setWidth(10.0)),
           child: InkWell(
-            child: Chip(
-              label: Text(
-                specifications[i],
-                style: TextStyle(
-                    color: i == _specificationIndex
-                        ? Colors.white
-                        : Colors.black54,
-                    fontSize: ScreenUtil.instance.setSp(24.0)),
-              ),
-              backgroundColor: i == _specificationIndex
-                  ? Colors.deepOrangeAccent
-                  : Colors.grey,
-            )
-          )));
+              child: Chip(
+            label: Text(
+              specifications[i],
+              style: TextStyle(color: i == _specificationIndex ? Colors.white : Colors.black54, fontSize: ScreenUtil.instance.setSp(24.0)),
+            ),
+            backgroundColor: i == _specificationIndex ? Colors.deepOrangeAccent : Colors.grey,
+          ))));
     }
     return specificationsWidget;
   }
@@ -298,16 +268,15 @@ class _GoodsDetailState extends State<GoodsDetail> {
   _addCart() {
     SharedPreferencesUtils.getToken().then((value) {
       if (value != null) {
-        parameters = {
-          "goodsId": _goodsDetail.info.id,
-          "productId": _goodsDetail.specificationList[0].valueList[0].id,
-          "number": _number
-        };
-        _goodsService.addCart(parameters, (value) {
-          ToastUtil.showToast(Strings.ADD_CART_SUCCESS);
-          Navigator.of(context).pop(); //隐藏弹出框
-          eventBus.fire(RefreshEvent());
-        }, );
+        parameters = {"goodsId": _goodsDetail.info.id, "productId": _goodsDetail.specificationList[0].valueList[0].id, "number": _number};
+        _goodsService.addCart(
+          parameters,
+          (value) {
+            ToastUtil.showToast(Strings.ADD_CART_SUCCESS);
+            Navigator.of(context).pop(); //隐藏弹出框
+            eventBus.fire(RefreshEvent());
+          },
+        );
       } else {
         NavigatorUtils.goLogin(context);
       }
@@ -315,20 +284,14 @@ class _GoodsDetailState extends State<GoodsDetail> {
   }
 
   _buy() {
-        if (SharedPreferencesUtils.token != null) {
-          parameters = {
-            "goodsId": _goodsDetail.info.id,
-            "productId": _goodsDetail.specificationList[0].valueList[0].id,
-            "number": _number,
-            "grouponRulesId":0,
-            "grouponLinkId":0
-          };
-          _goodsService.buy(parameters, (success) {
-            NavigatorUtils.goFillInOrder(context, success);
-          }, (error) {});
-        } else {
-          NavigatorUtils.goLogin(context);
-        }
+    if (SharedPreferencesUtils.token != null) {
+      parameters = {"goodsId": _goodsDetail.info.id, "productId": _goodsDetail.specificationList[0].valueList[0].id, "number": _number, "grouponRulesId": 0, "grouponLinkId": 0};
+      _goodsService.buy(parameters, (success) {
+        NavigatorUtils.goFillInOrder(context, success);
+      }, (error) {});
+    } else {
+      NavigatorUtils.goLogin(context);
+    }
   }
 
   _collection() {
@@ -361,8 +324,7 @@ class _GoodsDetailState extends State<GoodsDetail> {
       children: <Widget>[
         ListView(
           children: <Widget>[
-            DetailSwiperView(_goodsDetail.info.gallery,
-                _goodsDetail.info.gallery.length, 240.0),
+            DetailSwiperView(_goodsDetail.info.gallery, _goodsDetail.info.gallery.length, 240.0),
             Divider(
               height: 2.0,
               color: Colors.grey,
@@ -373,14 +335,11 @@ class _GoodsDetailState extends State<GoodsDetail> {
             Container(
               margin: EdgeInsets.only(left: 10.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,//显示在左边
+                crossAxisAlignment: CrossAxisAlignment.start, //显示在左边
                 children: <Widget>[
                   Text(
                     _goodsDetail.info.name,
-                    style: TextStyle(
-                        fontSize: 16.0,
-                        color: Colors.black54,
-                        fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 16.0, color: Colors.black54, fontWeight: FontWeight.bold),
                   ),
                   Padding(
                     padding: EdgeInsets.only(top: 6.0),
@@ -396,18 +355,14 @@ class _GoodsDetailState extends State<GoodsDetail> {
                     children: <Widget>[
                       Text(
                         "原价：${_goodsDetail.info.counterPrice}",
-                        style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 12.0,
-                            decoration: TextDecoration.lineThrough),
+                        style: TextStyle(color: Colors.grey, fontSize: 12.0, decoration: TextDecoration.lineThrough),
                       ),
                       Padding(
                         padding: EdgeInsets.only(left: 10.0),
                       ),
                       Text(
                         "现价：${_goodsDetail.info.retailPrice}",
-                        style: TextStyle(
-                            color: Colors.deepOrangeAccent, fontSize: 12.0),
+                        style: TextStyle(color: Colors.deepOrangeAccent, fontSize: 12.0),
                       ),
                     ],
                   ),
@@ -424,10 +379,7 @@ class _GoodsDetailState extends State<GoodsDetail> {
                       children: <Widget>[
                         Text(
                           Strings.COMMODITY_PARAMETERS,
-                          style: TextStyle(
-                              color: Colors.black54,
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold),
+                          style: TextStyle(color: Colors.black54, fontSize: 20.0, fontWeight: FontWeight.bold),
                         ),
                         Padding(
                           padding: EdgeInsets.only(top: 6.0),
@@ -444,10 +396,7 @@ class _GoodsDetailState extends State<GoodsDetail> {
                       children: <Widget>[
                         Text(
                           Strings.COMMON_PROBLEM,
-                          style: TextStyle(
-                              color: Colors.black54,
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold),
+                          style: TextStyle(color: Colors.black54, fontSize: 20.0, fontWeight: FontWeight.bold),
                         ),
                         Padding(
                           padding: EdgeInsets.only(top: 6.0),
@@ -477,8 +426,7 @@ class _GoodsDetailState extends State<GoodsDetail> {
   Widget _attributeItemView(Attribute attribute) {
     return Container(
         margin: EdgeInsets.only(left: 10, right: 10, top: 6, bottom: 6),
-        decoration: BoxDecoration(
-            color: Colors.grey[100], borderRadius: BorderRadius.circular(10.0)),
+        decoration: BoxDecoration(color: Colors.grey[100], borderRadius: BorderRadius.circular(10.0)),
         padding: EdgeInsets.all(6.0),
         child: Row(
           children: <Widget>[
@@ -490,7 +438,7 @@ class _GoodsDetailState extends State<GoodsDetail> {
               ),
             ),
             Expanded(
-                flex: 4,//占4列?
+                flex: 4, //占4列?
                 child: Container(
                   alignment: Alignment.centerLeft,
                   child: Text(

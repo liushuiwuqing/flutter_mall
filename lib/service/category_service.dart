@@ -16,8 +16,7 @@ class CategoryService {
     try {
       var response = await HttpUtil.instance.get(Api.HOME_FIRST_CATEGORY);
       if (response['errno'] == 0) {
-        onSuccessList(FirstLevelListCategory.fromJson(response['data'])
-            .firstLevelCategory);
+        onSuccessList(FirstLevelListCategory.fromJson(response['data']).firstLevelCategory);
       } else {
         onFail(response['errmsg']);
       }
@@ -27,17 +26,13 @@ class CategoryService {
     }
   }
 
-  Future getSubCategoryData(
-      Map<String, dynamic> parameters, OnSuccessList onSuccessList,
-      {OnFail onFail}) async {
+  Future getSubCategoryData(Map<String, dynamic> parameters, OnSuccessList onSuccessList, {OnFail onFail}) async {
     try {
       var responseList = [];
-      var response = await HttpUtil.instance
-          .get(Api.HOME_SECOND_CATEGORY, parameters: parameters);
+      var response = await HttpUtil.instance.get(Api.HOME_SECOND_CATEGORY, parameters: parameters);
       if (response['errno'] == 0) {
         responseList = response['data'];
-        SubCategoryListEntity subCategoryListEntity =
-            SubCategoryListEntity.fromJson(responseList);
+        SubCategoryListEntity subCategoryListEntity = SubCategoryListEntity.fromJson(responseList);
         onSuccessList(subCategoryListEntity.subCategoryEntitys);
       } else {
         onFail(response['errmsg']);
@@ -48,14 +43,11 @@ class CategoryService {
     }
   }
 
-  Future getCategoryTitle(Map<String, dynamic> parameters, OnSuccess onSuccess,
-      OnFail onFail) async {
+  Future getCategoryTitle(Map<String, dynamic> parameters, OnSuccess onSuccess, OnFail onFail) async {
     try {
-      var response = await HttpUtil.instance
-          .get(Api.CATEGORY_LIST, parameters: parameters);
+      var response = await HttpUtil.instance.get(Api.CATEGORY_LIST, parameters: parameters);
       if (response['errno'] == 0) {
-        CategoryTitleEntity categoryTitleEntity =
-            CategoryTitleEntity.fromJson(response["data"]);
+        CategoryTitleEntity categoryTitleEntity = CategoryTitleEntity.fromJson(response["data"]);
         onSuccess(categoryTitleEntity);
       } else {
         onFail(response['errmsg']);

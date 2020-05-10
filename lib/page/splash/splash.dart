@@ -20,7 +20,7 @@ class _SplashViewState extends State<SplashView> {
     return Scaffold(
       body: Container(
         color: Colors.deepOrangeAccent,
-         child: Image.asset(
+        child: Image.asset(
           "images/splash.png",
           width: double.infinity,
           height: double.infinity,

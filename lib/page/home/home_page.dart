@@ -31,8 +31,8 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    SharedPreferencesUtils.getToken().then((token){
-         print('token:'+token);
+    SharedPreferencesUtils.getToken().then((token) {
+      print('token:' + token);
     });
     _queryHomeData();
   }
@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                   Icons.search,
                   color: Colors.white,
                 ),
-                onPressed: ()=>_goSearchGoods())
+                onPressed: () => _goSearchGoods())
 //                onPressed: _onPressed)
           ],
         ),
@@ -93,8 +93,7 @@ class _HomePageState extends State<HomePage> {
               child: SingleChildScrollView(
                   child: Column(
                 children: <Widget>[
-                  SwiperView(_homeEntity.banner, _homeEntity.banner.length,
-                      ScreenUtil.instance.setHeight(360.0)),
+                  SwiperView(_homeEntity.banner, _homeEntity.banner.length, ScreenUtil.instance.setHeight(360.0)),
                   Padding(
                     padding: EdgeInsets.only(top: 10.0), // 居家/餐厨上面的空格
                   ),
@@ -114,25 +113,25 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     height: 40.0,
                     alignment: Alignment.center,
-                    child: Text(Strings.BRAND),//品牌制造商直供
+                    child: Text(Strings.BRAND), //品牌制造商直供
                   ),
                   BrandView(_homeEntity.brandList),
                   Container(
                     height: 40.0,
                     alignment: Alignment.center,
-                    child: Text(Strings.NEW_PRODUCT),//新品
+                    child: Text(Strings.NEW_PRODUCT), //新品
                   ),
                   ProductView(_homeEntity.newGoodsList),
                   Container(
                     height: 40.0,
                     alignment: Alignment.center,
-                    child: Text(Strings.PROJECT_SELECTIONS),//专题精选
+                    child: Text(Strings.PROJECT_SELECTIONS), //专题精选
                   ),
                   ProjectSelectionView(_homeEntity.topicList),
                   Container(
                     height: 40.0,
                     alignment: Alignment.center,
-                    child: Text(Strings.HOT_PRODUCT),//热卖产品
+                    child: Text(Strings.HOT_PRODUCT), //热卖产品
                   ),
                   ProductView(_homeEntity.hotGoodsList),
                   ListView.builder(

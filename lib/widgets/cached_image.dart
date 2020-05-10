@@ -29,9 +29,7 @@ class CachedImageView extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(
               Strings.LOADING,
-              style: TextStyle(
-                  fontSize: ScreenUtil.instance.setSp(26.0),
-                  color: Colors.white),
+              style: TextStyle(fontSize: ScreenUtil.instance.setSp(26.0), color: Colors.white),
             ),
           );
         },

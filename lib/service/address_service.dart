@@ -11,11 +11,11 @@ typedef OnSuccess<T>(T banners);
 typedef OnFail(String message);
 
 class AddressService {
-  Future getAddressList( OnSuccess onSuccessList,
-      {OnFail onFail}) async {
+  Future getAddressList(OnSuccess onSuccessList, {OnFail onFail}) async {
     try {
-      var response =
-          await HttpUtil.instance.get(Api.ADDRESS_LIST,);
+      var response = await HttpUtil.instance.get(
+        Api.ADDRESS_LIST,
+      );
       if (response['errno'] == 0) {
         AddressEntity addressEntity = AddressEntity.fromJson(response['data']);
         onSuccessList(addressEntity.list);
@@ -28,11 +28,9 @@ class AddressService {
     }
   }
 
-  Future addAddress( Map<String, dynamic> parameters,
-      OnSuccess onSuccess, OnFail onFail) async {
+  Future addAddress(Map<String, dynamic> parameters, OnSuccess onSuccess, OnFail onFail) async {
     try {
-      var response = await HttpUtil.instance
-          .post(Api.ADDRESS_SAVE,  parameters: parameters);
+      var response = await HttpUtil.instance.post(Api.ADDRESS_SAVE, parameters: parameters);
       if (response['errno'] == 0) {
         onSuccess(Strings.SUCCESS);
       } else {
@@ -44,11 +42,9 @@ class AddressService {
     }
   }
 
-  Future deleteAddress(Map<String, dynamic> parameters, OnSuccess onSuccess,
-      OnFail onFail) async {
+  Future deleteAddress(Map<String, dynamic> parameters, OnSuccess onSuccess, OnFail onFail) async {
     try {
-      var response =
-          await HttpUtil.instance.post(Api.ADDRESS_DELETE,parameters: parameters);
+      var response = await HttpUtil.instance.post(Api.ADDRESS_DELETE, parameters: parameters);
       if (response['errno'] == 0) {
         onSuccess(Strings.SUCCESS);
       } else {
@@ -60,12 +56,9 @@ class AddressService {
     }
   }
 
-  Future addressDetail(
-     Map<String, dynamic> parameters, OnSuccess onSuccess,
-      {OnFail onFail}) async {
+  Future addressDetail(Map<String, dynamic> parameters, OnSuccess onSuccess, {OnFail onFail}) async {
     try {
-      var response = await HttpUtil.instance
-          .get(Api.ADDRESS_DETAIL,  parameters: parameters);
+      var response = await HttpUtil.instance.get(Api.ADDRESS_DETAIL, parameters: parameters);
       if (response['errno'] == 0) {
         ListData addressDetail = ListData.fromJson(response["data"]);
         onSuccess(addressDetail);

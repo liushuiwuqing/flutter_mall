@@ -18,12 +18,10 @@ class ProjectSelectionDetailView extends StatefulWidget {
   ProjectSelectionDetailView(this.id);
 
   @override
-  _ProjectSelectionDetailViewState createState() =>
-      _ProjectSelectionDetailViewState();
+  _ProjectSelectionDetailViewState createState() => _ProjectSelectionDetailViewState();
 }
 
-class _ProjectSelectionDetailViewState
-    extends State<ProjectSelectionDetailView> {
+class _ProjectSelectionDetailViewState extends State<ProjectSelectionDetailView> {
   GoodsService _goodsService = GoodsService();
   ProjectSelectionDetailEntity _projectSelectionDetailEntity;
   ProjectSelectionRecommedEntity _projectSelectionRecommedEntity;
@@ -62,58 +60,47 @@ class _ProjectSelectionDetailViewState
           title: Text(Strings.PROJECT_SELECTION_DETAIL),
           centerTitle: true,
         ),
-        body: FutureBuilderWidget(_future, LoadingDialog(),
-            NetWorkErrorView(_queryProjectSelection), _contentView()));
+        body: FutureBuilderWidget(_future, LoadingDialog(), NetWorkErrorView(_queryProjectSelection), _contentView()));
   }
 
   Widget _contentView() {
-    return _projectSelectionDetailEntity != null &&
-            _projectSelectionRecommedEntity != null
+    return _projectSelectionDetailEntity != null && _projectSelectionRecommedEntity != null
         ? Container(
             child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                Html(
-                    data: _projectSelectionDetailEntity.topic.content
-                        .replaceAll("//", "http://")),
+                Html(data: _projectSelectionDetailEntity.topic.content.replaceAll("//", "http://")),
                 Padding(
-                  padding:
-                      EdgeInsets.only(top: ScreenUtil.instance.setHeight(10.0)),
+                  padding: EdgeInsets.only(top: ScreenUtil.instance.setHeight(10.0)),
                 ),
-                GridView.builder( //构建一个横轴固定数量Widget
+                GridView.builder(
+                    //构建一个横轴固定数量Widget
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2, //横轴元素个数
-                        mainAxisSpacing: ScreenUtil.instance.setHeight(10.0),  //纵轴间距
+                        mainAxisSpacing: ScreenUtil.instance.setHeight(10.0), //纵轴间距
                         crossAxisSpacing: ScreenUtil.instance.setWidth(10.0), //横轴间距
-                        childAspectRatio: 0.9),  //子组件宽高长度比例
+                        childAspectRatio: 0.9),
+                    //子组件宽高长度比例
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
-                    itemCount: _projectSelectionDetailEntity.goods != null
-                        ? _projectSelectionDetailEntity.goods.length
-                        : 0,
+                    itemCount: _projectSelectionDetailEntity.goods != null ? _projectSelectionDetailEntity.goods.length : 0,
                     itemBuilder: (BuildContext context, int index) {
-                      return _getGridViewItem(
-                          _projectSelectionDetailEntity.goods[index]);
+                      return _getGridViewItem(_projectSelectionDetailEntity.goods[index]);
                     }),
                 Container(
                   height: 40.0,
                   alignment: Alignment.center,
                   child: Text(
                     Strings.RECOMMEND_PROJECT_SELECTION, //推荐专题
-                    style: TextStyle(
-                        color: Colors.black54,
-                        fontSize: ScreenUtil.instance.setSp(26.0)),
+                    style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
                   ),
                 ),
                 ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
-                    itemCount: _projectSelectionRecommedEntity.recommed != null
-                        ? _projectSelectionRecommedEntity.recommed.length
-                        : 0,
+                    itemCount: _projectSelectionRecommedEntity.recommed != null ? _projectSelectionRecommedEntity.recommed.length : 0,
                     itemBuilder: (BuildContext context, int index) {
-                      return _itemView(
-                          _projectSelectionRecommedEntity.recommed[index]);
+                      return _itemView(_projectSelectionRecommedEntity.recommed[index]);
                     })
               ],
             ),
@@ -137,10 +124,7 @@ class _ProjectSelectionDetailViewState
             children: <Widget>[
               Container(
                 margin: EdgeInsets.all(5.0),
-                child: CachedImageView(
-                    ScreenUtil.getInstance().setHeight(200.0),
-                    ScreenUtil.getInstance().setHeight(200.0),
-                    productEntity.picUrl),
+                child: CachedImageView(ScreenUtil.getInstance().setHeight(200.0), ScreenUtil.getInstance().setHeight(200.0), productEntity.picUrl),
               ),
               Padding(
                 padding: EdgeInsets.only(top: 4.0),
@@ -182,49 +166,31 @@ class _ProjectSelectionDetailViewState
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              Container(width: double.infinity, child: CachedImageView(double.infinity, ScreenUtil.instance.setHeight(260.0), recommend.picUrl)),
+              Padding(padding: EdgeInsets.only(top: ScreenUtil.instance.setHeight(10.0))),
               Container(
-                  width: double.infinity,
-                  child: CachedImageView(double.infinity,
-                      ScreenUtil.instance.setHeight(260.0), recommend.picUrl)),
-              Padding(
-                  padding: EdgeInsets.only(
-                      top: ScreenUtil.instance.setHeight(10.0))),
-              Container(
-                  padding:
-                      EdgeInsets.only(left: ScreenUtil.instance.setWidth(10.0)),
+                  padding: EdgeInsets.only(left: ScreenUtil.instance.setWidth(10.0)),
                   child: Text(
                     recommend.title,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                        color: Colors.black54,
-                        fontSize: ScreenUtil.instance.setSp(26.0)),
+                    style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
                   )),
-              Padding(
-                  padding:
-                      EdgeInsets.only(top: ScreenUtil.instance.setHeight(6.0))),
+              Padding(padding: EdgeInsets.only(top: ScreenUtil.instance.setHeight(6.0))),
               Container(
-                  padding:
-                      EdgeInsets.only(left: ScreenUtil.instance.setWidth(10.0)),
+                  padding: EdgeInsets.only(left: ScreenUtil.instance.setWidth(10.0)),
                   child: Text(
                     recommend.subtitle,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                        color: Colors.black54,
-                        fontSize: ScreenUtil.instance.setSp(26.0)),
+                    style: TextStyle(color: Colors.black54, fontSize: ScreenUtil.instance.setSp(26.0)),
                   )),
-              Padding(
-                  padding:
-                      EdgeInsets.only(top: ScreenUtil.instance.setHeight(6.0))),
+              Padding(padding: EdgeInsets.only(top: ScreenUtil.instance.setHeight(6.0))),
               Container(
-                  padding:
-                      EdgeInsets.only(left: ScreenUtil.instance.setWidth(10.0)),
+                  padding: EdgeInsets.only(left: ScreenUtil.instance.setWidth(10.0)),
                   child: Text(
                     Strings.DOLLAR + "${recommend.price}",
-                    style: TextStyle(
-                        color: Colors.deepOrangeAccent,
-                        fontSize: ScreenUtil.instance.setSp(26.0)),
+                    style: TextStyle(color: Colors.deepOrangeAccent, fontSize: ScreenUtil.instance.setSp(26.0)),
                   )),
             ],
           ),
