@@ -21,7 +21,8 @@ dependencies:
     sdk: flutter
   flutter_swiper: ^1.1.6
   json_annotation: ^2.3.0
-  dio: ^2.1.7
+#  dio: ^2.1.7Error: The method 'DioHttpHeaders.add' has fewer named arguments than those of overridden method 'HttpHeaders.add'.
+  dio: ^3.0.9
   flutter_spinkit: ^3.1.0
 #  pull_to_refresh: ^1.4.7
   event_bus: ^1.1.0
