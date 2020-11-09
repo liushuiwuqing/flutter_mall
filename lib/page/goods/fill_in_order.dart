@@ -1,16 +1,16 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:mall/constant/string.dart';
 import 'package:mall/entity/fill_in_order_entity.dart';
 import 'package:mall/service/goods_service.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mall/widgets/item_text.dart';
-import 'package:dio/dio.dart';
-import 'package:mall/utils/shared_preferences_util.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:mall/utils/navigator_util.dart';
 import 'package:mall/utils/fluro_convert_utils.dart';
+import 'package:mall/utils/navigator_util.dart';
+import 'package:mall/utils/shared_preferences_util.dart';
 import 'package:mall/utils/toast_util.dart';
 import 'package:mall/widgets/cached_image.dart';
+import 'package:mall/widgets/item_text.dart';
 
 class FillInOrderView extends StatefulWidget {
   var cartId;
@@ -380,6 +380,7 @@ class _FillInOrderViewState extends State<FillInOrderView> {
     );
   }
 
+  //https://blog.csdn.net/qq_37601881/article/details/104363008
   _submitOrder() {
     if (_fillInOrderEntity.checkedAddress.id == 0) {
       ToastUtil.showToast(Strings.PLEASE_SELECT_ADDRESS);
@@ -393,4 +394,5 @@ class _FillInOrderViewState extends State<FillInOrderView> {
       ToastUtil.showToast(error);
     });
   }
+
 }
