@@ -1,2 +1,10 @@
+keytool -genkey -v -keystore C:/Users/qiaoqin/Desktop/keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias keystore
+密匙库口令:qq123456
+C0:3B:48:50:B2:40:3A:83:26:10:CF:04:08:94:B6:45:03:A4:FF:92
+应用公钥RSA2
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAioTLLoEcVcaO9SeAeu6DP/RWjPauxUw3nqixdo5SYv+DXomuQGL/2+a6HZzOt074GPlE+8Ff9Gud1WBgswILA1e1C8i86rJZSnjQ3Z38ORcrkoft82e6Omiv7iKi+I+gWKALKqGyEUoT4TLcYxyDsfu77wltvIRPmNb0OUTdMFAvYWFazWiIdyUpbC9YzIQyP5Mu+wNhXH5TA9RMKgpXdmVdPbjq6NHjGhK0qAxxn+enuHcZrxH182TQnH/BxJMeQjKIKoCHbAJTOp3JllT1VWXdAVeiFC6bC61x8/TWDtkkwMFlmcaOftV29A3cINLYU32hcc7Xpuf91Msct/5j+wIDAQAB
+支付宝公钥
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1DAG55fDEydsMsUtx+i8F3nM4cz2LJeWOEyNozeoKqwpea0i5PM8e4WlISC10Jleq/OjOC0IPlZfjt3cocnLrVrSmzrYLjWZpee8g2YBtmXbNRtbzfZhdM7f05BiZkFq7MBvx2wu+sbsIvK/Hl+in4ByIHMzQoJ3s7V2gROHOFHLSPPuhAsxQLDOXyXmqE8sut9G+DOsFxncisGxjEkgWQOdjH8vubsWWNEv/JZDKi/GfS2FRU372V5yCj3zaarRk6295pugcgWlgRb2qDx4Pewj1n6km6KipLIZ5r59yRbmLf2/GP1udqXbzvOhnnhuruDEJaiGd3Ed5q7aXJLbdQIDAQAB
+
 keytool -genkey -v -keystore D:/qqRepository/android/flutter_mall/qiaoqin/key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias keyname
 keytool -importkeystore -srckeystore D:/qqRepository/android/flutter_mall/qiaoqin/key.jks -destkeystore D:/qqRepository/android/flutter_mall/qiaoqin/key.jks -deststoretype pkcs12

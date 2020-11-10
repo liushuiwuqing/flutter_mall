@@ -11,6 +11,7 @@ import 'package:mall/utils/shared_preferences_util.dart';
 import 'package:mall/utils/toast_util.dart';
 import 'package:mall/widgets/cached_image.dart';
 import 'package:mall/widgets/item_text.dart';
+import 'package:tobias/tobias.dart';
 
 class FillInOrderView extends StatefulWidget {
   var cartId;
@@ -389,10 +390,41 @@ class _FillInOrderViewState extends State<FillInOrderView> {
     var parameters = {"cartId": 0, "addressId": _fillInOrderEntity.checkedAddress.id, "message": _controller.text, "couponId": 0, "grouponRulesId": 0, "grouponLinkId": 0};
     _goodsService.submitOrder(options, parameters, (success) {
       print('_goodsService.submitOrder:' + success);
-      // NavigatorUtils.submitOrderSuccessPop(context);
+//       NavigatorUtils.submitOrderSuccessPop(context);
+      _goodsService.alipay(options, parameters, (success) async {
+        toAlipay(success);
+      }, (error) {
+        ToastUtil.showToast(error);
+      });
     }, (error) {
       ToastUtil.showToast(error);
     });
   }
 
+  void toAlipay(String _payInfo) async {
+    print("The pay info is : " + _payInfo);
+    //检测是否安装支付宝
+    bool result = await isAliPayInstalled();
+    if (!result) {
+      return ToastUtil.showToast("请先安装支付宝");
+    }
+    if (result) {
+      //去支付
+      try {
+        Map payResult = await aliPay(_payInfo);
+        print("--->$payResult");
+        if (payResult['result'] != null) {
+          if (payResult['resultStatus'] == 9000) {
+            ToastUtil.showToast("支付宝支付成功");
+            Navigator.of(context).pop();
+          } else {
+            ToastUtil.showToast("支付宝支付失败");
+          }
+        }
+      } catch (e) {
+        print("--->$e");
+        ToastUtil.showToast("支付宝支付失败");
+      }
+    }
+  }
 }

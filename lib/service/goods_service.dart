@@ -180,6 +180,25 @@ class GoodsService {
     }
   }
 
+  Future alipay(
+    Options options,
+    Map<String, dynamic> parameters,
+    OnSuccess onSuccess,
+    OnFail onFail,
+  ) async {
+    try {
+      var response = await HttpUtil.instance.post(Api.ORDER_PREPAY, parameters: parameters, options: options);
+      if (response['errno'] == 0) {
+        onSuccess(response['data']);
+      } else {
+        onFail(response['errmsg']);
+      }
+    } catch (e) {
+      print(e);
+      onFail(Strings.SERVER_EXCEPTION);
+    }
+  }
+
   Future searchGoods(
     Map<String, dynamic> parameters,
     OnSuccessList onSuccessList,
